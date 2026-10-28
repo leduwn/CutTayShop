@@ -1,0 +1,36 @@
+## .NET Core / ASP.NET Core
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+*.user
+*.userosscache
+*.sln.docstates
+.vs/
+_ReSharper*/
+*.suo
+*.userprefs
+appsettings.Development.json
+appsettings.Production.json
+
+## Node & NPM
+node_modules/
+npm-debug.log
+yarn-error.log
+
+## OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+## IDE / Editors
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+
+## Temp & Cache
+*.tmp
+*.cache
