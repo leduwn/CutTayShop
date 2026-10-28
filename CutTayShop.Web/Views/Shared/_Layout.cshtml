@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
   <meta charset="utf-8" />
@@ -14,6 +14,7 @@
 
   <!-- Core Design System & Homepage CSS -->
   <link rel="stylesheet" href="~/css/design-system.css" asp-append-version="true" />
+  <link rel="stylesheet" href="~/css/motion-tokens.css" asp-append-version="true" />
   <link rel="stylesheet" href="~/css/homepage.css" asp-append-version="true" />
   @await RenderSectionAsync("Styles", required: false)
 
@@ -40,6 +41,8 @@
 
   <!-- Interactive Scripts -->
   <script src="~/js/cart-state.js" asp-append-version="true"></script>
+  <script src="~/js/scroll-reveal.js" asp-append-version="true"></script>
+  <script src="~/js/homepage-motion.js" asp-append-version="true"></script>
   <script src="~/js/homepage.js" asp-append-version="true"></script>
   @await RenderSectionAsync("Scripts", required: false)
 </body>
