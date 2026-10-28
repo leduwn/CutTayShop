@@ -3,28 +3,29 @@
 **Framework kiểm thử:** xUnit 2.9.3 (.NET 10 LTS, C# 14)  
 **Project:** `CutTayShop.Tests`  
 **Ngày thực thi:** 29/10/2026  
-**Kết quả chung:** **22 / 22 bài kiểm thử ĐẠT (100% Pass Rate, 0 Failed, 0 Skipped)**  
-**Thời gian thực thi:** 87 ms
+**Kết quả chung:** **27 / 27 bài kiểm thử ĐẠT (100% Pass Rate, 0 Failed, 0 Skipped)**  
+**Thời gian thực thi:** 4.88 s
 
 ---
 
 ## 1. TỔNG HỢP DANH SÁCH TEST SUITES
 
 ```
-Passed! - Failed: 0, Passed: 22, Skipped: 0, Total: 22, Duration: 87 ms - CutTayShop.Tests.dll (net10.0)
+Passed! - Failed: 0, Passed: 27, Skipped: 0, Total: 27, Duration: 4.88 s - CutTayShop.Tests.dll (net10.0)
 ```
 
-| Nhóm kiểm thử (Test Class) | Số lượng test | Đạt (Passed) | Thất bại (Failed) | Thời gian chạy |
-|---|---|---|---|---|
-| `CatalogControllerTests` | 8 | 8 | 0 | 45 ms |
-| `DemoDataProviderFilteringTests` | 14 | 14 | 0 | 42 ms |
-| **Tổng cộng** | **22** | **22** | **0** | **87 ms** |
+| Nhóm kiểm thử (Test Class) | Số lượng test | Đạt (Passed) | Thất bại (Failed) |
+|---|---|---|---|
+| `CatalogControllerTests` | 8 | 8 | 0 |
+| `DemoDataProviderFilteringTests` | 15 | 15 | 0 |
+| `HomeControllerTests` | 4 | 4 | 0 |
+| **Tổng cộng** | **27** | **27** | **0** |
 
 ---
 
 ## 2. CHI TIẾT CÁC BÀI KIỂM THỬ & MỤC TIÊU XÁC MINH
 
-### 2.1. Nhóm kiểm thử Controller (`CatalogControllerTests`)
+### 2.1. Nhóm kiểm thử Catalog Controller (`CatalogControllerTests`)
 
 1. `Index_ReturnsViewWithAllProducts` (PASS):
    - **Mục tiêu:** Kiểm tra Action `Index` trên tuyến đường `/san-pham`.
@@ -55,7 +56,7 @@ Passed! - Failed: 0, Passed: 22, Skipped: 0, Total: 22, Duration: 87 ms - CutTay
 
 1. `GetCatalogAsync_ReturnsAtLeast30Products` (PASS):
    - **Mục tiêu:** Đảm bảo kho dữ liệu mẫu có tối thiểu 30 sản phẩm phong phú theo yêu cầu Sprint 2.
-   - **Xác minh:** `TotalItems >= 30` (Hiện tại đạt 32 sản phẩm).
+   - **Xác minh:** `TotalItems >= 30` (Hiện tại đạt 32 sản phẩm phong phú).
 2. `GetCatalogAsync_FilterByPriceRange_ReturnsProductsWithinRange` (PASS):
    - **Mục tiêu:** Lọc sản phẩm trong khoảng giá từ 300.000₫ đến 800.000₫.
    - **Xác minh:** Mọi sản phẩm trả về đều có `Price >= MinPrice` và `Price <= MaxPrice`.
@@ -90,8 +91,22 @@ Passed! - Failed: 0, Passed: 22, Skipped: 0, Total: 22, Duration: 87 ms - CutTay
     - **Mục tiêu:** Kết hợp đồng thời bộ lọc đánh giá sao và trạng thái còn hàng.
     - **Xác minh:** Sản phẩm trả về đều có `Rating >= 4.8` và `InStock == true`.
 
+### 2.3. Nhóm kiểm thử Trang chủ & Tìm kiếm gợi ý (`HomeControllerTests`)
+
+1. `Index_ReturnsViewWithPopulatedHomeViewModel` (PASS):
+   - **Mục tiêu:** Kiểm tra nạp đầy đủ danh mục, biểu ngữ ưu đãi, đồng hồ đếm ngược, deal hot, sản phẩm nổi bật và hàng mới về trên Trang chủ.
+2. `SearchSuggestions_ValidQuery_ReturnsJsonWithMatches` (PASS):
+   - **Mục tiêu:** Kiểm tra API gợi ý thời gian thực `/Home/SearchSuggestions?q=tai+nghe`.
+   - **Xác minh:** Trả về JSON chứa danh sách sản phẩm khớp từ khóa.
+3. `SearchSuggestions_AccentInsensitive_ReturnsJsonMatches` (PASS):
+   - **Mục tiêu:** Tìm kiếm gợi ý không dấu tiếng Việt (`q=mu`).
+   - **Xác minh:** Trả về sản phẩm tương ứng.
+4. `SearchSuggestions_XssInput_ExecutesSafely` (2 kịch bản `@Theory` PASS):
+   - **Mục tiêu:** Kiểm tra đầu vào độc hại trên search dropdown.
+   - **Xác minh:** Xử lý an toàn không có exception.
+
 ---
 
 ## 3. KẾT LUẬN KIỂM THỬ
 
-Hệ thống kiểm thử tự động xác nhận toàn bộ logic kinh doanh, truy xuất danh mục, phân trang, thuật toán tìm kiếm tiếng Việt và xử lý ngoại lệ đều vận hành chính xác 100%, bảo đảm chất lượng ổn định và an toàn khi tích hợp tiếp vào Sprint 3.
+Hệ thống kiểm thử tự động xác nhận toàn bộ logic nghiệp vụ, truy xuất danh mục, phân trang, thuật toán tìm kiếm tiếng Việt và xử lý ngoại lệ đều vận hành chính xác 100%, bảo đảm chất lượng ổn định và an toàn khi tích hợp tiếp vào Sprint 3.

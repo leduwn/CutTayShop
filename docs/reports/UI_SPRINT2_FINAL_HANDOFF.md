@@ -25,7 +25,7 @@
 - [x] Trang chi tiết sản phẩm PDP (`/san-pham/{slug}`): Gallery ảnh thumbnail tương tác, khối thông tin mua hàng, lựa chọn variant màu sắc/kích thước cập nhật giá động, bộ chọn số lượng stepper, CTA Thêm vào giỏ & Mua ngay, khối cam kết 4 điểm tin cậy, 3 Tabs chi tiết (Mô tả, Bảng thông số kỹ thuật, Đánh giá khách hàng), sản phẩm liên quan, Mobile Sticky Purchase Bar chống che khuất, xử lý HTTP 404 NotFound cho slug không tồn tại.
 - [x] Trang kết quả tìm kiếm Search Results (`/tim-kiem?q=...`): Tìm kiếm không dấu tiếng Việt (Accent-Insensitive Vietnamese Search), hiển thị số lượng và bộ lọc.
 - [x] Mở rộng Demo Data Provider với 32 sản phẩm phong phú trải dài 10 danh mục.
-- [x] Bộ kiểm thử tự động xUnit với 22/22 bài kiểm thử đạt (100% Pass Rate).
+- [x] Bộ kiểm thử tự động xUnit với 27/27 bài kiểm thử đạt (100% Pass Rate across 3 test suites).
 - [x] Kiểm thử trực quan headless browser visual QA trên 7 viewports (375px đến 1920px) ở cả chế độ Sáng và Tối, chụp 38 ảnh kiểm thử.
 - [x] 5 báo cáo nghiệm thu chuyên sâu trong thư mục `docs/reports/`.
 
@@ -38,7 +38,7 @@
 dotnet restore
 dotnet build CutTayShop.sln
 
-# 2. Chạy toàn bộ 22 bài kiểm thử tự động
+# 2. Chạy toàn bộ 27 bài kiểm thử tự động
 dotnet test CutTayShop.sln
 
 # 3. Khởi chạy ứng dụng web ASP.NET Core
