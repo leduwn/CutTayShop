@@ -1,0 +1,26 @@
+@model (int TotalItems, string CurrentSort, string BaseUrl)
+
+<div class="catalog-toolbar">
+  <div class="toolbar-left">
+    <button type="button" class="mobile-filter-trigger" data-mobile-filter-trigger aria-label="Mở bộ lọc tìm kiếm">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+      </svg>
+      <span>Bộ lọc</span>
+    </button>
+    <span class="results-count">Hiển thị <strong>@Model.TotalItems.ToString("N0")</strong> sản phẩm</span>
+  </div>
+
+  <div class="toolbar-right">
+    <div class="sort-select-wrap">
+      <label for="sort-select" style="font-weight: 600;">Sắp xếp:</label>
+      <select id="sort-select" class="sort-select" data-sort-select aria-label="Chọn tiêu chí sắp xếp">
+        <option value="popular" selected="@(Model.CurrentSort == "popular" ? "selected" : null)">Phổ biến nhất</option>
+        <option value="newest" selected="@(Model.CurrentSort == "newest" ? "selected" : null)">Mới nhất</option>
+        <option value="price_asc" selected="@(Model.CurrentSort == "price_asc" ? "selected" : null)">Giá: Thấp đến Cao</option>
+        <option value="price_desc" selected="@(Model.CurrentSort == "price_desc" ? "selected" : null)">Giá: Cao đến Thấp</option>
+        <option value="rating_desc" selected="@(Model.CurrentSort == "rating_desc" ? "selected" : null)">Đánh giá cao nhất</option>
+      </select>
+    </div>
+  </div>
+</div>

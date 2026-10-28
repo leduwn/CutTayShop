@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="100%" height="100%">
+  <defs>
+    <radialGradient id="intlBg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#EFF6FF"/>
+      <stop offset="100%" stop-color="#DBEAFE"/>
+    </radialGradient>
+    <filter id="adapterShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#1D4ED8" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+  <rect width="100%" height="100%" rx="16" fill="url(#intlBg)"/>
+  <ellipse cx="150" cy="245" rx="70" ry="12" fill="#000000" opacity="0.08"/>
+  <g transform="translate(85, 65)" filter="url(#adapterShadow)">
+    <!-- Adapter Cube -->
+    <rect x="15" y="15" width="100" height="110" rx="16" fill="#1E40AF"/>
+    <rect x="25" y="25" width="80" height="90" rx="12" fill="#2563EB"/>
+    <!-- Universal Socket Holes -->
+    <ellipse cx="65" cy="48" rx="5" ry="8" fill="#1E293B"/>
+    <rect x="42" y="65" width="6" height="16" rx="2" fill="#1E293B"/>
+    <rect x="82" y="65" width="6" height="16" rx="2" fill="#1E293B"/>
+    <!-- USB-C & USB-A ports at bottom -->
+    <rect x="42" y="93" width="14" height="6" rx="3" fill="#60A5FA"/>
+    <rect x="74" y="93" width="14" height="6" rx="3" fill="#60A5FA"/>
+  </g>
+</svg>

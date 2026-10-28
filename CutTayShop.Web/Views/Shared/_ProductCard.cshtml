@@ -1,6 +1,11 @@
 @model Product
 
-<article class="product-card" data-product-id="@Model.Id">
+<article class="product-card"
+         data-product-id="@Model.Id"
+         data-product-name="@Model.Name"
+         data-product-slug="@Model.Slug"
+         data-product-price="@Model.Price"
+         data-product-image="@Model.ImageUrl">
   <div class="product-card-thumb-wrap">
     @if (!string.IsNullOrEmpty(Model.BadgeText))
     {

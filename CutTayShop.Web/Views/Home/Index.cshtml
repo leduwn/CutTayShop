@@ -36,7 +36,7 @@
           </a>
           <div class="hero-social-proof">
             <span>⭐</span>
-            <span><strong>4.9/5</strong> (10.000+ đánh giá)</span>
+            <span><strong>4.9/5</strong> (Đánh giá giao diện mẫu)</span>
           </div>
         </div>
 
@@ -190,16 +190,16 @@
       <div class="membership-tag">👑 CutTayShop+ Member Club</div>
       <h3 class="membership-title">Đặc quyền mua sắm không giới hạn</h3>
       <p style="font-size: 0.9375rem; color: #CBD5E1; line-height: 1.6;">
-        Trở thành hội viên để tận hưởng hàng loạt ưu đãi độc quyền: hoàn tiền 5%, freeship trọn đời và voucher quà tặng vào ngày sinh nhật.
+        Trở thành hội viên để tận hưởng hàng loạt ưu đãi độc quyền: tích điểm thưởng hội viên, ưu đãi giao hàng hội viên và voucher quà tặng vào ngày sinh nhật.
       </p>
       <div class="membership-perks">
         <div class="membership-perk-item">
           <span>✓</span>
-          <span>Freeship mọi đơn hàng</span>
+          <span>Ưu đãi giao hàng hội viên</span>
         </div>
         <div class="membership-perk-item">
           <span>✓</span>
-          <span>Hoàn 5% CutTay Xu</span>
+          <span>Tích điểm thưởng hội viên</span>
         </div>
         <div class="membership-perk-item">
           <span>✓</span>
@@ -254,9 +254,14 @@
         Đăng ký email để nhận thông tin deal flash sale và sản phẩm mới nhất từ CutTayShop.
       </p>
     </div>
-    <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Cảm ơn bạn đã đăng ký nhận bản tin CutTayShop!');">
-      <input type="email" class="newsletter-input" placeholder="Nhập địa chỉ email của bạn..." required aria-label="Địa chỉ email nhận khuyến mãi" />
-      <button type="submit" class="btn-pill btn-pill-primary" style="flex-shrink: 0;">Đăng ký ngay</button>
-    </form>
+    <div style="flex: 1; max-width: 480px;">
+      <form class="newsletter-form" id="newsletter-form" onsubmit="event.preventDefault(); const status = document.getElementById('newsletter-status'); if (status) { status.style.display = 'block'; this.reset(); }">
+        <input type="email" class="newsletter-input" placeholder="Nhập địa chỉ email của bạn..." required aria-label="Địa chỉ email nhận khuyến mãi" />
+        <button type="submit" class="btn-pill btn-pill-primary" style="flex-shrink: 0;">Đăng ký ngay</button>
+      </form>
+      <div id="newsletter-status" style="display: none; margin-top: 10px; font-size: 0.875rem; color: var(--color-primary); font-weight: 600;" role="status" aria-live="polite">
+        Cảm ơn bạn! (Đây là giao diện demo, thông tin chưa được lưu vào hệ thống)
+      </div>
+    </div>
   </div>
 </section>

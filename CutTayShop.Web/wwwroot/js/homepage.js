@@ -1,6 +1,7 @@
 /**
  * CutTayShop - Homepage Interactive Enhancements
- * Sticky header observer, Countdown timer, Live Search autocomplete, AI Widget.
+ * Sticky header observer, Countdown timer, Live Search autocomplete,
+ * CutTay AI Widget, Keyboard navigation (Escape), and Cart Integration.
  */
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Sticky Header scroll listener
@@ -54,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(updateTimer, 1000);
   }
 
-  // 3. Search Suggestions Autocomplete
+  // 3. Search Suggestions Autocomplete (DOM API Only - No innerHTML injection)
   const searchInput = document.querySelector('.search-pill-input');
   const searchDropdown = document.querySelector('.search-dropdown');
 
@@ -77,19 +78,43 @@ document.addEventListener('DOMContentLoaded', () => {
           if (!res.ok) return;
           const items = await res.json();
 
+          // Safe DOM clearing
+          searchDropdown.innerHTML = '';
+
           if (items && items.length > 0) {
-            searchDropdown.innerHTML = items.map(item => `
-              <a href="/san-pham/${item.slug}" class="search-suggestion-item">
-                <img src="${item.imageUrl}" alt="${item.name}" style="width: 40px; height: 40px; border-radius: 8px; object-fit: contain; background: var(--color-surface-subtle);" />
-                <div style="flex: 1;">
-                  <div style="font-size: 0.875rem; font-weight: 600; color: var(--color-text-primary);">${item.name}</div>
-                  <div style="font-size: 0.75rem; color: var(--color-sale); font-weight: 700;">${item.price}</div>
-                </div>
-              </a>
-            `).join('');
+            items.forEach(item => {
+              const a = document.createElement('a');
+              a.className = 'search-suggestion-item';
+              a.href = `/san-pham/${encodeURIComponent(item.slug)}`;
+
+              const img = document.createElement('img');
+              img.src = item.imageUrl || '/images/products/placeholder.svg';
+              img.alt = item.name;
+              img.style.cssText = 'width: 40px; height: 40px; border-radius: 8px; object-fit: contain; background: var(--color-surface-subtle);';
+
+              const infoDiv = document.createElement('div');
+              infoDiv.style.flex = '1';
+
+              const nameDiv = document.createElement('div');
+              nameDiv.style.cssText = 'font-size: 0.875rem; font-weight: 600; color: var(--color-text-primary);';
+              nameDiv.textContent = item.name;
+
+              const priceDiv = document.createElement('div');
+              priceDiv.style.cssText = 'font-size: 0.75rem; color: var(--color-sale); font-weight: 700;';
+              priceDiv.textContent = item.price;
+
+              infoDiv.appendChild(nameDiv);
+              infoDiv.appendChild(priceDiv);
+              a.appendChild(img);
+              a.appendChild(infoDiv);
+              searchDropdown.appendChild(a);
+            });
             searchDropdown.classList.add('active');
           } else {
-            searchDropdown.innerHTML = `<div style="padding: 12px 16px; font-size: 0.8125rem; color: var(--color-text-muted);">Không tìm thấy sản phẩm phù hợp</div>`;
+            const emptyDiv = document.createElement('div');
+            emptyDiv.style.cssText = 'padding: 12px 16px; font-size: 0.8125rem; color: var(--color-text-muted);';
+            emptyDiv.textContent = 'Không tìm thấy sản phẩm phù hợp';
+            searchDropdown.appendChild(emptyDiv);
             searchDropdown.classList.add('active');
           }
         } catch (err) {
@@ -105,26 +130,52 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 4. CutTay AI Chat Widget Toggle
+  // 4. CutTay AI Chat Widget Toggle & Interaction
   const aiTrigger = document.querySelector('[data-ai-trigger]');
   const aiCard = document.querySelector('[data-ai-card]');
   const aiClose = document.querySelector('[data-ai-close]');
 
+  const closeAiWidget = () => {
+    if (aiCard) {
+      aiCard.classList.remove('is-open');
+      aiCard.setAttribute('aria-hidden', 'true');
+    }
+    if (aiTrigger) {
+      aiTrigger.setAttribute('aria-expanded', 'false');
+    }
+  };
+
+  const openAiWidget = () => {
+    if (aiCard) {
+      aiCard.classList.add('is-open');
+      aiCard.setAttribute('aria-hidden', 'false');
+      const input = aiCard.querySelector('.ai-input');
+      if (input) input.focus();
+    }
+    if (aiTrigger) {
+      aiTrigger.setAttribute('aria-expanded', 'true');
+    }
+  };
+
   if (aiTrigger && aiCard) {
     aiTrigger.addEventListener('click', () => {
-      aiCard.classList.toggle('is-open');
+      if (aiCard.classList.contains('is-open')) {
+        closeAiWidget();
+      } else {
+        openAiWidget();
+      }
     });
 
     if (aiClose) {
       aiClose.addEventListener('click', () => {
-        aiCard.classList.remove('is-open');
+        closeAiWidget();
+        if (aiTrigger) aiTrigger.focus();
       });
     }
 
     // Quick chip suggestion handling
     const chips = aiCard.querySelectorAll('.ai-chip');
     const aiBody = aiCard.querySelector('.ai-card-body');
-    const aiInput = aiCard.querySelector('.ai-input');
 
     chips.forEach(chip => {
       chip.addEventListener('click', () => {
@@ -156,14 +207,48 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 5. Toast Feedback for "Thêm vào giỏ"
+  // 5. Global Keyboard Handling (Escape key closes search dropdown and AI widget)
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' || e.key === 'Esc') {
+      if (searchDropdown && searchDropdown.classList.contains('active')) {
+        searchDropdown.classList.remove('active');
+        if (searchInput) searchInput.blur();
+      }
+      if (aiCard && aiCard.classList.contains('is-open')) {
+        closeAiWidget();
+        if (aiTrigger) aiTrigger.focus();
+      }
+    }
+  });
+
+  // 6. Product Card Add-to-Cart Click Handler (Integrated with CutTayCart)
   document.querySelectorAll('.product-card-add-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       e.stopPropagation();
 
-      // Show quick toast notification
-      showToast('Đã thêm sản phẩm vào giỏ hàng!');
+      const card = btn.closest('.product-card');
+      let productName = 'sản phẩm';
+
+      if (card && window.CutTayCart) {
+        const id = parseInt(card.dataset.productId, 10) || 0;
+        productName = card.dataset.productName || card.querySelector('.product-card-name a')?.textContent.trim() || 'Sản phẩm';
+        const slug = card.dataset.productSlug || card.querySelector('.product-card-name a')?.getAttribute('href')?.replace('/san-pham/', '') || '';
+        const price = parseFloat(card.dataset.productPrice) || 0;
+        const imgEl = card.querySelector('.product-card-thumb');
+        const imageUrl = card.dataset.productImage || (imgEl ? imgEl.getAttribute('src') : '/images/products/placeholder.svg');
+
+        window.CutTayCart.addItem({
+          id,
+          name: productName,
+          slug,
+          price,
+          imageUrl,
+          quantity: 1
+        });
+      }
+
+      showToast(`Đã thêm "${productName}" vào giỏ hàng!`);
     });
   });
 

@@ -7,14 +7,15 @@
   <meta name="description" content="CutTayShop - Nền tảng mua sắm thời trang và công nghệ phong cách hàng đầu." />
   <title>@ViewData["Title"] - CutTayShop | Mua sắm phong cách 2026</title>
 
-  <!-- Google Fonts: Plus Jakarta Sans -->
+  <!-- Google Fonts: Be Vietnam Pro & Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
   <!-- Core Design System & Homepage CSS -->
   <link rel="stylesheet" href="~/css/design-system.css" asp-append-version="true" />
   <link rel="stylesheet" href="~/css/homepage.css" asp-append-version="true" />
+  @await RenderSectionAsync("Styles", required: false)
 
   <!-- Pre-render theme detection script to prevent FOUC -->
   <script src="~/js/theme-toggle.js" asp-append-version="true"></script>
@@ -38,6 +39,7 @@
   <partial name="_CutTayAiWidget" />
 
   <!-- Interactive Scripts -->
+  <script src="~/js/cart-state.js" asp-append-version="true"></script>
   <script src="~/js/homepage.js" asp-append-version="true"></script>
   @await RenderSectionAsync("Scripts", required: false)
 </body>

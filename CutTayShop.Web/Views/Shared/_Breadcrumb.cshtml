@@ -1,0 +1,30 @@
+@model IReadOnlyList<BreadcrumbItem>
+
+@if (Model != null && Model.Count > 0)
+{
+  <nav class="breadcrumb-nav" aria-label="Đường dẫn điều hướng">
+    <div class="container-custom">
+      <ol class="breadcrumb-list" itemscope itemtype="https://schema.org/BreadcrumbList">
+        @for (int i = 0; i < Model.Count; i++)
+        {
+          var item = Model[i];
+          var isLast = i == Model.Count - 1;
+          <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            @if (!isLast && !string.IsNullOrEmpty(item.Url))
+            {
+              <a href="@item.Url" class="breadcrumb-link" itemprop="item">
+                <span itemprop="name">@item.Label</span>
+              </a>
+              <span class="breadcrumb-separator" aria-hidden="true">/</span>
+            }
+            else
+            {
+              <span class="breadcrumb-current" aria-current="page" itemprop="name">@item.Label</span>
+            }
+            <meta itemprop="position" content="@(i + 1)" />
+          </li>
+        }
+      </ol>
+    </div>
+  </nav>
+}

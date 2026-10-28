@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CutTayShop.Infrastructure",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CutTayShop.Web", "CutTayShop.Web\CutTayShop.Web.csproj", "{67F36F63-1B1F-44CF-BB73-A8E4F02170C7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CutTayShop.Tests", "CutTayShop.Tests\CutTayShop.Tests.csproj", "{7CBA4182-C0B2-4AA4-84EE-470E46964C2C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,18 @@ Global
 		{67F36F63-1B1F-44CF-BB73-A8E4F02170C7}.Release|x64.Build.0 = Release|Any CPU
 		{67F36F63-1B1F-44CF-BB73-A8E4F02170C7}.Release|x86.ActiveCfg = Release|Any CPU
 		{67F36F63-1B1F-44CF-BB73-A8E4F02170C7}.Release|x86.Build.0 = Release|Any CPU
+		{7CBA4182-C0B2-4AA4-84EE-470E46964C2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CBA4182-C0B2-4AA4-84EE-470E46964C2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CBA4182-C0B2-4AA4-84EE-470E46964C2C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{7CBA4182-C0B2-4AA4-84EE-470E46964C2C}.Debug|x64.Build.0 = Debug|Any CPU
+		{7CBA4182-C0B2-4AA4-84EE-470E46964C2C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7CBA4182-C0B2-4AA4-84EE-470E46964C2C}.Debug|x86.Build.0 = Debug|Any CPU
+		{7CBA4182-C0B2-4AA4-84EE-470E46964C2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CBA4182-C0B2-4AA4-84EE-470E46964C2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CBA4182-C0B2-4AA4-84EE-470E46964C2C}.Release|x64.ActiveCfg = Release|Any CPU
+		{7CBA4182-C0B2-4AA4-84EE-470E46964C2C}.Release|x64.Build.0 = Release|Any CPU
+		{7CBA4182-C0B2-4AA4-84EE-470E46964C2C}.Release|x86.ActiveCfg = Release|Any CPU
+		{7CBA4182-C0B2-4AA4-84EE-470E46964C2C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
