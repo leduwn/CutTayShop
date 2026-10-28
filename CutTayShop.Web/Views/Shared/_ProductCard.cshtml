@@ -1,0 +1,57 @@
+@model Product
+
+<article class="product-card" data-product-id="@Model.Id">
+  <div class="product-card-thumb-wrap">
+    @if (!string.IsNullOrEmpty(Model.BadgeText))
+    {
+      <span class="badge-capsule badge-sale product-card-badge">@Model.BadgeText</span>
+    }
+    <button type="button" class="product-card-wishlist" aria-label="Thêm vào danh sách yêu thích">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+      </svg>
+    </button>
+    <a href="/san-pham/@Model.Slug" style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+      <img src="@Model.ImageUrl" alt="@Model.Name" class="product-card-thumb" loading="lazy" width="260" height="260" />
+    </a>
+  </div>
+
+  <div class="product-card-body">
+    <div class="product-card-category">@Model.CategoryName</div>
+    <h3 class="product-card-name">
+      <a href="/san-pham/@Model.Slug">@Model.Name</a>
+    </h3>
+
+    <div class="product-card-rating">
+      <span class="product-card-star">★</span>
+      <span style="font-weight: 700; color: var(--color-text-primary);">@Model.Rating.ToString("0.0")</span>
+      <span>(@Model.ReviewCount.ToString("N0"))</span>
+    </div>
+
+    @if (Model.IsHotDeal && Model.TotalStock > 0)
+    {
+      var percent = Math.Min(100, (int)Math.Round((double)Model.SoldCount / Model.TotalStock * 100));
+      <div class="product-card-progress" role="progressbar" aria-valuenow="@percent" aria-valuemin="0" aria-valuemax="100">
+        <div class="product-card-progress-bar" style="width: @percent%;"></div>
+      </div>
+      <div class="product-card-sold-text">Đã bán @Model.SoldCount / @Model.TotalStock</div>
+    }
+
+    <div class="product-card-footer">
+      <div class="product-card-price-group">
+        <span class="product-card-price">@Model.Price.ToString("N0")₫</span>
+        @if (Model.OriginalPrice > Model.Price)
+        {
+          <span class="product-card-original-price">@Model.OriginalPrice.ToString("N0")₫</span>
+        }
+      </div>
+
+      <button type="button" class="product-card-add-btn" aria-label="Thêm @Model.Name vào giỏ hàng">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+        </svg>
+      </button>
+    </div>
+  </div>
+</article>

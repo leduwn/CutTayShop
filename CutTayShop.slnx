@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="CutTayShop.Core/CutTayShop.Core.csproj" />
+  <Project Path="CutTayShop.Infrastructure/CutTayShop.Infrastructure.csproj" />
+  <Project Path="CutTayShop.Web/CutTayShop.Web.csproj" />
+</Solution>

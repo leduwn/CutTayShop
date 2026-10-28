@@ -1,0 +1,46 @@
+<!-- Floating CutTay AI Chat Widget -->
+<div class="ai-widget-wrap">
+  <!-- Expandable Chat Panel -->
+  <div class="ai-widget-card" data-ai-card role="dialog" aria-label="Trợ lý AI CutTay" aria-hidden="true">
+    <div class="ai-card-header">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <span style="font-size: 1.25rem;">✨</span>
+        <div>
+          <div style="font-weight: 700; font-size: 0.9375rem; color: var(--color-text-primary);">CutTay AI</div>
+          <div style="font-size: 0.6875rem; color: var(--color-primary); font-weight: 600;">Trực tuyến · Sẵn sàng trợ giúp</div>
+        </div>
+      </div>
+      <button type="button" class="btn-icon" data-ai-close aria-label="Đóng trợ lý AI" style="width: 28px; height: 28px;">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <div class="ai-card-body">
+      <div class="ai-msg ai-msg-bot">
+        Xin chào! Mình là CutTay AI. Bạn cần tìm kiếm phong cách thời trang hay thiết bị công nghệ nào hôm nay?
+      </div>
+
+      <div class="ai-quick-chips">
+        <button type="button" class="ai-chip">🎧 Gợi ý tai nghe hot nhất</button>
+        <button type="button" class="ai-chip">⚡ Deal flash sale hôm nay</button>
+        <button type="button" class="ai-chip">🚚 Chính sách vận chuyển</button>
+      </div>
+    </div>
+
+    <div class="ai-card-footer">
+      <input type="text" class="ai-input" placeholder="Hỏi CutTay AI điều gì đó..." aria-label="Nhập câu hỏi cho trợ lý AI" />
+      <button type="button" class="btn-pill btn-pill-primary btn-pill-sm" style="padding: 6px 12px;">Gửi</button>
+    </div>
+  </div>
+
+  <!-- Trigger Button -->
+  <button type="button" class="ai-widget-trigger" data-ai-trigger aria-label="Mở trợ lý AI CutTay">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+    </svg>
+    <span>Hỏi CutTay AI ✨</span>
+  </button>
+</div>
