@@ -1,67 +1,106 @@
-﻿@model HomeViewModel
+@model HomeViewModel
 @{
     ViewData["Title"] = "Trang chủ";
 }
 
 <!-- ==========================================================================
-     1. HERO 8/4 SECTION
+     1. REDESIGNED HERO 8/4 SECTION (COMPACT EDITORIAL + STILL-LIFE COMPOSITION)
      ========================================================================== -->
 <section class="hero-section" aria-label="Khu vực nổi bật">
   <div class="container-custom">
     <div class="hero-grid">
-      <!-- Left 8 Columns: Main Hero Banner -->
-      <div class="hero-main-card">
-        <div class="hero-tag">
-          <span class="badge-capsule badge-mint">✨ Xu hướng mua sắm 2026</span>
-        </div>
+      <!-- Left 8 Columns: Main Editorial Hero Banner -->
+      <article class="hero-main-card">
+        <div class="hero-main-inner">
+          <!-- Left Inner: Editorial Typography & Actions -->
+          <div class="hero-content-col">
+            <div class="hero-kicker hero-tag">
+              <span class="hero-kicker-pill badge-capsule badge-mint">
+                <span class="kicker-sparkle kicker-sparkles" aria-hidden="true">✨</span>
+                <span class="kicker-text">Sống chất mỗi ngày</span>
+              </span>
+              <!-- Hand-drawn sunburst rays doodle -->
+              <svg class="hero-sunburst-doodle" viewBox="0 0 24 24" width="22" height="22" fill="none" aria-hidden="true">
+                <path d="M12 2 V6 M12 18 V22 M2 12 H6 M18 12 H22 M4.93 4.93 L7.76 7.76 M16.24 16.24 L19.07 19.07 M4.93 19.07 L7.76 16.24 M16.24 7.76 L19.07 4.93" stroke="#F59E0B" stroke-width="2.5" stroke-linecap="round" />
+              </svg>
+            </div>
 
-        <h1 class="hero-headline">
-          Khám phá thế giới<br /><span class="highlight-capsule">mua sắm</span> phong cách
-        </h1>
+            <h1 class="hero-headline">
+              Sản phẩm<br />
+              bạn thích<br />
+              <span class="hero-highlight-wrap">
+                <span class="highlight-capsule">ở ngay đây</span>
+                <!-- Hand-drawn mint curly arrow SVG pointing at the capsule -->
+                <svg class="hero-curly-arrow doodle-mint-arrow" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                  <path d="M 6 36 C 14 42, 28 44, 34 34 C 38 26, 32 16, 22 18 C 14 20, 14 30, 24 33 C 32 35, 40 28, 42 14" stroke="#10B981" stroke-width="3" stroke-linecap="round" fill="none" />
+                  <path d="M 34 14 L 42 12 L 44 22" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                </svg>
+              </span>
+            </h1>
 
-        <p class="hero-description">
-          Hàng ngàn sản phẩm công nghệ và thời trang chất lượng cao với giá ưu đãi đặc biệt mỗi ngày. Giao nhanh 2h, đổi trả miễn phí trong 7 ngày.
-        </p>
+            <p class="hero-commitments hero-value-props">
+              <span>Hàng chính hãng</span>
+              <span class="vprop-dot" aria-hidden="true">•</span>
+              <span>Giao nhanh toàn quốc</span>
+              <span class="vprop-dot" aria-hidden="true">•</span>
+              <span>Đổi trả dễ dàng</span>
+            </p>
 
-        <div class="hero-actions">
-          <a href="#hot-deals" class="btn-pill btn-pill-primary btn-pill-lg">
-            <span>Mua sắm ngay</span>
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
-          </a>
-          <a href="#featured" class="btn-pill btn-pill-secondary btn-pill-lg">
-            <span>Xem ưu đãi hôm nay</span>
-          </a>
-          <div class="hero-social-proof">
-            <span>⭐</span>
-            <span><strong>4.9/5</strong> (Đánh giá giao diện mẫu)</span>
+            <div class="hero-actions">
+              <a href="/san-pham" class="btn-pill btn-pill-primary hero-btn-primary btn-pill-lg">
+                <span>Mua ngay</span>
+                <span class="btn-arrow" aria-hidden="true">→</span>
+              </a>
+              <a href="#hot-deals" class="btn-pill btn-pill-secondary hero-btn-secondary btn-pill-lg">
+                <span class="btn-play-icon" aria-hidden="true">
+                  <svg viewBox="0 0 20 20" width="16" height="16" fill="currentColor">
+                    <circle cx="10" cy="10" r="9" fill="none" stroke="currentColor" stroke-width="1.8" />
+                    <polygon points="8,6 15,10 8,14" fill="currentColor" />
+                  </svg>
+                </span>
+                <span>Xem ưu đãi</span>
+              </a>
+              <div class="hero-social-proof">
+                <span class="proof-stars" aria-hidden="true">⭐⭐⭐⭐⭐</span>
+                <span class="proof-text"><strong>4.9/5</strong> (10.000+ đánh giá)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Inner: Product Still-Life Stage -->
+          <div class="hero-stage-col">
+            <div class="hero-graphic-wrap hero-stage-visual">
+              <img src="~/images/hero/hero-composition.svg" alt="CutTayShop Lifestyle Product Collection - Tai nghe không dây, Loa bluetooth, Bình giữ nhiệt và Phụ kiện phong cách" class="hero-composition-img" width="640" height="500" fetchpriority="high" loading="eager" />
+            </div>
           </div>
         </div>
+      </article>
 
-        <div class="hero-graphic-wrap">
-          <img src="~/images/hero/hero-lifestyle.svg" alt="CutTayShop Lifestyle Model Illustration" width="600" height="500" loading="eager" />
-        </div>
-      </div>
-
-      <!-- Right 4 Columns: 2 Vertical Promo Cards -->
+      <!-- Right 4 Columns: 2 Vertical Balanced Promo Cards -->
       <div class="hero-side-col">
         @foreach (var banner in Model.PromoBanners)
         {
-          <div class="promo-banner-card" style="background-color: @banner.BgColorHex;">
+          <aside class="promo-banner-card promo-card-@banner.Id promo-banner-@banner.Id" style="--banner-accent-bg: @banner.BgColorHex; background-color: @banner.BgColorHex;">
             <div class="promo-banner-info">
               <span class="promo-banner-category">@banner.CategoryTitle</span>
               <div class="promo-banner-headline">
-                <div>@banner.PromoLabel</div>
+                <div class="promo-banner-label">@banner.PromoLabel</div>
                 <div class="promo-banner-number">@banner.HighlightNumber</div>
               </div>
               <a href="@banner.CtaLink" class="promo-banner-cta">
                 <span>@banner.CtaText</span>
               </a>
             </div>
-            <img src="@banner.ImageUrl" alt="@banner.CategoryTitle" class="promo-banner-img" loading="lazy" width="120" height="120" />
-          </div>
+            <div class="promo-banner-visual promo-banner-img-wrap">
+              <img src="@banner.ImageUrl" alt="@banner.CategoryTitle" class="promo-banner-img" loading="eager" width="130" height="130" />
+              @if (!string.IsNullOrEmpty(banner.DecorativeDoodleSvg))
+              {
+                <div class="promo-banner-doodle" aria-hidden="true">
+                  @Html.Raw(banner.DecorativeDoodleSvg)
+                </div>
+              }
+            </div>
+          </aside>
         }
       </div>
     </div>
@@ -69,7 +108,7 @@
 </section>
 
 <!-- ==========================================================================
-     2. 10 PASTEL CIRCULAR CATEGORIES
+     2. 10 PASTEL CIRCULAR CATEGORIES (COMPACT ROW / SCROLL-SNAP)
      ========================================================================== -->
 <section class="categories-section" aria-label="Danh mục ngành hàng">
   <div class="container-custom">
@@ -84,16 +123,18 @@
       </a>
     </div>
 
-    <div class="category-grid">
+    <div class="category-grid" role="list">
       @foreach (var cat in Model.Categories)
       {
-        <a href="/danh-muc/@cat.Slug" class="category-item">
-          <div class="category-circle" style="background-color: @cat.BgColorHex; color: @cat.IconColorHex;">
-            @Html.Raw(cat.IconSvg)
-          </div>
-          <span class="category-name">@cat.Name</span>
-          <span class="category-count">@cat.ProductCount sản phẩm</span>
-        </a>
+        <div class="category-item-wrap" role="listitem">
+          <a href="/danh-muc/@cat.Slug" class="category-item" title="@cat.Name">
+            <div class="category-circle" style="background-color: @cat.BgColorHex; color: @cat.IconColorHex;">
+              @Html.Raw(cat.IconSvg)
+            </div>
+            <span class="category-name">@cat.Name</span>
+            <span class="category-count">@cat.ProductCount sản phẩm</span>
+          </a>
+        </div>
       }
     </div>
   </div>
