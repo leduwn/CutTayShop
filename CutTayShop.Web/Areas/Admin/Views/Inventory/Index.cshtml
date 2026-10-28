@@ -1,0 +1,61 @@
+@model IReadOnlyList<CutTayShop.Core.Models.Product>
+@{
+    ViewData["Title"] = "Quản Lý Tồn Kho — Admin";
+}
+
+<div class="admin-page-header">
+  <div>
+    <h1 class="admin-page-title">Quản Lý Tồn Kho & Nhập Hàng</h1>
+    <p class="text-muted">Kiểm soát số lượng tồn kho từng SKU, nhận diện sớm sản phẩm sắp hết hàng.</p>
+  </div>
+  <button type="button" class="btn-pill btn-pill-primary" onclick="alert('Chế độ Demo: Đã mở form tạo phiếu nhập kho mới.')">+ Tạo phiếu nhập hàng</button>
+</div>
+
+<div class="admin-card" style="margin-top: 24px; background: var(--color-bg-primary); border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden;">
+  <div style="overflow-x: auto;">
+    <table class="table-styled" style="width: 100%;">
+      <thead>
+        <tr style="text-align: left; background: var(--color-bg-secondary);">
+          <th style="padding: 12px;">Mã SP</th>
+          <th style="padding: 12px;">Sản phẩm</th>
+          <th style="padding: 12px;">Ngành hàng</th>
+          <th style="padding: 12px;">Đã bán</th>
+          <th style="padding: 12px;">Tồn kho hiện tại</th>
+          <th style="padding: 12px;">Tình trạng</th>
+          <th style="padding: 12px; text-align: right;">Điều chỉnh</th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach (var prod in Model)
+        {
+          <tr style="border-bottom: 1px solid var(--color-border);">
+            <td style="padding: 12px; color: var(--color-text-muted);">#@prod.Id</td>
+            <td style="padding: 12px; display: flex; align-items: center; gap: 12px;">
+              <img src="@prod.ImageUrl" alt="@prod.Name" style="width: 40px; height: 40px; object-fit: cover; border-radius: var(--radius-sm);" />
+              <div>
+                <strong>@prod.Name</strong>
+                <div style="font-size: 0.75rem; color: var(--color-text-muted);">@prod.Brand</div>
+              </div>
+            </td>
+            <td style="padding: 12px;">@prod.CategoryName</td>
+            <td style="padding: 12px;">@prod.SoldCount món</td>
+            <td style="padding: 12px; font-weight: 700;">@prod.TotalStock</td>
+            <td style="padding: 12px;">
+              @if (prod.TotalStock <= 10)
+              {
+                <span class="badge-capsule badge-peach">⚠️ Sắp hết hàng</span>
+              }
+              else
+              {
+                <span class="badge-capsule badge-mint">An toàn</span>
+              }
+            </td>
+            <td style="padding: 12px; text-align: right;">
+              <button type="button" class="btn-pill btn-pill-secondary btn-sm" onclick="alert('Đã cập nhật số lượng tồn cho sản phẩm @prod.Name!')">+ Nhập thêm</button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

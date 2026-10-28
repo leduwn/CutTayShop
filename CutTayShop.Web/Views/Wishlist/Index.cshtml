@@ -1,0 +1,36 @@
+@model IReadOnlyList<CutTayShop.Core.Models.Product>
+@{
+    ViewData["Title"] = "Danh Sách Yêu Thích — CutTayShop";
+}
+
+<section class="page-header-editorial">
+  <div class="container-custom">
+    <div class="page-header-inner">
+      <div class="badge-capsule badge-peach">
+        <span aria-hidden="true">❤️</span> Bộ sưu tập yêu thích của bạn
+      </div>
+      <h1 class="page-title">Sản Phẩm Yêu Thích</h1>
+      <p class="page-subtitle">Lưu giữ những món đồ bạn quan tâm để dễ dàng theo dõi biến động giá và mua sắm bất cứ lúc nào.</p>
+    </div>
+  </div>
+</section>
+
+<div class="container-custom" style="padding-top: 32px; padding-bottom: 64px;">
+  <!-- Dynamic Client-rendered Wishlist Grid -->
+  <div id="wishlist-container" data-wishlist-view>
+    <!-- Default state: server renders featured items as demo recommendations if client storage empty -->
+    <div class="wishlist-items-section">
+      <div class="wishlist-header-row">
+        <h2 class="section-title">Gợi ý sản phẩm nổi bật</h2>
+        <span class="text-muted" data-wishlist-count-label>Khám phá và bấm tim để lưu vào danh sách</span>
+      </div>
+
+      <div class="product-grid" style="margin-top: 24px;">
+        @foreach (var product in Model)
+        {
+          @await Html.PartialAsync("_ProductCard", product)
+        }
+      </div>
+    </div>
+  </div>
+</div>

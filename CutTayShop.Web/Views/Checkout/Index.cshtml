@@ -1,0 +1,186 @@
+@model CutTayShop.Web.ViewModels.CheckoutFormModel
+@{
+    ViewData["Title"] = "Thanh Toán Đơn Hàng — CutTayShop";
+}
+
+<div class="container-custom" style="padding-top: 32px; padding-bottom: 80px;">
+  <!-- Demo Mode Alert Banner -->
+  <div class="demo-notice-alert" role="alert">
+    <div class="alert-icon">ℹ️</div>
+    <div class="alert-body">
+      <strong>Chế độ Mô phỏng (Demo Mode):</strong> Quy trình thanh toán nhằm kiểm thử giao diện và hành vi trải nghiệm. Hệ thống <strong>không thu thập thông tin thẻ tín dụng</strong> và không phát sinh bất kỳ giao dịch trừ tiền thực tế nào.
+    </div>
+  </div>
+
+  <div class="checkout-header-title" style="margin-top: 24px;">
+    <h1 class="page-title">Xác nhận thông tin giao hàng & thanh toán</h1>
+  </div>
+
+  <form asp-controller="Checkout" asp-action="ProcessOrder" method="post" id="checkout-form" class="checkout-form-grid" style="margin-top: 24px;">
+    @Html.AntiForgeryToken()
+
+    <!-- Left Column: Shipping & Payment Options -->
+    <div class="checkout-left-col">
+      <!-- Section 1: Customer Info -->
+      <section class="checkout-card-section">
+        <h2 class="checkout-section-title">
+          <span class="step-num">1</span> Thông tin người nhận
+        </h2>
+        <div class="form-row-2">
+          <div class="form-group">
+            <label asp-for="FullName" class="form-label">Họ và tên <span class="required">*</span></label>
+            <input asp-for="FullName" class="form-control" placeholder="Ví dụ: Nguyễn Văn An" value="Nguyễn Văn An" required />
+            <span asp-validation-for="FullName" class="field-validation-error"></span>
+          </div>
+          <div class="form-group">
+            <label asp-for="PhoneNumber" class="form-label">Số điện thoại <span class="required">*</span></label>
+            <input asp-for="PhoneNumber" class="form-control" placeholder="Ví dụ: 0988 123 456" value="0988 123 456" required />
+            <span asp-validation-for="PhoneNumber" class="field-validation-error"></span>
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-top: 16px;">
+          <label asp-for="Email" class="form-label">Địa chỉ Email (để nhận hóa đơn & mã tra cứu)</label>
+          <input asp-for="Email" class="form-control" type="email" placeholder="Ví dụ: an.nguyen@example.com" value="an.nguyen@example.com" />
+        </div>
+      </section>
+
+      <!-- Section 2: Shipping Address -->
+      <section class="checkout-card-section" style="margin-top: 24px;">
+        <h2 class="checkout-section-title">
+          <span class="step-num">2</span> Địa chỉ nhận hàng
+        </h2>
+        <div class="form-row-2">
+          <div class="form-group">
+            <label asp-for="City" class="form-label">Tỉnh / Thành phố <span class="required">*</span></label>
+            <select asp-for="City" class="form-control" required>
+              <option value="Hà Nội" selected>Hà Nội</option>
+              <option value="TP. Hồ Chí Minh">TP. Hồ Chí Minh</option>
+              <option value="Đà Nẵng">Đà Nẵng</option>
+              <option value="Hải Phòng">Hải Phòng</option>
+              <option value="Cần Thơ">Cần Thơ</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label asp-for="District" class="form-label">Quận / Huyện <span class="required">*</span></label>
+            <input asp-for="District" class="form-control" placeholder="Ví dụ: Quận Hai Bà Trưng" value="Quận Hai Bà Trưng" required />
+            <span asp-validation-for="District" class="field-validation-error"></span>
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-top: 16px;">
+          <label asp-for="Address" class="form-label">Số nhà, tên đường, phường/xã <span class="required">*</span></label>
+          <input asp-for="Address" class="form-control" placeholder="Ví dụ: Số 18, ngõ 45 phố Nguyễn Đình Chiểu" value="Số 18, ngõ 45 phố Nguyễn Đình Chiểu" required />
+          <span asp-validation-for="Address" class="field-validation-error"></span>
+        </div>
+
+        <div class="form-group" style="margin-top: 16px;">
+          <label asp-for="Note" class="form-label">Ghi chú cho shipper (tùy chọn)</label>
+          <textarea asp-for="Note" class="form-control" rows="2" placeholder="Ví dụ: Gọi điện trước khi giao hàng..."></textarea>
+        </div>
+      </section>
+
+      <!-- Section 3: Shipping Method -->
+      <section class="checkout-card-section" style="margin-top: 24px;">
+        <h2 class="checkout-section-title">
+          <span class="step-num">3</span> Phương thức vận chuyển
+        </h2>
+        <div class="radio-options-group">
+          <label class="radio-card selected">
+            <input type="radio" asp-for="ShippingMethod" value="standard" checked />
+            <div class="radio-card-content">
+              <div class="radio-card-header">
+                <strong>Giao hàng Tiêu Chuẩn (2-3 ngày)</strong>
+                <span class="price-pill">30.000 ₫</span>
+              </div>
+              <p class="radio-card-desc">Giao hàng tận nơi toàn quốc qua đối tác vận chuyển uy tín.</p>
+            </div>
+          </label>
+
+          <label class="radio-card">
+            <input type="radio" asp-for="ShippingMethod" value="express" />
+            <div class="radio-card-content">
+              <div class="radio-card-header">
+                <strong>Giao hàng Hỏa Tốc 2H (Nội thành)</strong>
+                <span class="price-pill">45.000 ₫</span>
+              </div>
+              <p class="radio-card-desc">Áp dụng đơn nội thành Hà Nội & TP.HCM, nhận hàng trong 120 phút.</p>
+            </div>
+          </label>
+        </div>
+      </section>
+
+      <!-- Section 4: Payment Method -->
+      <section class="checkout-card-section" style="margin-top: 24px;">
+        <h2 class="checkout-section-title">
+          <span class="step-num">4</span> Phương thức thanh toán (Demo)
+        </h2>
+        <div class="radio-options-group">
+          <label class="radio-card selected">
+            <input type="radio" asp-for="PaymentMethod" value="cod" checked />
+            <div class="radio-card-content">
+              <div class="radio-card-header">
+                <strong>Thanh toán khi nhận hàng (COD)</strong>
+                <span class="badge-capsule badge-mint">Khuyên dùng</span>
+              </div>
+              <p class="radio-card-desc">Nhận hàng, kiểm tra sản phẩm rồi mới thanh toán tiền mặt cho shipper.</p>
+            </div>
+          </label>
+
+          <label class="radio-card">
+            <input type="radio" asp-for="PaymentMethod" value="vietqr" />
+            <div class="radio-card-content">
+              <div class="radio-card-header">
+                <strong>Chuyển khoản VietQR Demo</strong>
+                <span class="badge-capsule badge-sky">Nhanh chóng</span>
+              </div>
+              <p class="radio-card-desc">Quét mã QR qua app ngân hàng hoặc ví điện tử (chế độ demo thử nghiệm).</p>
+            </div>
+          </label>
+        </div>
+      </section>
+    </div>
+
+    <!-- Right Column: Order Summary & Complete Button -->
+    <div class="checkout-right-col">
+      <div class="checkout-summary-card">
+        <h2 class="summary-card-title">Đơn hàng của bạn (1 món)</h2>
+
+        <div class="order-items-preview">
+          <div class="checkout-item-row">
+            <img src="/images/products/headphones-pro.webp" alt="Tai nghe Studio Pro Wireless" class="item-thumb" width="60" height="60" />
+            <div class="item-meta">
+              <div class="item-name">Tai nghe chụp tai Studio Pro Wireless</div>
+              <div class="item-variant">Đen Midnight × 1</div>
+            </div>
+            <div class="item-price">1.490.000 ₫</div>
+          </div>
+        </div>
+
+        <div class="summary-rows-group" style="margin-top: 20px;">
+          <div class="summary-row">
+            <span>Tạm tính:</span>
+            <span>1.490.000 ₫</span>
+          </div>
+          <div class="summary-row">
+            <span>Phí vận chuyển:</span>
+            <span class="text-success">Miễn phí</span>
+          </div>
+          <div class="summary-divider"></div>
+          <div class="summary-row total-row">
+            <span class="total-label">Tổng thanh toán:</span>
+            <span class="total-val">1.490.000 ₫</span>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-pill btn-pill-primary btn-block btn-pill-lg" style="margin-top: 24px;">
+          Hoàn tất đặt hàng (Demo) →
+        </button>
+
+        <p class="checkout-terms-note">
+          Bằng việc nhấn đặt hàng, bạn đồng ý với <a href="/chinh-sach/dieu-khoan">Điều khoản dịch vụ</a> và <a href="/chinh-sach/bao-mat">Chính sách bảo mật</a> của CutTayShop.
+        </p>
+      </div>
+    </div>
+  </form>
+</div>

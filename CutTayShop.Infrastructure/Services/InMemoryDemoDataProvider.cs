@@ -18,6 +18,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             IconColorHex = "#0284C7",
             ProductCount = 124,
             SortOrder = 1,
+            ImageUrl = "/images/categories/cat-cong-nghe.webp",
             IconSvg = "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"5\" y=\"2\" width=\"14\" height=\"20\" rx=\"2\" ry=\"2\"/><line x1=\"12\" y1=\"18\" x2=\"12.01\" y2=\"18\"/></svg>"
         },
         new Category
@@ -29,6 +30,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             IconColorHex = "#EA580C",
             ProductCount = 256,
             SortOrder = 2,
+            ImageUrl = "/images/categories/cat-thoi-trang.webp",
             IconSvg = "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z\"/></svg>"
         },
         new Category
@@ -40,6 +42,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             IconColorHex = "#16A34A",
             ProductCount = 89,
             SortOrder = 3,
+            ImageUrl = "/images/categories/cat-nha-cua.webp",
             IconSvg = "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z\"/><polyline points=\"9 22 9 12 15 12 15 22\"/></svg>"
         },
         new Category
@@ -51,6 +54,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             IconColorHex = "#E11D48",
             ProductCount = 142,
             SortOrder = 4,
+            ImageUrl = "/images/categories/cat-lam-dep.webp",
             IconSvg = "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z\"/></svg>"
         },
         new Category
@@ -62,6 +66,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             IconColorHex = "#7C3AED",
             ProductCount = 67,
             SortOrder = 5,
+            ImageUrl = "/images/categories/cat-the-thao.webp",
             IconSvg = "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m6.5 6.5 11 11\"/><path d=\"m21 21-1-1\"/><path d=\"m3 3 1 1\"/><path d=\"m18 22 4-4\"/><path d=\"m2 6 4-4\"/><path d=\"m3 10 7-7\"/><path d=\"m14 21 7-7\"/></svg>"
         },
         new Category
@@ -73,6 +78,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             IconColorHex = "#D97706",
             ProductCount = 210,
             SortOrder = 6,
+            ImageUrl = "/images/categories/cat-phu-kien.webp",
             IconSvg = "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z\"/><line x1=\"3\" y1=\"6\" x2=\"21\" y2=\"6\"/><path d=\"M16 10a4 4 0 0 1-8 0\"/></svg>"
         },
         new Category
@@ -84,6 +90,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             IconColorHex = "#9333EA",
             ProductCount = 98,
             SortOrder = 7,
+            ImageUrl = "/images/categories/cat-sach-vp.webp",
             IconSvg = "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 19.5A2.5 2.5 0 0 1 6.5 17H20\"/><path d=\"M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z\"/></svg>"
         },
         new Category
@@ -95,6 +102,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             IconColorHex = "#059669",
             ProductCount = 54,
             SortOrder = 8,
+            ImageUrl = "/images/categories/cat-do-choi.webp",
             IconSvg = "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><line x1=\"6\" y1=\"12\" x2=\"10\" y2=\"12\"/><line x1=\"8\" y1=\"10\" x2=\"8\" y2=\"14\"/><line x1=\"15\" y1=\"13\" x2=\"15.01\" y2=\"13\"/><line x1=\"18\" y1=\"11\" x2=\"18.01\" y2=\"11\"/><rect x=\"2\" y=\"6\" width=\"20\" height=\"12\" rx=\"6\"/></svg>"
         },
         new Category
@@ -106,6 +114,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             IconColorHex = "#16A34A",
             ProductCount = 73,
             SortOrder = 9,
+            ImageUrl = "/images/categories/cat-suc-khoe.webp",
             IconSvg = "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z\"/><path d=\"M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12\"/></svg>"
         },
         new Category
@@ -117,6 +126,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             IconColorHex = "#2563EB",
             ProductCount = 115,
             SortOrder = 10,
+            ImageUrl = "/images/categories/cat-hang-quoc-te.webp",
             IconSvg = "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z\"/></svg>"
         }
     };
@@ -163,7 +173,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             HighlightNumber = "50%",
             CtaText = "Khám phá →",
             CtaLink = "/danh-muc/cong-nghe",
-            ImageUrl = "/images/products/smartwatch-promo.svg",
+            ImageUrl = "/images/hero/promo-smartwatch.webp",
             BgColorHex = "#E5F8DC", // Soft Green
             DecorativeDoodleSvg = "<svg viewBox=\"0 0 40 40\" fill=\"none\"><path d=\"M10 20 Q20 5 30 20 T50 20\" stroke=\"#16A34A\" stroke-width=\"2\" stroke-linecap=\"round\" fill=\"none\"/></svg>"
         },
@@ -175,7 +185,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             HighlightNumber = "2026",
             CtaText = "Xem ngay →",
             CtaLink = "/danh-muc/thoi-trang",
-            ImageUrl = "/images/products/cap-promo.svg",
+            ImageUrl = "/images/hero/promo-fashion.webp",
             BgColorHex = "#FFE5DA", // Warm Peach
             DecorativeDoodleSvg = "<svg viewBox=\"0 0 32 32\" fill=\"none\"><circle cx=\"16\" cy=\"16\" r=\"12\" stroke=\"#EA580C\" stroke-width=\"2\"/><circle cx=\"12\" cy=\"14\" r=\"1.5\" fill=\"#EA580C\"/><circle cx=\"20\" cy=\"14\" r=\"1.5\" fill=\"#EA580C\"/><path d=\"M11 19 Q16 23 21 19\" stroke=\"#EA580C\" stroke-width=\"2\" stroke-linecap=\"round\"/></svg>"
         }
@@ -197,8 +207,8 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             OriginalPrice = 2490000m,
             Rating = 4.9,
             ReviewCount = 1240,
-            ImageUrl = "/images/products/headphones-pro.svg",
-            SecondaryImageUrl = "/images/products/headphones-pro.svg",
+            ImageUrl = "/images/products/headphones-pro.webp",
+            SecondaryImageUrl = "/images/products/headphones-pro-detail.webp",
             Brand = "Sony",
             CategorySlug = "cong-nghe",
             CategoryName = "Công nghệ",
@@ -208,7 +218,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             IsFeatured = true,
             SoldCount = 86,
             TotalStock = 100,
-            GalleryImages = new() { "/images/products/headphones-pro.svg", "/images/products/speaker-mini.svg" },
+            GalleryImages = new() { "/images/products/headphones-pro.webp", "/images/products/speaker-mini.webp" },
             Specifications = new()
             {
                 { "Thương hiệu", "Sony" },
@@ -241,7 +251,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             OriginalPrice = 1590000m,
             Rating = 4.8,
             ReviewCount = 850,
-            ImageUrl = "/images/products/smartwatch-sport.svg",
+            ImageUrl = "/images/products/smartwatch-sport.webp",
             Brand = "Apple",
             CategorySlug = "cong-nghe",
             CategoryName = "Công nghệ",
@@ -251,7 +261,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             IsFeatured = true,
             SoldCount = 45,
             TotalStock = 50,
-            GalleryImages = new() { "/images/products/smartwatch-sport.svg", "/images/products/smartwatch-promo.svg" },
+            GalleryImages = new() { "/images/products/smartwatch-sport.webp", "/images/hero/promo-smartwatch.webp" },
             Specifications = new()
             {
                 { "Thương hiệu", "Apple" },
@@ -282,7 +292,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             OriginalPrice = 990000m,
             Rating = 4.9,
             ReviewCount = 620,
-            ImageUrl = "/images/products/speaker-mini.svg",
+            ImageUrl = "/images/products/speaker-mini.webp",
             Brand = "Anker",
             CategorySlug = "cong-nghe",
             CategoryName = "Công nghệ",
@@ -291,7 +301,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             IsHotDeal = true,
             SoldCount = 72,
             TotalStock = 80,
-            GalleryImages = new() { "/images/products/speaker-mini.svg" },
+            GalleryImages = new() { "/images/products/speaker-mini.webp" },
             Specifications = new()
             {
                 { "Thương hiệu", "Anker" },
@@ -320,7 +330,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             OriginalPrice = 1850000m,
             Rating = 5.0,
             ReviewCount = 290,
-            ImageUrl = "/images/products/keyboard-pastel.svg",
+            ImageUrl = "/images/products/keyboard-pastel.webp",
             Brand = "CutTay Studio",
             CategorySlug = "cong-nghe",
             CategoryName = "Công nghệ",
@@ -330,7 +340,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             IsNewArrival = true,
             SoldCount = 58,
             TotalStock = 70,
-            GalleryImages = new() { "/images/products/keyboard-pastel.svg" },
+            GalleryImages = new() { "/images/products/keyboard-pastel.webp" },
             Specifications = new()
             {
                 { "Thương hiệu", "CutTay Studio" },
@@ -359,7 +369,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             OriginalPrice = 650000m,
             Rating = 4.8,
             ReviewCount = 310,
-            ImageUrl = "/images/products/mouse-wireless.svg",
+            ImageUrl = "/images/products/mouse-wireless.webp",
             Brand = "CutTay Studio",
             CategorySlug = "cong-nghe",
             CategoryName = "Công nghệ",
@@ -390,7 +400,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             OriginalPrice = 350000m,
             Rating = 4.8,
             ReviewCount = 520,
-            ImageUrl = "/images/products/cap-beige.svg",
+            ImageUrl = "/images/products/cap-beige.webp",
             Brand = "CutTay Studio",
             CategorySlug = "thoi-trang",
             CategoryName = "Thời trang",
@@ -399,7 +409,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             IsHotDeal = true,
             SoldCount = 90,
             TotalStock = 100,
-            GalleryImages = new() { "/images/products/cap-beige.svg", "/images/products/cap-promo.svg" },
+            GalleryImages = new() { "/images/products/cap-beige.webp", "/images/hero/promo-fashion.webp" },
             Specifications = new()
             {
                 { "Thương hiệu", "CutTay Studio" },
@@ -427,7 +437,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             OriginalPrice = 650000m,
             Rating = 4.7,
             ReviewCount = 490,
-            ImageUrl = "/images/products/hoodie-organic.svg",
+            ImageUrl = "/images/products/hoodie-organic.webp",
             Brand = "Uniqlo",
             CategorySlug = "thoi-trang",
             CategoryName = "Thời trang",
@@ -437,7 +447,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             IsNewArrival = false,
             SoldCount = 112,
             TotalStock = 150,
-            GalleryImages = new() { "/images/products/hoodie-organic.svg" },
+            GalleryImages = new() { "/images/products/hoodie-organic.webp" },
             Specifications = new()
             {
                 { "Thương hiệu", "Uniqlo" },
@@ -466,7 +476,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             OriginalPrice = 1190000m,
             Rating = 4.9,
             ReviewCount = 670,
-            ImageUrl = "/images/products/sneaker-retro.svg",
+            ImageUrl = "/images/products/sneaker-retro.webp",
             Brand = "Nike",
             CategorySlug = "thoi-trang",
             CategoryName = "Thời trang",
@@ -476,7 +486,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             IsNewArrival = true,
             SoldCount = 88,
             TotalStock = 100,
-            GalleryImages = new() { "/images/products/sneaker-retro.svg" },
+            GalleryImages = new() { "/images/products/sneaker-retro.webp" },
             Specifications = new()
             {
                 { "Thương hiệu", "Nike" },
@@ -505,7 +515,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             OriginalPrice = 250000m,
             Rating = 4.8,
             ReviewCount = 380,
-            ImageUrl = "/images/products/tote-canvas.svg",
+            ImageUrl = "/images/products/tote-canvas.webp",
             Brand = "CutTay Studio",
             CategorySlug = "thoi-trang",
             CategoryName = "Thời trang",
@@ -536,7 +546,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             OriginalPrice = 480000m,
             Rating = 4.7,
             ReviewCount = 410,
-            ImageUrl = "/images/products/bottle-thermo.svg",
+            ImageUrl = "/images/products/bottle-thermo.webp",
             Brand = "Lock&Lock",
             CategorySlug = "nha-cua",
             CategoryName = "Nhà cửa",
@@ -545,7 +555,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             IsHotDeal = true,
             SoldCount = 29,
             TotalStock = 30,
-            GalleryImages = new() { "/images/products/bottle-thermo.svg" },
+            GalleryImages = new() { "/images/products/bottle-thermo.webp" },
             Specifications = new()
             {
                 { "Thương hiệu", "Lock&Lock" },
@@ -574,7 +584,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             OriginalPrice = 390000m,
             Rating = 4.8,
             ReviewCount = 180,
-            ImageUrl = "/images/products/lamp-moon.svg",
+            ImageUrl = "/images/products/lamp-moon.webp",
             Brand = "Xiaomi",
             CategorySlug = "nha-cua",
             CategoryName = "Nhà cửa",
@@ -584,7 +594,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             IsNewArrival = true,
             SoldCount = 42,
             TotalStock = 50,
-            GalleryImages = new() { "/images/products/lamp-moon.svg" },
+            GalleryImages = new() { "/images/products/lamp-moon.webp" },
             Specifications = new()
             {
                 { "Thương hiệu", "Xiaomi" },
@@ -608,7 +618,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             OriginalPrice = 520000m,
             Rating = 4.7,
             ReviewCount = 220,
-            ImageUrl = "/images/products/lamp-moon.svg",
+            ImageUrl = "/images/products/aroma-diffuser.webp",
             Brand = "Muji",
             CategorySlug = "nha-cua",
             CategoryName = "Nhà cửa",
@@ -632,7 +642,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             OriginalPrice = 550000m,
             Rating = 4.9,
             ReviewCount = 430,
-            ImageUrl = "/images/products/skincare-serum.svg",
+            ImageUrl = "/images/products/skincare-serum.webp",
             Brand = "Innisfree",
             CategorySlug = "lam-dep",
             CategoryName = "Làm đẹp",
@@ -641,7 +651,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             IsFeatured = true,
             SoldCount = 89,
             TotalStock = 120,
-            GalleryImages = new() { "/images/products/skincare-serum.svg" },
+            GalleryImages = new() { "/images/products/skincare-serum.webp" },
             Specifications = new()
             {
                 { "Thương hiệu", "Innisfree" },
@@ -664,7 +674,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             OriginalPrice = 420000m,
             Rating = 4.8,
             ReviewCount = 310,
-            ImageUrl = "/images/products/skincare-serum.svg",
+            ImageUrl = "/images/products/sunscreen-shield.webp",
             Brand = "Innisfree",
             CategorySlug = "lam-dep",
             CategoryName = "Làm đẹp",
@@ -687,7 +697,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             OriginalPrice = 750000m,
             Rating = 4.9,
             ReviewCount = 280,
-            ImageUrl = "/images/products/dumbbells-pro.svg",
+            ImageUrl = "/images/products/dumbbells-pro.webp",
             Brand = "Adidas",
             CategorySlug = "the-thao",
             CategoryName = "Thể thao",
@@ -696,7 +706,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             IsFeatured = true,
             SoldCount = 62,
             TotalStock = 90,
-            GalleryImages = new() { "/images/products/dumbbells-pro.svg" },
+            GalleryImages = new() { "/images/products/dumbbells-pro.webp" },
             Specifications = new()
             {
                 { "Thương hiệu", "Adidas" },
@@ -719,7 +729,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             OriginalPrice = 450000m,
             Rating = 4.8,
             ReviewCount = 340,
-            ImageUrl = "/images/products/dumbbells-pro.svg",
+            ImageUrl = "/images/products/yoga-mat.webp",
             Brand = "Adidas",
             CategorySlug = "the-thao",
             CategoryName = "Thể thao",
@@ -742,7 +752,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             OriginalPrice = 950000m,
             Rating = 4.9,
             ReviewCount = 380,
-            ImageUrl = "/images/products/backpack-urban.svg",
+            ImageUrl = "/images/products/backpack-urban.webp",
             Brand = "CutTay Studio",
             CategorySlug = "phu-kien",
             CategoryName = "Phụ kiện",
@@ -752,7 +762,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             IsNewArrival = true,
             SoldCount = 34,
             TotalStock = 60,
-            GalleryImages = new() { "/images/products/backpack-urban.svg" },
+            GalleryImages = new() { "/images/products/backpack-urban.webp" },
             Specifications = new()
             {
                 { "Thương hiệu", "CutTay Studio" },
@@ -775,7 +785,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             OriginalPrice = 550000m,
             Rating = 4.8,
             ReviewCount = 190,
-            ImageUrl = "/images/products/sunglasses-chic.svg",
+            ImageUrl = "/images/products/sunglasses-chic.webp",
             Brand = "CutTay Studio",
             CategorySlug = "phu-kien",
             CategoryName = "Phụ kiện",
@@ -799,7 +809,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             OriginalPrice = 320000m,
             Rating = 4.9,
             ReviewCount = 260,
-            ImageUrl = "/images/products/notebook-planner.svg",
+            ImageUrl = "/images/products/notebook-planner.webp",
             Brand = "Muji",
             CategorySlug = "sach-van-phong-pham",
             CategoryName = "Sách & VP",
@@ -808,7 +818,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             IsFeatured = true,
             SoldCount = 78,
             TotalStock = 120,
-            GalleryImages = new() { "/images/products/notebook-planner.svg" },
+            GalleryImages = new() { "/images/products/notebook-planner.webp" },
             Specifications = new()
             {
                 { "Thương hiệu", "Muji" },
@@ -831,7 +841,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             OriginalPrice = 690000m,
             Rating = 4.7,
             ReviewCount = 140,
-            ImageUrl = "/images/products/notebook-planner.svg",
+            ImageUrl = "/images/products/fountain-pen.webp",
             Brand = "Muji",
             CategorySlug = "sach-van-phong-pham",
             CategoryName = "Sách & VP",
@@ -854,7 +864,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             OriginalPrice = 790000m,
             Rating = 4.9,
             ReviewCount = 310,
-            ImageUrl = "/images/products/lego-robot.svg",
+            ImageUrl = "/images/products/lego-robot.webp",
             Brand = "Xiaomi",
             CategorySlug = "do-choi",
             CategoryName = "Đồ chơi",
@@ -863,7 +873,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             IsFeatured = true,
             SoldCount = 54,
             TotalStock = 75,
-            GalleryImages = new() { "/images/products/lego-robot.svg" },
+            GalleryImages = new() { "/images/products/lego-robot.webp" },
             Specifications = new()
             {
                 { "Thương hiệu", "Xiaomi" },
@@ -886,7 +896,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             OriginalPrice = 550000m,
             Rating = 4.8,
             ReviewCount = 270,
-            ImageUrl = "/images/products/lego-robot.svg",
+            ImageUrl = "/images/products/board-game.webp",
             Brand = "CutTay Studio",
             CategorySlug = "do-choi",
             CategoryName = "Đồ chơi",
@@ -909,7 +919,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             OriginalPrice = 1350000m,
             Rating = 4.9,
             ReviewCount = 420,
-            ImageUrl = "/images/products/massage-gun.svg",
+            ImageUrl = "/images/products/massage-gun.webp",
             Brand = "Xiaomi",
             CategorySlug = "suc-khoe",
             CategoryName = "Sức khỏe",
@@ -919,7 +929,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             IsFeatured = true,
             SoldCount = 83,
             TotalStock = 100,
-            GalleryImages = new() { "/images/products/massage-gun.svg" },
+            GalleryImages = new() { "/images/products/massage-gun.webp" },
             Specifications = new()
             {
                 { "Thương hiệu", "Xiaomi" },
@@ -942,7 +952,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             OriginalPrice = 720000m,
             Rating = 4.8,
             ReviewCount = 350,
-            ImageUrl = "/images/products/massage-gun.svg",
+            ImageUrl = "/images/products/water-flosser.webp",
             Brand = "Lock&Lock",
             CategorySlug = "suc-khoe",
             CategoryName = "Sức khỏe",
@@ -965,7 +975,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             OriginalPrice = 890000m,
             Rating = 4.9,
             ReviewCount = 290,
-            ImageUrl = "/images/products/travel-adapter.svg",
+            ImageUrl = "/images/products/travel-adapter.webp",
             Brand = "Anker",
             CategorySlug = "hang-quoc-te",
             CategoryName = "Hàng quốc tế",
@@ -974,7 +984,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             IsFeatured = true,
             SoldCount = 51,
             TotalStock = 70,
-            GalleryImages = new() { "/images/products/travel-adapter.svg" },
+            GalleryImages = new() { "/images/products/travel-adapter.webp" },
             Specifications = new()
             {
                 { "Thương hiệu", "Anker" },
@@ -997,7 +1007,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             OriginalPrice = 380000m,
             Rating = 4.8,
             ReviewCount = 175,
-            ImageUrl = "/images/products/travel-adapter.svg",
+            ImageUrl = "/images/products/kitchen-scale.webp",
             Brand = "Muji",
             CategorySlug = "hang-quoc-te",
             CategoryName = "Hàng quốc tế",
@@ -1020,7 +1030,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             OriginalPrice = 1090000m,
             Rating = 4.8,
             ReviewCount = 380,
-            ImageUrl = "/images/products/headphones-pro.svg",
+            ImageUrl = "/images/products/headphones-pro.webp",
             Brand = "Sony",
             CategorySlug = "cong-nghe",
             CategoryName = "Công nghệ",
@@ -1039,7 +1049,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             OriginalPrice = 450000m,
             Rating = 4.7,
             ReviewCount = 210,
-            ImageUrl = "/images/products/hoodie-organic.svg",
+            ImageUrl = "/images/products/hoodie-organic.webp",
             Brand = "Uniqlo",
             CategorySlug = "thoi-trang",
             CategoryName = "Thời trang",
@@ -1058,7 +1068,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             OriginalPrice = 520000m,
             Rating = 4.9,
             ReviewCount = 275,
-            ImageUrl = "/images/products/backpack-urban.svg",
+            ImageUrl = "/images/products/backpack-urban.webp",
             Brand = "CutTay Studio",
             CategorySlug = "phu-kien",
             CategoryName = "Phụ kiện",
@@ -1077,7 +1087,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             OriginalPrice = 180000m,
             Rating = 4.8,
             ReviewCount = 390,
-            ImageUrl = "/images/products/dumbbells-pro.svg",
+            ImageUrl = "/images/products/dumbbells-pro.webp",
             Brand = "Nike",
             CategorySlug = "the-thao",
             CategoryName = "Thể thao",
@@ -1096,7 +1106,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             OriginalPrice = 680000m,
             Rating = 4.8,
             ReviewCount = 290,
-            ImageUrl = "/images/products/skincare-serum.svg",
+            ImageUrl = "/images/products/skincare-serum.webp",
             Brand = "Xiaomi",
             CategorySlug = "lam-dep",
             CategoryName = "Làm đẹp",
@@ -1115,7 +1125,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             OriginalPrice = 280000m,
             Rating = 4.7,
             ReviewCount = 160,
-            ImageUrl = "/images/products/bottle-thermo.svg",
+            ImageUrl = "/images/products/bottle-thermo.webp",
             Brand = "Lock&Lock",
             CategorySlug = "nha-cua",
             CategoryName = "Nhà cửa",
@@ -1369,4 +1379,238 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
         result = result.Replace('đ', 'd').Replace('Đ', 'D');
         return result;
     }
+
+    private static readonly List<BlogPost> BlogPosts = new()
+    {
+        new BlogPost
+        {
+            Id = 1,
+            Title = "Top 5 Setup Góc Làm Việc Tối Giản Cực Chill 2026",
+            Slug = "top-5-setup-goc-lam-viec-toi-gian-2026",
+            Summary = "Khám phá phong cách bàn làm việc Minimalism kết hợp công nghệ hiện đại giúp tăng 200% cảm hứng sáng tạo mỗi ngày.",
+            Category = "Công nghệ & Lifestyle",
+            CategorySlug = "cong-nghe",
+            ImageUrl = "/images/blog/blog-desk-setup.webp",
+            Author = "Lê Hải Đăng",
+            ReadingTime = "4 phút đọc",
+            PublishedAt = new DateTime(2026, 2, 20),
+            Tags = new() { "Setup", "Minimalism", "Công nghệ", "Góc làm việc" },
+            RelatedProductSlugs = new() { "ban-phim-co-khong-day-pastel-glow-rgb", "chuot-khong-day-cong-thai-hoc-silence-pro", "tai-nghe-chup-tai-studio-pro-wireless" },
+            ContentHtml = "<p>Một góc làm việc gọn gàng, tinh tế không chỉ tạo cảm giác thư thái mà còn là nguồn động lực dồi dào cho mỗi ngày làm việc sáng tạo. Không gian tối giản giúp giảm tải áp lực thị giác, cho phép tâm trí tập trung vào những dòng code hay ý tưởng kinh doanh cốt lõi.</p><h3>1. Nguyên tắc bàn phím cơ không dây & chuột công thái học</h3><p>Hãy giải phóng mặt bàn khỏi những bó dây cáp rối mắt. Một chiếc bàn phím cơ tone màu pastel cùng chuột silent không dây vừa mang lại cảm giác gõ êm mượt, vừa giữ không gian luôn trong trạng thái tinh khiết.</p><h3>2. Ánh sáng dịu nhẹ với đèn decor</h3><p>Ánh sáng gián tiếp từ đèn mặt trăng 3D hoặc dải LED hắt sau màn hình sẽ bảo vệ mắt khi làm việc buổi tối và biến góc làm việc thành chốn chill tuyệt vời.</p>"
+        },
+        new BlogPost
+        {
+            Id = 2,
+            Title = "Xu Hướng Streetwear Đón Đầu Năm 2026: Năng Động & Tinh Tế",
+            Slug = "xu-huong-streetwear-don-dau-2026",
+            Summary = "Tổng hợp những cách phối đồ theo phong cách đường phố tối giản với mũ lưỡi trai, hoodie và sneaker retro.",
+            Category = "Thời trang",
+            CategorySlug = "thoi-trang",
+            ImageUrl = "/images/blog/blog-spring-fashion.webp",
+            Author = "Trần Thảo Ly",
+            ReadingTime = "6 phút đọc",
+            PublishedAt = new DateTime(2026, 2, 18),
+            Tags = new() { "Streetwear", "Fashion", "CutTay Style", "OOTD" },
+            RelatedProductSlugs = new() { "mu-luoi-trai-cotton-street-style-2026", "ao-hoodie-form-rong-cotton-blend-organic", "giay-sneaker-retro-chunky-sole-cuttay" },
+            ContentHtml = "<p>Năm 2026 chứng kiến sự lên ngôi của phong cách Quiet Streetwear - nơi sự thoải mái và đường nét tối giản chiếm vị trí trung tâm. Thay vì những logo phô trương, giới trẻ chuộng phom dáng oversize mềm mại cùng gam màu đất hoặc pastel trang nhã.</p><h3>Bí quyết mix-and-match kinh điển</h3><p>Sự kết hợp giữa áo hoodie cotton blend hữu cơ, mũ lưỡi trai beige mộc mạc cùng đôi sneaker chunky đế thô mang đến diện mạo vừa phóng khoáng vừa chỉn chu trong mọi buổi dạo phố.</p>"
+        },
+        new BlogPost
+        {
+            Id = 3,
+            Title = "Bí Quyết Nạp Năng Lượng Buổi Sáng Cho Dân Văn Phòng Hiện Đại",
+            Slug = "bi-quyet-nap-nang-luong-buoi-sang",
+            Summary = "Duy trì sức bền và tinh thần hứng khởi suốt 8 tiếng làm việc nhờ thói quen vận động nhẹ và thư giãn thông minh.",
+            Category = "Sức khỏe & Đời sống",
+            CategorySlug = "suc-khoe",
+            ImageUrl = "/images/blog/blog-morning-routine.webp",
+            Author = "Bác sĩ Minh Vũ",
+            ReadingTime = "5 phút đọc",
+            PublishedAt = new DateTime(2026, 2, 15),
+            Tags = new() { "Wellness", "Routine", "Sức khỏe", "Work-Life" },
+            RelatedProductSlugs = new() { "binh-giu-nhiet-inox-316-pastel-thermo-750ml", "tham-tap-yoga-dinh-tuyen-tpe-2-lop-chong-truot-8mm", "sung-massage-cam-tay-giai-co-deep-tissue-pro" },
+            ContentHtml = "<p>Cảm giác uể oải mỗi sáng hoàn toàn có thể được giải quyết chỉ bằng một vài điều chỉnh nhỏ trong thói quen sinh hoạt. Bắt đầu ngày mới bằng 15 phút giãn cơ trên thảm yoga, uống một cốc nước ấm từ bình giữ nhiệt và nghe podcast âm nhạc nhẹ nhàng.</p><h3>Thư giãn cơ tức thì sau giờ làm việc</h3><p>Súng massage mini cầm tay sẽ là vị cứu tinh xua tan cơn mỏi vai gáy của người ngồi máy tính nhiều, giúp phục hồi lưu thông máu nhanh chóng.</p>"
+        }
+    };
+
+    private static readonly List<Coupon> Coupons = new()
+    {
+        new Coupon
+        {
+            Id = 1,
+            Code = "CUTTAYNEW",
+            Title = "Voucher chào bạn mới",
+            Description = "Giảm trực tiếp 20.000đ cho đơn hàng đầu tiên từ 150.000đ",
+            DiscountAmount = 20000m,
+            MinOrderValue = 150000m,
+            ValidUntil = new DateTime(2026, 12, 31),
+            IsActive = true
+        },
+        new Coupon
+        {
+            Id = 2,
+            Code = "FREESHIP50",
+            Title = "Miễn phí vận chuyển toàn quốc",
+            Description = "Giảm 30.000đ phí vận chuyển cho đơn hàng từ 250.000đ",
+            DiscountAmount = 30000m,
+            MinOrderValue = 250000m,
+            ValidUntil = new DateTime(2026, 12, 31),
+            IsActive = true
+        },
+        new Coupon
+        {
+            Id = 3,
+            Code = "TECHDEAL10",
+            Title = "Ưu đãi công nghệ 10%",
+            Description = "Giảm 10% tối đa 100.000đ khi mua các sản phẩm ngành hàng Công nghệ",
+            DiscountAmount = 100000m,
+            DiscountPercent = 10m,
+            MinOrderValue = 500000m,
+            ValidUntil = new DateTime(2026, 12, 31),
+            IsActive = true,
+            CategoryLimit = "cong-nghe"
+        },
+        new Coupon
+        {
+            Id = 4,
+            Code = "VIPMEMBER",
+            Title = "Đặc quyền CutTayShop+ Gold",
+            Description = "Giảm 50.000đ cho thành viên hạng Vàng trở lên đơn từ 400.000đ",
+            DiscountAmount = 50000m,
+            MinOrderValue = 400000m,
+            ValidUntil = new DateTime(2026, 12, 31),
+            IsActive = true
+        }
+    };
+
+    private static readonly List<Order> Orders = new()
+    {
+        new Order
+        {
+            Id = 1,
+            OrderCode = "CTS-2026-88910",
+            CreatedAt = new DateTime(2026, 2, 26, 14, 30, 0),
+            CustomerName = "Nguyễn Văn An",
+            PhoneNumber = "0988 123 456",
+            Email = "nguyenvanan@gmail.com",
+            ShippingAddress = "Số 18, Ngõ 45 phố Nguyễn Đình Chiểu, Phường Lê Đại Hành, Quận Hai Bà Trưng, Hà Nội",
+            ShippingMethod = "Giao hàng hỏa tốc 2H",
+            PaymentMethod = "Thanh toán khi nhận hàng (COD)",
+            Status = "Đang giao",
+            Subtotal = 2080000m,
+            ShippingFee = 35000m,
+            Discount = 20000m,
+            TrackingNumber = "VNPOST-99281923",
+            Items = new()
+            {
+                new OrderItem
+                {
+                    ProductId = 1,
+                    ProductName = "Tai nghe chụp tai Studio Pro Wireless",
+                    ProductSlug = "tai-nghe-chup-tai-studio-pro-wireless",
+                    ImageUrl = "/images/products/headphones-pro.webp",
+                    VariantName = "Đen Midnight",
+                    UnitPrice = 1490000m,
+                    Quantity = 1
+                },
+                new OrderItem
+                {
+                    ProductId = 3,
+                    ProductName = "Loa Bluetooth Mini Fabric Sound",
+                    ProductSlug = "loa-bluetooth-mini-fabric-sound",
+                    ImageUrl = "/images/products/speaker-mini.webp",
+                    VariantName = "Xanh Mint Pastel",
+                    UnitPrice = 590000m,
+                    Quantity = 1
+                }
+            },
+            TrackingHistory = new()
+            {
+                new() { Title = "Đơn hàng đã đặt", Description = "Quý khách đã đặt đơn hàng thành công", Timestamp = new DateTime(2026, 2, 26, 14, 30, 0), IsCompleted = true },
+                new() { Title = "Đã xác nhận", Description = "CutTayShop đã xác nhận đơn hàng và chuẩn bị kiện", Timestamp = new DateTime(2026, 2, 26, 15, 0, 0), IsCompleted = true },
+                new() { Title = "Đang vận chuyển", Description = "Đơn hàng đã bàn giao cho bưu tá VNPost, đang trên đường giao tới bạn", Timestamp = new DateTime(2026, 2, 26, 16, 20, 0), IsCompleted = true, IsCurrent = true },
+                new() { Title = "Đã giao thành công", Description = "Kiện hàng đã được giao tận tay khách hàng", Timestamp = new DateTime(2026, 2, 26, 17, 30, 0), IsCompleted = false }
+            }
+        },
+        new Order
+        {
+            Id = 2,
+            OrderCode = "CTS-2026-88902",
+            CreatedAt = new DateTime(2026, 2, 20, 9, 15, 0),
+            CustomerName = "Nguyễn Văn An",
+            PhoneNumber = "0988 123 456",
+            Email = "nguyenvanan@gmail.com",
+            ShippingAddress = "Số 18, Ngõ 45 phố Nguyễn Đình Chiểu, Phường Lê Đại Hành, Quận Hai Bà Trưng, Hà Nội",
+            ShippingMethod = "Giao hàng tiêu chuẩn",
+            PaymentMethod = "Chuyển khoản VietQR",
+            Status = "Đã giao",
+            Subtotal = 400000m,
+            ShippingFee = 0m,
+            Discount = 20000m,
+            TrackingNumber = "GHN-8827103",
+            Items = new()
+            {
+                new OrderItem
+                {
+                    ProductId = 6,
+                    ProductName = "Mũ lưỡi trai Cotton Street Style 2026",
+                    ProductSlug = "mu-luoi-trai-cotton-street-style-2026",
+                    ImageUrl = "/images/products/cap-beige.webp",
+                    VariantName = "Màu Be Vintage",
+                    UnitPrice = 190000m,
+                    Quantity = 1
+                },
+                new OrderItem
+                {
+                    ProductId = 11,
+                    ProductName = "Túi Tote Canvas thân thiện môi trường CutTay",
+                    ProductSlug = "tui-tote-canvas-eco-friendly-cuttay",
+                    ImageUrl = "/images/products/tote-canvas.webp",
+                    VariantName = "Kem Canvas Mộc",
+                    UnitPrice = 210000m,
+                    Quantity = 1
+                }
+            },
+            TrackingHistory = new()
+            {
+                new() { Title = "Đã giao thành công", Description = "Giao hàng thành công. Cảm ơn bạn đã mua sắm tại CutTayShop!", Timestamp = new DateTime(2026, 2, 22, 11, 45, 0), IsCompleted = true, IsCurrent = true }
+            }
+        },
+        new Order
+        {
+            Id = 3,
+            OrderCode = "CTS-2026-88934",
+            CreatedAt = new DateTime(2026, 2, 28, 10, 0, 0),
+            CustomerName = "Nguyễn Văn An",
+            PhoneNumber = "0988 123 456",
+            Email = "nguyenvanan@gmail.com",
+            ShippingAddress = "Số 18, Ngõ 45 phố Nguyễn Đình Chiểu, Phường Lê Đại Hành, Quận Hai Bà Trưng, Hà Nội",
+            ShippingMethod = "Giao hàng tiêu chuẩn",
+            PaymentMethod = "Thanh toán khi nhận hàng (COD)",
+            Status = "Đang xử lý",
+            Subtotal = 320000m,
+            ShippingFee = 30000m,
+            Discount = 0m,
+            Items = new()
+            {
+                new OrderItem
+                {
+                    ProductId = 10,
+                    ProductName = "Bình giữ nhiệt Inox 316 Pastel Thermo 750ml",
+                    ProductSlug = "binh-giu-nhiet-inox-316-pastel-thermo-750ml",
+                    ImageUrl = "/images/products/bottle-thermo.webp",
+                    VariantName = "Xanh Mint Pastel",
+                    UnitPrice = 320000m,
+                    Quantity = 1
+                }
+            }
+        }
+    };
+
+    public Task<IReadOnlyList<Product>> GetAllProductsAsync() => Task.FromResult<IReadOnlyList<Product>>(Products);
+    public Task<IReadOnlyList<BlogPost>> GetBlogPostsAsync() => Task.FromResult<IReadOnlyList<BlogPost>>(BlogPosts);
+    public Task<BlogPost?> GetBlogPostBySlugAsync(string slug) => Task.FromResult(BlogPosts.FirstOrDefault(b => b.Slug.Equals(slug, StringComparison.OrdinalIgnoreCase)));
+    public Task<IReadOnlyList<Coupon>> GetCouponsAsync() => Task.FromResult<IReadOnlyList<Coupon>>(Coupons);
+    public Task<IReadOnlyList<Order>> GetOrdersAsync() => Task.FromResult<IReadOnlyList<Order>>(Orders);
+    public Task<Order?> GetOrderByCodeAsync(string code) => Task.FromResult(Orders.FirstOrDefault(o => o.OrderCode.Equals(code, StringComparison.OrdinalIgnoreCase) || o.PhoneNumber.Equals(code, StringComparison.OrdinalIgnoreCase)));
+
 }

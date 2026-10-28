@@ -1,0 +1,98 @@
+@model CutTayShop.Core.Models.Order
+@{
+    ViewData["Title"] = "Chi Tiết Đơn Hàng #" + Model.OrderCode + " — CutTayShop";
+}
+
+<div class="container-custom" style="padding-top: 32px; padding-bottom: 80px;">
+  <div class="account-portal-layout">
+    <div class="account-sidebar-col">
+      @await Html.PartialAsync("_AccountNav")
+    </div>
+
+    <div class="account-content-col">
+      <div class="account-section-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
+          <div>
+            <a href="/tai-khoan/don-hang" style="font-size: 0.875rem; color: var(--color-primary); font-weight: 600;">← Quay lại danh sách đơn hàng</a>
+            <h1 class="card-title" style="margin-top: 8px;">Chi tiết đơn hàng #@Model.OrderCode</h1>
+            <span class="text-muted" style="font-size: 0.8125rem;">Đặt ngày: @Model.CreatedAt.ToString("dd/MM/yyyy HH:mm")</span>
+          </div>
+          <span class="badge-capsule badge-mint" style="font-size: 0.9375rem;">@Model.Status</span>
+        </div>
+
+        <!-- Shipping & Recipient Info -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-bottom: 32px;">
+          <div style="padding: 16px; background: var(--color-bg-secondary); border-radius: var(--radius-md);">
+            <div style="font-size: 0.8125rem; color: var(--color-text-muted); margin-bottom: 4px;">ĐỊA CHỈ NHẬN HÀNG</div>
+            <strong>@Model.CustomerName</strong>
+            <p style="margin: 4px 0; font-size: 0.875rem;">@Model.ShippingAddress</p>
+            <span style="font-size: 0.875rem; color: var(--color-text-secondary);">SĐT: @Model.PhoneNumber</span>
+          </div>
+
+          <div style="padding: 16px; background: var(--color-bg-secondary); border-radius: var(--radius-md);">
+            <div style="font-size: 0.8125rem; color: var(--color-text-muted); margin-bottom: 4px;">HÌNH THỨC GIAO HÀNG & THANH TOÁN</div>
+            <p style="margin: 4px 0; font-size: 0.875rem;">🚚 @Model.ShippingMethod</p>
+            <p style="margin: 4px 0; font-size: 0.875rem;">💳 @Model.PaymentMethod</p>
+            @if (!string.IsNullOrEmpty(Model.TrackingNumber))
+            {
+              <span style="font-size: 0.8125rem; color: var(--color-text-muted);">Mã vận đơn: @Model.TrackingNumber</span>
+            }
+          </div>
+        </div>
+
+        <!-- Items Table -->
+        <h3 style="font-size: 1.125rem; font-weight: 700; margin-bottom: 16px;">Danh sách kiện hàng</h3>
+        <table class="table-styled" style="width: 100%; border-collapse: collapse;">
+          <thead>
+            <tr style="background: var(--color-bg-secondary); text-align: left;">
+              <th style="padding: 12px;">Sản phẩm</th>
+              <th style="padding: 12px;">Đơn giá</th>
+              <th style="padding: 12px;">Số lượng</th>
+              <th style="padding: 12px; text-align: right;">Tạm tính</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach (var item in Model.Items)
+            {
+              <tr style="border-bottom: 1px solid var(--color-border);">
+                <td style="padding: 12px; display: flex; align-items: center; gap: 12px;">
+                  <img src="@item.ImageUrl" alt="@item.ProductName" style="width: 50px; height: 50px; object-fit: cover; border-radius: var(--radius-sm);" />
+                  <div>
+                    <a href="/san-pham/@item.ProductSlug" style="font-weight: 600; color: var(--color-text-primary);">@item.ProductName</a>
+                    <div style="font-size: 0.8125rem; color: var(--color-text-muted);">@item.VariantName</div>
+                  </div>
+                </td>
+                <td style="padding: 12px;">@item.UnitPrice.ToString("N0") ₫</td>
+                <td style="padding: 12px;">@item.Quantity</td>
+                <td style="padding: 12px; text-align: right; font-weight: 600;">@item.TotalPrice.ToString("N0") ₫</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+
+        <!-- Pricing Summary -->
+        <div style="max-width: 320px; margin-left: auto; margin-top: 24px;">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+            <span>Tạm tính:</span>
+            <span>@Model.Subtotal.ToString("N0") ₫</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+            <span>Phí vận chuyển:</span>
+            <span>@Model.ShippingFee.ToString("N0") ₫</span>
+          </div>
+          @if (Model.Discount > 0)
+          {
+            <div style="display: flex; justify-content: space-between; margin-bottom: 8px; color: var(--color-danger);">
+              <span>Giảm giá:</span>
+              <span>-@Model.Discount.ToString("N0") ₫</span>
+            </div>
+          }
+          <div style="border-top: 1px solid var(--color-border); padding-top: 12px; display: flex; justify-content: space-between; font-weight: 700; font-size: 1.125rem;">
+            <span>Tổng cộng:</span>
+            <span style="color: var(--color-primary);">@Model.TotalAmount.ToString("N0") ₫</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

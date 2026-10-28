@@ -1,0 +1,62 @@
+@{
+    ViewData["Title"] = "Đặc Quyền Hội Viên CutTayShop+ — CutTayShop";
+}
+
+<div class="container-custom" style="padding-top: 32px; padding-bottom: 80px;">
+  <div class="account-portal-layout">
+    <div class="account-sidebar-col">
+      @await Html.PartialAsync("_AccountNav")
+    </div>
+
+    <div class="account-content-col">
+      <div class="account-section-card">
+        <div class="loyalty-header-banner" style="background: linear-gradient(135deg, #1e293b, #0f172a); color: white; padding: 32px; border-radius: var(--radius-lg); margin-bottom: 32px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+            <div>
+              <div class="badge-capsule" style="background: rgba(255,255,255,0.15); color: #facc15; margin-bottom: 8px;">👑 Hạng Thành Viên</div>
+              <h1 style="font-size: 1.75rem; font-weight: 800; margin: 0; color: #facc15;">CutTayShop+ VÀNG</h1>
+              <p style="margin-top: 8px; color: #94a3b8;">Tích lũy thêm 750 điểm nữa để lên hạng <strong>Kim Cương</strong></p>
+            </div>
+            <div style="text-align: right;">
+              <div style="font-size: 0.875rem; color: #94a3b8;">ĐIỂM HIỆN CÓ</div>
+              <div style="font-size: 2.5rem; font-weight: 800; color: white;">1.250</div>
+            </div>
+          </div>
+
+          <!-- Progress Bar to Diamond -->
+          <div style="margin-top: 24px;">
+            <div style="display: flex; justify-content: space-between; font-size: 0.8125rem; margin-bottom: 6px; color: #cbd5e1;">
+              <span>Vàng (1.000 điểm)</span>
+              <span>Kim Cương (2.000 điểm)</span>
+            </div>
+            <div style="height: 8px; background: rgba(255,255,255,0.2); border-radius: 4px; overflow: hidden;">
+              <div style="width: 62.5%; height: 100%; background: #facc15; border-radius: 4px;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tier Privileges -->
+        <h2 class="section-title">Đặc quyền hạng Vàng của bạn</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 16px;">
+          <div style="padding: 20px; background: var(--color-bg-secondary); border-radius: var(--radius-md); border: 1px solid var(--color-border);">
+            <div style="font-size: 2rem; margin-bottom: 8px;">🚚</div>
+            <h3 style="font-size: 1rem; font-weight: 700; margin-bottom: 4px;">4 Mã Freeship / Tháng</h3>
+            <p style="font-size: 0.8125rem; color: var(--color-text-secondary); margin: 0;">Áp dụng cho mọi đơn hàng toàn quốc.</p>
+          </div>
+
+          <div style="padding: 20px; background: var(--color-bg-secondary); border-radius: var(--radius-md); border: 1px solid var(--color-border);">
+            <div style="font-size: 2rem; margin-bottom: 8px;">🎁</div>
+            <h3 style="font-size: 1rem; font-weight: 700; margin-bottom: 4px;">Quà tặng sinh nhật 100k</h3>
+            <p style="font-size: 0.8125rem; color: var(--color-text-secondary); margin: 0;">Voucher tự động gửi vào ví trong tháng sinh nhật.</p>
+          </div>
+
+          <div style="padding: 20px; background: var(--color-bg-secondary); border-radius: var(--radius-md); border: 1px solid var(--color-border);">
+            <div style="font-size: 2rem; margin-bottom: 8px;">⚡</div>
+            <h3 style="font-size: 1rem; font-weight: 700; margin-bottom: 4px;">Ưu tiên CSKH 1-1</h3>
+            <p style="font-size: 0.8125rem; color: var(--color-text-secondary); margin: 0;">Kết nối chuyên viên hỗ trợ trong 30 giây.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

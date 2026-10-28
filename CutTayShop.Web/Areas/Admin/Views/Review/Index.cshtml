@@ -1,0 +1,49 @@
+@model IReadOnlyList<CutTayShop.Core.Models.ProductReview>
+@{
+    ViewData["Title"] = "Kiểm Duyệt Đánh Giá — Admin";
+}
+
+<div class="admin-page-header">
+  <div>
+    <h1 class="admin-page-title">Kiểm Duyệt Đánh Giá Sản Phẩm</h1>
+    <p class="text-muted">Kiểm tra và phê duyệt nhận xét từ khách hàng trước khi hiển thị công khai.</p>
+  </div>
+</div>
+
+<div class="admin-card" style="margin-top: 24px; background: var(--color-bg-primary); border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden;">
+  <div style="overflow-x: auto;">
+    <table class="table-styled" style="width: 100%;">
+      <thead>
+        <tr style="text-align: left; background: var(--color-bg-secondary);">
+          <th style="padding: 12px;">Khách hàng</th>
+          <th style="padding: 12px;">Số sao</th>
+          <th style="padding: 12px;">Nội dung nhận xét</th>
+          <th style="padding: 12px;">Ngày gửi</th>
+          <th style="padding: 12px;">Trạng thái</th>
+          <th style="padding: 12px; text-align: right;">Thao tác</th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach (var rev in Model)
+        {
+          <tr style="border-bottom: 1px solid var(--color-border);">
+            <td style="padding: 12px;">
+              <strong>@rev.AuthorName</strong>
+              @if (rev.IsVerifiedPurchase)
+              {
+                <div style="font-size: 0.75rem; color: #10b981;">✓ Đã mua hàng</div>
+              }
+            </td>
+            <td style="padding: 12px; color: #f59e0b; font-weight: 700;">★ @rev.Rating</td>
+            <td style="padding: 12px; font-size: 0.875rem;">@rev.Comment</td>
+            <td style="padding: 12px; font-size: 0.8125rem;">@rev.Date.ToString("dd/MM/yyyy")</td>
+            <td style="padding: 12px;"><span class="badge-capsule badge-mint">Đã duyệt</span></td>
+            <td style="padding: 12px; text-align: right;">
+              <button type="button" class="btn-pill btn-pill-ghost btn-sm" onclick="alert('Đã ẩn đánh giá!')">Ẩn nhận xét</button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

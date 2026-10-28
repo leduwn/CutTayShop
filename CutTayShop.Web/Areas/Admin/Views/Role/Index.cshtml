@@ -1,0 +1,50 @@
+@{
+    ViewData["Title"] = "Quản Trị Người Dùng & Phân Quyền — Admin";
+}
+
+<div class="admin-page-header">
+  <div>
+    <h1 class="admin-page-title">Quản Trị Người Dùng & Phân Quyền (RBAC)</h1>
+    <p class="text-muted">Cấu hình vai trò nhân viên và phân bổ capability truy cập các module quản trị.</p>
+  </div>
+  <button type="button" class="btn-pill btn-pill-primary" onclick="alert('Đã mở form tạo tài khoản nhân viên mới.')">+ Thêm nhân viên mới</button>
+</div>
+
+<div class="admin-card" style="margin-top: 24px; background: var(--color-bg-primary); border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden;">
+  <div style="overflow-x: auto;">
+    <table class="table-styled" style="width: 100%;">
+      <thead>
+        <tr style="text-align: left; background: var(--color-bg-secondary);">
+          <th style="padding: 12px;">Họ tên</th>
+          <th style="padding: 12px;">Email</th>
+          <th style="padding: 12px;">Vai trò (Role)</th>
+          <th style="padding: 12px;">Quyền hạn được cấp</th>
+          <th style="padding: 12px;">Trạng thái</th>
+          <th style="padding: 12px; text-align: right;">Thao tác</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom: 1px solid var(--color-border);">
+          <td style="padding: 12px;"><strong>Lê Admin</strong></td>
+          <td style="padding: 12px;">admin@cuttayshop.vn</td>
+          <td style="padding: 12px;"><span class="badge-capsule badge-peach">SuperAdmin</span></td>
+          <td style="padding: 12px; font-size: 0.8125rem;">Toàn quyền hệ thống (Full Capabilities)</td>
+          <td style="padding: 12px;"><span class="badge-capsule badge-mint">Hoạt động</span></td>
+          <td style="padding: 12px; text-align: right;">
+            <button type="button" class="btn-pill btn-pill-secondary btn-sm" onclick="alert('Xem quyền nhân viên.')">Sửa quyền</button>
+          </td>
+        </tr>
+        <tr style="border-bottom: 1px solid var(--color-border);">
+          <td style="padding: 12px;"><strong>Nguyễn Thủ Kho</strong></td>
+          <td style="padding: 12px;">kho@cuttayshop.vn</td>
+          <td style="padding: 12px;"><span class="badge-capsule badge-sky">InventoryManager</span></td>
+          <td style="padding: 12px; font-size: 0.8125rem;">Quản lý kho, tồn kho, đóng gói đơn hàng</td>
+          <td style="padding: 12px;"><span class="badge-capsule badge-mint">Hoạt động</span></td>
+          <td style="padding: 12px; text-align: right;">
+            <button type="button" class="btn-pill btn-pill-secondary btn-sm" onclick="alert('Xem quyền nhân viên.')">Sửa quyền</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

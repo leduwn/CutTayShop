@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>@ViewData["Title"] — CutTayShop Admin Portal</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="~/css/design-system.css" asp-append-version="true" />
+  <link rel="stylesheet" href="~/css/motion-tokens.css" asp-append-version="true" />
+  <link rel="stylesheet" href="~/css/admin-portal.css" asp-append-version="true" />
+</head>
+<body class="admin-body">
+  <div class="admin-wrapper">
+    <!-- Admin Sidebar -->
+    <aside class="admin-sidebar" id="adminSidebar">
+      <div class="admin-sidebar-header">
+        <a href="/admin" class="admin-brand-logo">
+          <span>CutTay</span><span class="badge-admin">Admin</span>
+        </a>
+        <button type="button" class="admin-sidebar-close" id="adminSidebarClose" aria-label="Đóng menu">✕</button>
+      </div>
+
+      <nav class="admin-sidebar-menu">
+        <div class="menu-section-label">TỔNG QUAN</div>
+        <a href="/admin" class="admin-menu-item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Dashboard" ? "active" : "")">
+          <span class="menu-icon">📊</span> Dashboard
+        </a>
+        <a href="/admin/bao-cao" class="admin-menu-item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Report" ? "active" : "")">
+          <span class="menu-icon">📈</span> Báo cáo doanh thu
+        </a>
+
+        <div class="menu-section-label">QUẢN LÝ BÁN HÀNG</div>
+        <a href="/admin/don-hang" class="admin-menu-item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Order" ? "active" : "")">
+          <span class="menu-icon">📦</span> Quản lý Đơn hàng
+        </a>
+        <a href="/admin/khach-hang" class="admin-menu-item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Customer" ? "active" : "")">
+          <span class="menu-icon">👥</span> Quản lý Khách hàng
+        </a>
+
+        <div class="menu-section-label">DANH MỤC & KHO</div>
+        <a href="/admin/san-pham" class="admin-menu-item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Product" ? "active" : "")">
+          <span class="menu-icon">🛍️</span> Quản lý Sản phẩm
+        </a>
+        <a href="/admin/danh-muc" class="admin-menu-item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Category" ? "active" : "")">
+          <span class="menu-icon">📂</span> Quản lý Danh mục
+        </a>
+        <a href="/admin/ton-kho" class="admin-menu-item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Inventory" ? "active" : "")">
+          <span class="menu-icon">🏬</span> Quản lý Tồn kho
+        </a>
+
+        <div class="menu-section-label">MARKETING & CMS</div>
+        <a href="/admin/khuyen-mai" class="admin-menu-item @(ViewContext.RouteData.Values["action"]?.ToString() == "Coupons" ? "active" : "")">
+          <span class="menu-icon">🎟️</span> Quản lý Voucher
+        </a>
+        <a href="/admin/flash-sale" class="admin-menu-item @(ViewContext.RouteData.Values["action"]?.ToString() == "FlashSale" ? "active" : "")">
+          <span class="menu-icon">⚡</span> Cài đặt Flash Sale
+        </a>
+        <a href="/admin/banner-cms" class="admin-menu-item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Banner" ? "active" : "")">
+          <span class="menu-icon">🖼️</span> Quản lý Banner CMS
+        </a>
+        <a href="/admin/bai-viet" class="admin-menu-item @(ViewContext.RouteData.Values["controller"]?.ToString() == "BlogAdmin" ? "active" : "")">
+          <span class="menu-icon">✍️</span> Quản trị Blog
+        </a>
+        <a href="/admin/danh-gia" class="admin-menu-item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Review" ? "active" : "")">
+          <span class="menu-icon">⭐</span> Duyệt Đánh giá
+        </a>
+
+        <div class="menu-section-label">HỆ THỐNG</div>
+        <a href="/admin/ho-tro" class="admin-menu-item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Support" ? "active" : "")">
+          <span class="menu-icon">💬</span> Hỗ trợ khách hàng
+        </a>
+        <a href="/admin/phan-quyen" class="admin-menu-item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Role" ? "active" : "")">
+          <span class="menu-icon">🛡️</span> Quyền & Thành viên
+        </a>
+        <a href="/admin/cai-dat" class="admin-menu-item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Setting" ? "active" : "")">
+          <span class="menu-icon">⚙️</span> Cài đặt hệ thống
+        </a>
+      </nav>
+
+      <div class="admin-sidebar-footer">
+        <a href="/" class="btn-storefront-link" target="_blank">
+          <span>🌐 Xem Website Storefront</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <div class="admin-main">
+      <!-- Admin Topbar -->
+      <header class="admin-topbar">
+        <button type="button" class="admin-mobile-toggle" id="adminSidebarToggle" aria-label="Mở menu">
+          ☰
+        </button>
+
+        <div class="admin-search-box">
+          <input type="search" placeholder="Tìm nhanh sản phẩm, đơn hàng, khách hàng..." class="admin-search-input" />
+        </div>
+
+        <div class="admin-topbar-actions">
+          <button type="button" class="btn-icon" data-theme-toggle aria-label="Đổi theme">
+            🌓
+          </button>
+          <div class="admin-user-pill">
+            <span class="admin-avatar">AD</span>
+            <span class="admin-username">Admin CutTay</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Body -->
+      <main class="admin-content-area">
+        @if (TempData["AdminNotice"] != null)
+        {
+          <div class="alert alert-success" style="margin-bottom: 24px;">
+            @TempData["AdminNotice"]
+          </div>
+        }
+        @RenderBody()
+      </main>
+    </div>
+  </div>
+
+  <script src="~/js/theme-toggle.js" asp-append-version="true"></script>
+  <script>
+    document.getElementById('adminSidebarToggle')?.addEventListener('click', function() {
+      document.getElementById('adminSidebar')?.classList.toggle('open');
+    });
+    document.getElementById('adminSidebarClose')?.addEventListener('click', function() {
+      document.getElementById('adminSidebar')?.classList.remove('open');
+    });
+  </script>
+  @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

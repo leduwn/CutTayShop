@@ -1,0 +1,42 @@
+@{
+    ViewData["Title"] = "Hỗ Trợ Khách Hàng — Admin";
+}
+
+<div class="admin-page-header">
+  <div>
+    <h1 class="admin-page-title">Hàng Đợi Yêu Cầu Hỗ Trợ Khách Hàng (Support Queue)</h1>
+    <p class="text-muted">Tổng hợp tin nhắn gửi qua biểu mẫu liên hệ và khiếu nại đơn hàng.</p>
+  </div>
+</div>
+
+<div class="admin-card" style="margin-top: 24px; background: var(--color-bg-primary); border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden;">
+  <div style="overflow-x: auto;">
+    <table class="table-styled" style="width: 100%;">
+      <thead>
+        <tr style="text-align: left; background: var(--color-bg-secondary);">
+          <th style="padding: 12px;">Mã Ticket</th>
+          <th style="padding: 12px;">Khách hàng</th>
+          <th style="padding: 12px;">Tiêu đề yêu cầu</th>
+          <th style="padding: 12px;">Kênh</th>
+          <th style="padding: 12px;">Trạng thái</th>
+          <th style="padding: 12px; text-align: right;">Thao tác</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom: 1px solid var(--color-border);">
+          <td style="padding: 12px;"><strong>#TK-8821</strong></td>
+          <td style="padding: 12px;">
+            <div>Nguyễn Văn An</div>
+            <div style="font-size: 0.75rem; color: var(--color-text-muted);">0988 123 456</div>
+          </td>
+          <td style="padding: 12px;">Hỏi về thời gian nhận hàng giao hỏa tốc đơn CTS-2026-88910</td>
+          <td style="padding: 12px;"><span class="badge-capsule badge-sky">Biểu mẫu liên hệ</span></td>
+          <td style="padding: 12px;"><span class="badge-capsule badge-mint">Đã phản hồi</span></td>
+          <td style="padding: 12px; text-align: right;">
+            <button type="button" class="btn-pill btn-pill-secondary btn-sm" onclick="alert('Đã mở cuộc trò chuyện!')">Trả lời</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -4,112 +4,97 @@ Website thương mại điện tử B2C cao cấp xây dựng trên nền tảng
 
 - **Repository:** https://github.com/leduwn/CutTayShop
 - **Ngôn ngữ:** Tiếng Việt | **Đơn vị tiền tệ:** VND (₫)
-- **Giai đoạn hiện tại:** **Sprint 2 — Product Catalog, Categories & Product Detail (UI-First)**
-- **Chiến lược phát triển:** *FRONTEND FIRST — BACKEND INCREMENTAL*
+- **Giai đoạn hiện tại:** **Complete Frontend Experience — Real Photography, Mobile-First UI & Full Website Coverage**
+- **Chiến lược phát triển:** *FRONTEND COMPLETE — BACKEND INCREMENTAL*
 
 ---
 
-## 1. KIẾN TRÚC GIẢI PHÁP (SOLUTION STRUCTURE)
+## 1. ĐẶC ĐIỂM NỔI BẬT (KEY HIGHLIGHTS)
+
+1. **100% Ảnh Chụp Sản Phẩm Thật (Real Product Photography):**
+   - Thay thế hoàn toàn hình ảnh SVG mô phỏng bằng **50 hình ảnh WebP chụp thật** chất lượng studio cao cấp lưu trữ trực tiếp tại `wwwroot/images/`.
+   - Giấy phép Unsplash Commercial License hợp pháp, đầy đủ Asset Manifest và mã băm SHA-256.
+2. **Thiết Kế Mobile-First Chuyên Nghiệp:**
+   - Thanh điều hướng đáy (Bottom Navigation Bar) cố định 5 tab tiện dụng.
+   - Vùng chạm cảm ứng đạt chuẩn WCAG 2.2 AA $\ge 44\text{px} \times 44\text{px}$.
+   - Khay vuốt ngang cảm ứng (Horizontal Swipeable Trays) mượt mà như ứng dụng native.
+   - Xử lý khoảng đệm an toàn tự động `env(safe-area-inset-bottom)`.
+3. **Phủ Sóng 100% Sitemap Website (97 Tuyến Đường Đã Kiểm Thử):**
+   - **Storefront:** Trang chủ Editorial Motion, Catalog, Chi tiết sản phẩm PDP, Giỏ hàng tương tác, Thanh toán, Xác nhận đơn hàng, Tra cứu vận đơn.
+   - **Customer Portal:** Bảng điều khiển tài khoản, hồ sơ cá nhân, sổ địa chỉ, lịch sử đơn hàng, hội viên CutTayShop+, kho voucher cá nhân.
+   - **Admin Portal:** Dashboard thống kê, quản lý sản phẩm, đơn hàng, khách hàng, tồn kho, flash sale, voucher, banner CMS, báo cáo doanh thu, cài đặt hệ thống.
+   - **Tạp chí & Chính sách:** Blog xu hướng, bài viết chi tiết, 11 trang chính sách bảo hành, đổi trả, giao hàng, bảo mật, showroom và tuyển dụng.
+   - **Trang mã lỗi HTTP:** 404 Not Found, 403 Forbidden, 500 Server Error, Hết hạn phiên, Bảo trì 503.
+4. **Minh Bạch Chế Độ Demo (Demo Transparency):**
+   - Hiển thị rõ cảnh báo đơn hàng thử nghiệm, không phát sinh giao dịch thật.
+   - Trợ lý CutTay AI có nhãn bản xem trước (Preview Mode).
+
+---
+
+## 2. KIẾN TRÚC DỰ ÁN (SOLUTION STRUCTURE)
 
 ```
 CutTayShop.sln
 ├── CutTayShop.Core/               # Domain Models, Interfaces, Enums
-│   ├── Models/                   # Product, Category, Variant, Review, Filter
+│   ├── Models/                   # Product, Category, Variant, Order, Coupon, BlogPost, Filter
 │   └── Interfaces/               # IDemoDataProvider
-├── CutTayShop.Infrastructure/     # In-Memory Demo Data Services
-│   └── Services/                 # InMemoryDemoDataProvider (30+ sản phẩm phong phú)
-├── CutTayShop.Web/                # ASP.NET Core MVC Storefront Web App
-│   ├── Controllers/              # HomeController, CatalogController
-│   ├── ViewModels/               # HomeViewModel, CatalogViewModel, DetailViewModel
-│   ├── Views/                    # Razor .cshtml templates & Partial views
-│   └── wwwroot/                  # CSS Design System, JS modules, Vector SVG assets
-└── CutTayShop.Tests/              # Automated Unit & Integration Tests (xUnit)
+├── CutTayShop.Infrastructure/     # In-Memory Demo Data Provider
+│   └── Services/                 # InMemoryDemoDataProvider (32 sản phẩm thật, 10 danh mục, 3 đơn hàng, 4 coupons)
+├── CutTayShop.Web/                # ASP.NET Core MVC Storefront & Admin Web App
+│   ├── Areas/Admin/              # Cổng quản trị vận hành Admin (15 Controllers, 18 Views)
+│   ├── Controllers/              # 13 Controllers Storefront & 4 API Controllers
+│   ├── ViewModels/               # ViewModels chuyên biệt cho từng trang
+│   ├── Views/                    # Hơn 45 Razor Views cho Storefront & Account
+│   └── wwwroot/                  # CSS Design System, JS interactions, 50 ảnh WebP
+└── CutTayShop.Tests/              # 64 Automated Unit Tests (xUnit)
 ```
 
 ---
 
-## 2. YÊU CẦU HỆ THỐNG & KHỞI CHẠY (QUICK START)
+## 3. HƯỚNG DẪN KHỞI CHẠY (QUICK START)
 
-### Yêu cầu tiên quyết:
+### Yêu cầu môi trường:
 - [.NET 10.0 SDK](https://dotnet.microsoft.com/) trở lên (`dotnet --version` >= 10.0.100).
-- Trình duyệt hiện đại hỗ trợ CSS Custom Properties và ES modules (Chrome, Edge, Firefox, Safari).
+- Node.js v20+ hoặc v24+ (dùng cho công cụ kiểm thử tự động).
 
-### Cài đặt và chạy ứng dụng trên Localhost:
+### Cài đặt và khởi chạy:
 
 ```bash
-# 1. Clone repository
-git clone https://github.com/leduwn/CutTayShop.git
-cd CutTayShop
-
-# 2. Khôi phục các gói phụ thuộc
+# 1. Khôi phục gói phụ thuộc
 dotnet restore
 
-# 3. Biên dịch toàn bộ Solution
-dotnet build --configuration Release
+# 2. Biên dịch Solution
+dotnet build
 
-# 4. Chạy kiểm thử tự động
+# 3. Chạy toàn bộ 64 Unit Tests
 dotnet test
 
-# 5. Khởi chạy Storefront Web App
-dotnet run --project "CutTayShop.Web/CutTayShop.Web.csproj" --launch-profile "http"
+# 4. Khởi chạy ứng dụng Web
+dotnet run --project "CutTayShop.Web/CutTayShop.Web.csproj" --urls "http://localhost:5139"
 ```
 
-Sau khi chạy lệnh trên, mở trình duyệt truy cập: **`http://localhost:5139`**
+Sau khi chạy lệnh trên, truy cập trình duyệt tại:
+- **Trang chủ Storefront:** [http://localhost:5139](http://localhost:5139)
+- **Cổng Quản Trị Admin:** [http://localhost:5139/admin](http://localhost:5139/admin)
+- **Trang Flash Sale:** [http://localhost:5139/flash-sale](http://localhost:5139/flash-sale)
+- **Cổng Khách Hàng:** [http://localhost:5139/tai-khoan](http://localhost:5139/tai-khoan)
+
+### Chạy kiểm thử hồi quy & chụp ảnh tự động (Crawler Regression):
+Khi server đang chạy tại port 5139:
+```bash
+node crawl_and_verify.mjs
+```
+Script sẽ tự động kiểm tra 97 tuyến đường, xác minh 42 tài nguyên ảnh, kiểm thử 4 API và chụp 26 ảnh màn hình responsive tại `docs/reports/screenshots/full-ui/`.
 
 ---
 
-## 3. DANH SÁCH CÁC ROUTE KHẢ DỤNG (AVAILABLE ROUTES)
+## 4. TÀI LIỆU VÀ BÁO CÁO CHI TIẾT (DOCUMENTATION & AUDIT REPORTS)
 
-| Tuyến đường (Route) | Controller / Action | Mô tả chức năng |
-| :--- | :--- | :--- |
-| `/` | `HomeController.Index` | **Trang chủ**: Hero 8/4, 10 danh mục tròn pastel, Flash Sale đếm ngược thời gian thực, Sản phẩm nổi bật, Hàng mới về, Banner hội viên, Newsletter và Trợ lý CutTay AI. |
-| `/san-pham` | `CatalogController.Index` | **Tất cả sản phẩm (PLP)**: Bộ lọc đa chiều (danh mục, khoảng giá, thương hiệu, đánh giá, khuyến mãi), thanh công cụ sắp xếp, phân trang và lưới sản phẩm responsive. |
-| `/danh-muc/{slug}` | `CatalogController.Category` | **Trang theo ngành hàng**: Banner ngành hàng, bộ lọc và danh sách sản phẩm thuộc danh mục. Tự động trả về HTTP 404 nếu slug không tồn tại. |
-| `/san-pham/{slug}` | `CatalogController.Detail` | **Chi tiết sản phẩm (PDP)**: Thư viện ảnh thumbnail zoom, bộ chọn biến thể (màu sắc, kích cỡ, dung lượng), bộ đếm số lượng, cam kết dịch vụ, bảng thông số kỹ thuật, đánh giá khách hàng và sản phẩm liên quan. Trả về 404 nếu không tìm thấy. |
-| `/tim-kiem?q=...` | `CatalogController.Search` | **Tìm kiếm sản phẩm**: Tìm kiếm tiếng Việt thông minh (hỗ trợ có dấu và không dấu), hiển thị số lượng kết quả, bộ lọc và trạng thái rỗng thân thiện. |
-| `/Home/SearchSuggestions?q=...` | `HomeController.SearchSuggestions` | **API gợi ý tìm kiếm (Autocomplete)**: Trả về JSON 5 sản phẩm khớp từ khóa trong thời gian thực. |
-
----
-
-## 4. TÍNH NĂNG GIAO DIỆN & TƯƠNG TÁC (UI/UX HIGHLIGHTS)
-
-- **Design System v1 Chuẩn Mực**:
-  - Bảng mã token ngữ nghĩa đồng nhất: Mint `#BDEFA8`, Pastel Mint `#E5F8DC`, Peach `#FFE5DA`, Sale `#FF455B`, Ink `#101418`.
-  - Phông chữ tiêu chuẩn kết hợp giữa **Be Vietnam Pro** và **Plus Jakarta Sans**, phông số cân xứng (tabular numerals) cho giá tiền VND và bộ đếm ngược.
-  - Khung chứa chuẩn (Canonical Container): `max-width: 1360px`.
-- **Giao diện Sáng & Tối (Light & Dark Theme)**:
-  - Chuyển đổi tức thì không giật màn hình (FOUC-free).
-  - Tự động nhận diện thiết lập hệ thống (`prefers-color-scheme`) và lưu lựa chọn người dùng vào `localStorage`.
-- **Bảo Mật & Phòng Chống XSS (Search XSS Prevention)**:
-  - Thanh tìm kiếm gợi ý sử dụng 100% DOM APIs an toàn (`createElement`, `textContent`, `setAttribute`), triệt tiêu hoàn toàn rủi ro tiêm mã độc vào HTML.
-- **Giỏ Hàng Demo Thời Gian Thực (Client-Side Demo Cart)**:
-  - Quản lý trạng thái giỏ hàng qua module `CutTayCart` lưu trữ cục bộ tại `localStorage` (`cuttayshop_demo_cart`).
-  - Đồng bộ số lượng tự động lên badge icon giỏ hàng trên Header và Bottom Navigation Bar khi thêm/sửa/xoá.
-- **Trợ Lý CutTay AI (Demo Preview)**:
-  - Nút con nhộng nổi mở drawer hội thoại tương tác, chip câu hỏi gợi ý nhanh, thông tin minh bạch bản thử nghiệm giao diện kèm hotline hỗ trợ.
-- **Responsive Tuyệt Đối (No Horizontal Scroll)**:
-  - Đã kiểm thử tự động trên 7 breakpoint: 375px, 430px, 768px, 1024px, 1440px, 1536px, 1920px.
-  - Thanh điều hướng di động (Mobile Bottom Nav 5 tab) tự động hiển thị trên thiết bị cầm tay.
-- **Chuẩn Tiếp Cận WCAG 2.2 AA**:
-  - Tỷ lệ tương phản văn bản đạt tối thiểu từ 5.4:1 đến 17.5:1. Tuyệt đối không dùng chữ xám mờ trên nền sáng.
-
----
-
-## 5. GIỚI HẠN HIỆN TẠI (CURRENT LIMITATIONS)
-
-1. **Dữ liệu giả lập (Demo Data)**: Ứng dụng đang vận hành hoàn toàn trên `InMemoryDemoDataProvider` với hơn 30 sản phẩm phong phú; chưa kết nối cơ sở dữ liệu vật lý (SQL Server / PostgreSQL).
-2. **Giỏ hàng & Đơn hàng**: Trạng thái giỏ hàng được quản lý cục bộ phía trình duyệt (`localStorage`); chưa lưu trữ phiên người dùng trên máy chủ.
-3. **Thanh toán**: Không xử lý thẻ tín dụng hoặc thanh toán thật; các phương thức thanh toán hiển thị dưới dạng lựa chọn giao diện mẫu.
-4. **Chatbot AI**: Widget CutTay AI hiện tại là bản xem trước giao diện người dùng (UI Preview) với phản hồi mô phỏng, chưa tích hợp mô hình ngôn ngữ lớn (LLM backend).
-
----
-
-## 6. LỘ TRÌNH PHÁT TRIỂN (SPRINT ROADMAP)
-
-- [x] **Phase 0**: Khảo sát yêu cầu, thiết kế kiến trúc kỹ thuật & đặc tả UI/UX (`docs/design/`).
-- [x] **Sprint 1**: Nền tảng ASP.NET Core MVC, Design System, tái tạo Homepage theo ảnh mẫu chuẩn xác.
-- [x] **Sprint 1.1**: Chuẩn hóa Design System, vá lỗ hổng DOM XSS, bổ sung Desktop Menu, đồng bộ Demo Cart State, tinh chỉnh bản quyền & copy minh bạch.
-- [x] **Sprint 2**: Triển khai toàn diện giao diện Mua sắm: Danh sách sản phẩm (`/san-pham`), Trang danh mục (`/danh-muc/{slug}`), Chi tiết sản phẩm (`/san-pham/{slug}`), Tìm kiếm (`/tim-kiem`), bộ lọc đa chiều & phân trang.
-- [ ] **Sprint 3**: Giỏ hàng chi tiết (`/gio-hang`), Mini-Cart Drawer, Luồng đặt hàng 1 trang (`/thanh-toan`), Trang theo dõi đơn hàng (`/tai-khoan/don-hang/{code}`).
-- [ ] **Sprint 4**: Cổng thông tin tài khoản khách hàng (`/tai-khoan`), Sổ địa chỉ, Trung tâm tích điểm CutTayShop+.
-- [ ] **Sprint 5**: Incremental Backend: Entity Framework Core 10, ASP.NET Core Identity, Cổng thanh toán VietQR / Sandbox.
+- [Báo cáo triển khai toàn diện](docs/reports/FULL_UI_IMPLEMENTATION.md)
+- [Kiểm toán tài nguyên ảnh thật](docs/reports/REAL_ASSETS_AUDIT.md)
+- [Báo cáo kiểm thử giao diện di động](docs/reports/MOBILE_UI_QA.md)
+- [Ma trận phủ sóng 97 tuyến đường](docs/reports/FULL_ROUTE_COVERAGE.md)
+- [Báo cáo kiểm thử tương tác](docs/reports/INTERACTION_TEST_RESULTS.md)
+- [Báo cáo kiểm thử thị giác toàn website](docs/reports/FULL_WEBSITE_VISUAL_QA.md)
+- [Biên bản bàn giao giao diện](docs/reports/FULL_UI_FINAL_HANDOFF.md)
+- [Danh mục tài nguyên ảnh thật (Asset Manifest)](docs/assets/REAL_IMAGE_ASSET_MANIFEST.md)

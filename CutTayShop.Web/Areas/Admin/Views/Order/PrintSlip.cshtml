@@ -1,0 +1,100 @@
+@model CutTayShop.Core.Models.Order
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <title>Phiếu Giao Hàng — #@Model.OrderCode — CutTayShop</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; padding: 40px; color: #1e293b; max-width: 800px; margin: 0 auto; }
+    .header { display: flex; justify-content: space-between; border-bottom: 2px solid #0f172a; padding-bottom: 20px; margin-bottom: 24px; }
+    .title { font-size: 24px; font-weight: 800; margin: 0; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; font-size: 14px; }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 24px; }
+    th, td { border: 1px solid #cbd5e1; padding: 10px; text-align: left; }
+    th { background: #f8fafc; }
+    .total-box { text-align: right; font-size: 16px; margin-top: 16px; }
+    .print-btn { padding: 10px 20px; background: #0284c7; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 14px; }
+    @@media print { .no-print { display: none; } body { padding: 0; } }
+  </style>
+</head>
+<body>
+  <div class="no-print" style="margin-bottom: 20px; text-align: right;">
+    <button type="button" class="print-btn" onclick="window.print()">🖨️ In Phiếu Giao Hàng</button>
+  </div>
+
+  <div class="header">
+    <div>
+      <div style="font-size: 20px; font-weight: 800; color: #0284c7;">CutTayShop</div>
+      <div style="font-size: 13px; color: #64748b;">Nền tảng mua sắm thương mại điện tử hiện đại</div>
+    </div>
+    <div style="text-align: right;">
+      <h1 class="title">PHIẾU ĐÓNG GÓI</h1>
+      <div style="font-weight: 700; font-size: 16px; margin-top: 4px;">#@Model.OrderCode</div>
+      <div style="font-size: 13px; color: #64748b;">Ngày in: @DateTime.Now.ToString("dd/MM/yyyy HH:mm")</div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div>
+      <strong style="color: #64748b; font-size: 12px;">ĐƠN VỊ GỬI:</strong>
+      <div style="font-weight: 700; margin-top: 4px;">CutTayShop Logistics Hub</div>
+      <div>Số 18, Ngõ 45 phố Nguyễn Đình Chiểu, Hai Bà Trưng, Hà Nội</div>
+      <div>Hotline: 1900 8888</div>
+    </div>
+    <div>
+      <strong style="color: #64748b; font-size: 12px;">NGƯỜI NHẬN HÀNG:</strong>
+      <div style="font-weight: 700; margin-top: 4px;">@Model.CustomerName (@Model.PhoneNumber)</div>
+      <div>@Model.ShippingAddress</div>
+      <div style="margin-top: 4px;"><strong>Phương thức:</strong> @Model.PaymentMethod</div>
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 50px;">STT</th>
+        <th>Tên sản phẩm</th>
+        <th>Phân loại</th>
+        <th style="width: 60px; text-align: center;">SL</th>
+        <th style="width: 120px; text-align: right;">Đơn giá</th>
+        <th style="width: 140px; text-align: right;">Thành tiền</th>
+      </tr>
+    </thead>
+    <tbody>
+      @{ var idx = 1; }
+      @foreach (var item in Model.Items)
+      {
+        <tr>
+          <td style="text-align: center;">@(idx++)</td>
+          <td><strong>@item.ProductName</strong></td>
+          <td>@item.VariantName</td>
+          <td style="text-align: center;">@item.Quantity</td>
+          <td style="text-align: right;">@item.UnitPrice.ToString("N0") ₫</td>
+          <td style="text-align: right; font-weight: 700;">@item.TotalPrice.ToString("N0") ₫</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+
+  <div class="total-box">
+    <div>Tạm tính: @Model.Subtotal.ToString("N0") ₫</div>
+    <div>Cước vận chuyển: @Model.ShippingFee.ToString("N0") ₫</div>
+    @if (Model.Discount > 0)
+    {
+      <div>Giảm giá voucher: -@Model.Discount.ToString("N0") ₫</div>
+    }
+    <div style="font-size: 20px; font-weight: 800; margin-top: 8px;">
+      TỔNG THU TIỀN: @Model.TotalAmount.ToString("N0") ₫
+    </div>
+  </div>
+
+  <div style="margin-top: 40px; border-top: 1px dashed #cbd5e1; padding-top: 20px; display: flex; justify-content: space-between; font-size: 13px; color: #64748b;">
+    <div>Người lập phiếu: Admin CutTayShop</div>
+    <div>Xác nhận của bưu tá: ..................................</div>
+    <div>Chữ ký người nhận: ..................................</div>
+  </div>
+</body>
+</html>

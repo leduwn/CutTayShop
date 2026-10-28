@@ -1,0 +1,55 @@
+@model IReadOnlyList<CutTayShop.Core.Models.Coupon>
+@{
+    ViewData["Title"] = "Quản Lý Voucher — Admin";
+}
+
+<div class="admin-page-header">
+  <div>
+    <h1 class="admin-page-title">Quản Lý Voucher & Mã Giảm Giá (@Model.Count mã)</h1>
+    <p class="text-muted">Cấu hình mã khuyến mãi, mức giảm, giá trị đơn tối thiểu và thời hạn áp dụng.</p>
+  </div>
+  <button type="button" class="btn-pill btn-pill-primary" onclick="alert('Chế độ Demo: Mở form tạo coupon mới.')">+ Tạo mã khuyến mãi</button>
+</div>
+
+<div class="admin-card" style="margin-top: 24px; background: var(--color-bg-primary); border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden;">
+  <div style="overflow-x: auto;">
+    <table class="table-styled" style="width: 100%;">
+      <thead>
+        <tr style="text-align: left; background: var(--color-bg-secondary);">
+          <th style="padding: 12px;">Mã Coupon</th>
+          <th style="padding: 12px;">Tiêu đề</th>
+          <th style="padding: 12px;">Mức giảm</th>
+          <th style="padding: 12px;">Đơn tối thiểu</th>
+          <th style="padding: 12px;">Thời hạn</th>
+          <th style="padding: 12px;">Trạng thái</th>
+          <th style="padding: 12px; text-align: right;">Thao tác</th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach (var c in Model)
+        {
+          <tr style="border-bottom: 1px solid var(--color-border);">
+            <td style="padding: 12px;"><strong class="badge-capsule badge-peach">@c.Code</strong></td>
+            <td style="padding: 12px;">@c.Title</td>
+            <td style="padding: 12px; font-weight: 700; color: var(--color-primary);">
+              @if (c.DiscountPercent.HasValue)
+              {
+                <span>@c.DiscountPercent% (tối đa @c.DiscountAmount.ToString("N0") ₫)</span>
+              }
+              else
+              {
+                <span>@c.DiscountAmount.ToString("N0") ₫</span>
+              }
+            </td>
+            <td style="padding: 12px;">@c.MinOrderValue.ToString("N0") ₫</td>
+            <td style="padding: 12px; font-size: 0.8125rem;">@c.ValidUntil.ToString("dd/MM/yyyy")</td>
+            <td style="padding: 12px;"><span class="badge-capsule badge-mint">Đang kích hoạt</span></td>
+            <td style="padding: 12px; text-align: right;">
+              <button type="button" class="btn-pill btn-pill-secondary btn-sm" onclick="alert('Đã mở form sửa mã @c.Code')">Sửa</button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

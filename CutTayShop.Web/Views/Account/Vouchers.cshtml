@@ -1,0 +1,50 @@
+@model IReadOnlyList<CutTayShop.Core.Models.Coupon>
+@{
+    ViewData["Title"] = "Ví Voucher Của Tôi — CutTayShop";
+}
+
+<div class="container-custom" style="padding-top: 32px; padding-bottom: 80px;">
+  <div class="account-portal-layout">
+    <div class="account-sidebar-col">
+      @await Html.PartialAsync("_AccountNav")
+    </div>
+
+    <div class="account-content-col">
+      <div class="account-section-card">
+        <h1 class="card-title" style="margin-bottom: 8px;">Ví mã giảm giá của tôi</h1>
+        <p class="text-muted" style="margin-bottom: 24px;">Các voucher đang có hiệu lực trong tài khoản của bạn.</p>
+
+        <div class="coupons-grid">
+          @foreach (var coupon in Model)
+          {
+            <div class="coupon-ticket-card" data-coupon-code="@coupon.Code">
+              <div class="ticket-left">
+                <div class="ticket-type">VOUCHER</div>
+                <div class="ticket-val">
+                  @if (coupon.DiscountPercent.HasValue)
+                  {
+                    <span>@coupon.DiscountPercent%</span>
+                  }
+                  else
+                  {
+                    <span>@(coupon.DiscountAmount / 1000)K</span>
+                  }
+                </div>
+                <div class="ticket-off">GIẢM</div>
+              </div>
+              <div class="ticket-divider"></div>
+              <div class="ticket-right">
+                <h3 class="ticket-title">@coupon.Title</h3>
+                <p class="ticket-desc">@coupon.Description</p>
+                <div class="ticket-meta">
+                  <span class="ticket-hsd">HSD: @coupon.ValidUntil.ToString("dd/MM/yyyy")</span>
+                  <a href="/gio-hang" class="btn-pill btn-pill-primary btn-sm" style="margin-left: auto;">Dùng ngay</a>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

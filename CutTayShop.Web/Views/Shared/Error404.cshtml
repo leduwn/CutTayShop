@@ -1,0 +1,37 @@
+@{
+    ViewData["Title"] = "404 — Không Tìm Thấy Trang | CutTayShop";
+}
+
+<div class="container-custom" style="padding-top: 64px; padding-bottom: 96px; text-align: center;">
+  <div class="system-error-card" style="max-width: 600px; margin: 0 auto;">
+    <div class="error-sticker" style="font-size: 5rem; line-height: 1; margin-bottom: 16px;">
+      🛸
+    </div>
+    <div class="badge-capsule badge-peach" style="margin-bottom: 16px;">
+      Lỗi 404 — Page Not Found
+    </div>
+    <h1 style="font-size: 2.25rem; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.02em;">
+      Trang này đã bay vào vũ trụ!
+    </h1>
+    <p style="color: var(--color-text-secondary); font-size: 1rem; line-height: 1.6; margin-bottom: 32px;">
+      Địa chỉ bạn đang tìm kiếm có thể đã bị xóa, đổi tên hoặc tạm thời không khả dụng. Đừng lo, hãy để CutTayShop đưa bạn về nơi có nhiều món đồ xinh xắn!
+    </p>
+
+    <!-- Search box on 404 -->
+    <div style="max-width: 440px; margin: 0 auto 32px;">
+      <form action="/tim-kiem" method="get" class="search-pill-form">
+        <input type="search" name="q" class="search-pill-input" placeholder="Tìm sản phẩm khác (tai nghe, balo, mũ...)" />
+        <button type="submit" class="search-pill-btn">🔍</button>
+      </form>
+    </div>
+
+    <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+      <a href="/" class="btn-pill btn-pill-primary btn-pill-lg">
+        Quay lại trang chủ →
+      </a>
+      <a href="/san-pham" class="btn-pill btn-pill-secondary btn-pill-lg">
+        Khám phá sản phẩm
+      </a>
+    </div>
+  </div>
+</div>

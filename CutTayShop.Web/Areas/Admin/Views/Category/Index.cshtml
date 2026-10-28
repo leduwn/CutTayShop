@@ -1,0 +1,49 @@
+@model IReadOnlyList<CutTayShop.Core.Models.Category>
+@{
+    ViewData["Title"] = "Quản Lý Danh Mục — Admin";
+}
+
+<div class="admin-page-header">
+  <div>
+    <h1 class="admin-page-title">Quản Lý Danh Mục Ngành Hàng (@Model.Count danh mục)</h1>
+    <p class="text-muted">Cây phân loại sản phẩm hiển thị trên thanh menu và trang chủ.</p>
+  </div>
+  <button type="button" class="btn-pill btn-pill-primary" onclick="alert('Chế độ Demo: Đã mở form tạo danh mục mới.')">+ Thêm danh mục</button>
+</div>
+
+<div class="admin-card" style="margin-top: 24px; background: var(--color-bg-primary); border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden;">
+  <div style="overflow-x: auto;">
+    <table class="table-styled" style="width: 100%;">
+      <thead>
+        <tr style="text-align: left; background: var(--color-bg-secondary);">
+          <th style="padding: 12px;">Thứ tự</th>
+          <th style="padding: 12px;">Ảnh danh mục</th>
+          <th style="padding: 12px;">Tên ngành hàng</th>
+          <th style="padding: 12px;">Đường dẫn (Slug)</th>
+          <th style="padding: 12px;">Số lượng SP</th>
+          <th style="padding: 12px; text-align: right;">Thao tác</th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach (var cat in Model)
+        {
+          <tr style="border-bottom: 1px solid var(--color-border);">
+            <td style="padding: 12px; font-weight: 700;">@cat.SortOrder</td>
+            <td style="padding: 12px;">
+              <img src="@cat.ImageUrl" alt="@cat.Name" style="width: 44px; height: 44px; object-fit: cover; border-radius: var(--radius-sm);" />
+            </td>
+            <td style="padding: 12px;">
+              <strong>@cat.Name</strong>
+            </td>
+            <td style="padding: 12px; color: var(--color-text-muted);">/danh-muc/@cat.Slug</td>
+            <td style="padding: 12px;"><span class="badge-capsule badge-sky">@cat.ProductCount sản phẩm</span></td>
+            <td style="padding: 12px; text-align: right;">
+              <a href="/danh-muc/@cat.Slug" target="_blank" class="btn-pill btn-pill-ghost btn-sm">Xem trang</a>
+              <button type="button" class="btn-pill btn-pill-secondary btn-sm" onclick="alert('Chế độ Demo: Mở modal sửa danh mục.')">Sửa</button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

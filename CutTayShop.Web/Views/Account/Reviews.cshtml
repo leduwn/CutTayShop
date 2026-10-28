@@ -1,0 +1,37 @@
+@model IReadOnlyList<CutTayShop.Core.Models.Product>
+@{
+    ViewData["Title"] = "Đánh Giá Của Tôi — CutTayShop";
+}
+
+<div class="container-custom" style="padding-top: 32px; padding-bottom: 80px;">
+  <div class="account-portal-layout">
+    <div class="account-sidebar-col">
+      @await Html.PartialAsync("_AccountNav")
+    </div>
+
+    <div class="account-content-col">
+      <div class="account-section-card">
+        <h1 class="card-title" style="margin-bottom: 8px;">Đánh giá sản phẩm</h1>
+        <p class="text-muted" style="margin-bottom: 24px;">Chia sẻ trải nghiệm thực tế để nhận điểm thưởng CutTayShop+.</p>
+
+        <div class="reviews-products-list" style="display: flex; flex-direction: column; gap: 16px;">
+          @foreach (var prod in Model.Take(3))
+          {
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px; border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-bg-secondary); flex-wrap: wrap; gap: 16px;">
+              <div style="display: flex; align-items: center; gap: 16px;">
+                <img src="@prod.ImageUrl" alt="@prod.Name" style="width: 60px; height: 60px; object-fit: cover; border-radius: var(--radius-sm);" />
+                <div>
+                  <a href="/san-pham/@prod.Slug" style="font-weight: 600; color: var(--color-text-primary);">@prod.Name</a>
+                  <div style="font-size: 0.8125rem; color: var(--color-text-muted);">Đã mua vào 20/02/2026</div>
+                </div>
+              </div>
+              <button type="button" class="btn-pill btn-pill-primary btn-sm" onclick="alert('Cảm ơn bạn! Đã mở form đánh giá sản phẩm trong chế độ Demo.')">
+                ⭐ Viết đánh giá (+50 điểm)
+              </button>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

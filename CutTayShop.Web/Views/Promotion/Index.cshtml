@@ -1,0 +1,100 @@
+@model CutTayShop.Web.ViewModels.PromotionIndexViewModel
+@{
+    ViewData["Title"] = "Trung Tâm Khuyến Mãi & Voucher — CutTayShop";
+}
+
+<section class="page-header-editorial">
+  <div class="container-custom">
+    <div class="page-header-inner">
+      <div class="badge-capsule badge-mint">
+        <span aria-hidden="true">🎁</span> Tiết kiệm tối đa cùng CutTayShop
+      </div>
+      <h1 class="page-title">Kho Voucher & Ưu Đãi Đặc Quyền</h1>
+      <p class="page-subtitle">Thu thập các mã giảm giá hấp dẫn, miễn phí vận chuyển và ưu đãi đặc quyền theo ngành hàng.</p>
+    </div>
+  </div>
+</section>
+
+<div class="container-custom" style="padding-top: 32px; padding-bottom: 64px;">
+  <!-- Section: Active Coupons -->
+  <div class="promo-section-block">
+    <div class="section-title-wrap">
+      <h2 class="section-title">Mã Giảm Giá Sẵn Sàng Lưu</h2>
+      <p class="section-desc">Nhấn vào mã để sao chép và tự động áp dụng tại giỏ hàng của bạn.</p>
+    </div>
+
+    <div class="coupons-grid">
+      @foreach (var coupon in Model.Coupons)
+      {
+        <div class="coupon-ticket-card" data-coupon-code="@coupon.Code">
+          <div class="ticket-left">
+            <div class="ticket-type">VOUCHER</div>
+            <div class="ticket-val">
+              @if (coupon.DiscountPercent.HasValue)
+              {
+                <span>@coupon.DiscountPercent%</span>
+              }
+              else
+              {
+                <span>@(coupon.DiscountAmount / 1000)K</span>
+              }
+            </div>
+            <div class="ticket-off">GIẢM</div>
+          </div>
+          <div class="ticket-divider"></div>
+          <div class="ticket-right">
+            <h3 class="ticket-title">@coupon.Title</h3>
+            <p class="ticket-desc">@coupon.Description</p>
+            <div class="ticket-meta">
+              <span class="ticket-hsd">HSD: @coupon.ValidUntil.ToString("dd/MM/yyyy")</span>
+              <button type="button" class="btn-copy-coupon" data-copy="@coupon.Code">
+                <span class="copy-code-text">@coupon.Code</span>
+                <span class="copy-action-btn">Lưu mã</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+
+  <!-- Section: Promotional Banners -->
+  <div class="promo-section-block" style="margin-top: 48px;">
+    <div class="section-title-wrap">
+      <h2 class="section-title">Chiến Dịch Nổi Bật</h2>
+    </div>
+    <div class="promo-campaign-grid">
+      @foreach (var banner in Model.Banners)
+      {
+        <div class="campaign-banner-card" style="background-color: @banner.BgColorHex;">
+          <div class="campaign-info">
+            <span class="campaign-cat">@banner.CategoryTitle</span>
+            <h3 class="campaign-headline">@banner.PromoLabel <strong>@banner.HighlightNumber</strong></h3>
+            <a href="@banner.CtaLink" class="btn-pill btn-pill-primary">@banner.CtaText</a>
+          </div>
+          <div class="campaign-visual">
+            <img src="@banner.ImageUrl" alt="@banner.CategoryTitle" width="160" height="160" loading="lazy" />
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+
+  <!-- Section: Hot Deals -->
+  <div class="promo-section-block" style="margin-top: 48px;">
+    <div class="section-title-wrap" style="display: flex; justify-content: space-between; align-items: flex-end;">
+      <div>
+        <h2 class="section-title">Deal Hot Đang Diễn Ra</h2>
+        <p class="section-desc">Giá ưu đãi trực tiếp không cần nhập mã.</p>
+      </div>
+      <a href="/flash-sale" class="btn-pill btn-pill-secondary">Xem tất cả flash sale →</a>
+    </div>
+
+    <div class="product-grid" style="margin-top: 24px;">
+      @foreach (var product in Model.HotDeals)
+      {
+        @await Html.PartialAsync("_ProductCard", product)
+      }
+    </div>
+  </div>
+</div>

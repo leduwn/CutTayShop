@@ -6,4 +6,8 @@ public class DealCountdown
     public string Title { get; set; } = "Deal hot hôm nay";
     public string Subtitle { get; set; } = "Số lượng có hạn — Đừng bỏ lỡ!";
     public string ExpiredMessage { get; set; } = "Phiên ưu đãi đã kết thúc. Hẹn gặp lại quý khách vào phiên 12:00!";
+
+    public int Hours => Math.Max(0, (int)(EndTime - DateTime.Now).TotalHours);
+    public int Minutes => Math.Max(0, (EndTime - DateTime.Now).Minutes);
+    public int Seconds => Math.Max(0, (EndTime - DateTime.Now).Seconds);
 }

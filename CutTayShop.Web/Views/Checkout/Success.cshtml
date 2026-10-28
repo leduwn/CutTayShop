@@ -1,0 +1,70 @@
+@model CutTayShop.Web.ViewModels.OrderSuccessViewModel
+@{
+    ViewData["Title"] = "Đặt Hàng Thành Công — CutTayShop";
+}
+
+<div class="container-custom" style="padding-top: 48px; padding-bottom: 80px;">
+  <div class="order-success-card">
+    <div class="success-icon-badge">
+      <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+      </svg>
+    </div>
+
+    <div class="badge-capsule badge-peach" style="margin-top: 16px;">
+      ⚠️ Đơn hàng mô phỏng — Chưa phát sinh giao dịch tài chính
+    </div>
+
+    <h1 class="success-title" style="margin-top: 16px;">Cảm ơn bạn đã đặt hàng!</h1>
+    <p class="success-desc">
+      Mã đơn hàng của bạn là <strong class="order-code-highlight">@Model.Order.OrderCode</strong>. Hệ thống CutTayShop đã ghi nhận và gửi thông tin xác nhận tới email <strong>@Model.Order.Email</strong>.
+    </p>
+
+    <!-- Order Receipt Summary Box -->
+    <div class="receipt-summary-box">
+      <div class="receipt-header-row">
+        <span>Thông tin nhận hàng</span>
+        <span class="badge-capsule badge-mint">@Model.Order.Status</span>
+      </div>
+      <div class="receipt-grid">
+        <div class="receipt-item">
+          <span class="label">Người nhận:</span>
+          <strong>@Model.Order.CustomerName (@Model.Order.PhoneNumber)</strong>
+        </div>
+        <div class="receipt-item">
+          <span class="label">Địa chỉ giao:</span>
+          <span>@Model.Order.ShippingAddress</span>
+        </div>
+        <div class="receipt-item">
+          <span class="label">Phương thức thanh toán:</span>
+          <span>@Model.Order.PaymentMethod</span>
+        </div>
+        <div class="receipt-item">
+          <span class="label">Tổng số tiền:</span>
+          <strong class="receipt-total-price">@Model.Order.TotalAmount.ToString("N0") ₫</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="success-actions-row">
+      <a href="/tra-cuu-don-hang?code=@Model.Order.OrderCode" class="btn-pill btn-pill-primary btn-pill-lg">
+        Tra cứu hành trình đơn hàng →
+      </a>
+      <a href="/san-pham" class="btn-pill btn-pill-secondary btn-pill-lg">
+        Tiếp tục mua sắm
+      </a>
+    </div>
+  </div>
+
+  <!-- Recommended items -->
+  <div style="margin-top: 64px;">
+    <h2 class="section-title">Gợi ý sản phẩm cho bạn</h2>
+    <div class="product-grid" style="margin-top: 24px;">
+      @foreach (var prod in Model.RecommendedProducts.Take(4))
+      {
+        @await Html.PartialAsync("_ProductCard", prod)
+      }
+    </div>
+  </div>
+</div>

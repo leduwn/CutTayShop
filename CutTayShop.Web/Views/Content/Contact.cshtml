@@ -1,0 +1,92 @@
+@{
+    ViewData["Title"] = "Liên Hệ & Hỗ Trợ Khách Hàng — CutTayShop";
+}
+
+<section class="page-header-editorial">
+  <div class="container-custom">
+    <div class="page-header-inner">
+      <div class="badge-capsule badge-sky">
+        <span aria-hidden="true">📞</span> Luôn sẵn sàng đồng hành
+      </div>
+      <h1 class="page-title">Liên Hệ Với CutTayShop</h1>
+      <p class="page-subtitle">Bạn cần tư vấn sản phẩm, kiểm tra đơn hàng hay đóng góp ý kiến? Đội ngũ hỗ trợ của chúng tôi sẵn sàng phục vụ bạn 24/7.</p>
+    </div>
+  </div>
+</section>
+
+<div class="container-custom" style="padding-top: 48px; padding-bottom: 80px;">
+  @if (ViewBag.SuccessMessage != null)
+  {
+    <div class="alert alert-success" role="alert" style="max-width: 800px; margin: 0 auto 32px;">
+      @ViewBag.SuccessMessage
+    </div>
+  }
+
+  <div class="contact-grid">
+    <!-- Contact Info Cards -->
+    <div class="contact-info-col">
+      <div class="contact-method-card">
+        <div class="method-icon">📍</div>
+        <div class="method-body">
+          <h3>Trụ sở chính</h3>
+          <p>Số 18, Ngõ 45 phố Nguyễn Đình Chiểu, Phường Lê Đại Hành, Quận Hai Bà Trưng, TP. Hà Nội</p>
+        </div>
+      </div>
+
+      <div class="contact-method-card">
+        <div class="method-icon">📞</div>
+        <div class="method-body">
+          <h3>Tổng đài chăm sóc khách hàng</h3>
+          <p><strong>1900 8888</strong> (Miễn phí cuộc gọi, 8:00 - 22:00 hàng ngày)</p>
+        </div>
+      </div>
+
+      <div class="contact-method-card">
+        <div class="method-icon">✉️</div>
+        <div class="method-body">
+          <h3>Hộp thư điện tử</h3>
+          <p>cskh@cuttayshop.vn • kinhdoanh@cuttayshop.vn</p>
+        </div>
+      </div>
+
+      <div class="contact-method-card">
+        <div class="method-icon">💬</div>
+        <div class="method-body">
+          <h3>Trợ lý CutTay AI 24/7</h3>
+          <p>Nhấp vào biểu tượng AI ở góc phải màn hình để được hỗ trợ tức thì.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="contact-form-col">
+      <div class="contact-form-card">
+        <h2 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 16px;">Gửi phản hồi hoặc yêu cầu hỗ trợ</h2>
+        <form asp-controller="Content" asp-action="Contact" method="post">
+          @Html.AntiForgeryToken()
+          <div class="form-group" style="margin-bottom: 16px;">
+            <label class="form-label">Họ và tên <span class="required">*</span></label>
+            <input type="text" name="fullName" class="form-control" placeholder="Ví dụ: Nguyễn Văn An" required />
+          </div>
+          <div class="form-row-2" style="margin-bottom: 16px;">
+            <div class="form-group">
+              <label class="form-label">Email <span class="required">*</span></label>
+              <input type="email" name="email" class="form-control" placeholder="an.nguyen@example.com" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Số điện thoại</label>
+              <input type="tel" name="phone" class="form-control" placeholder="0988 123 456" />
+            </div>
+          </div>
+          <div class="form-group" style="margin-bottom: 20px;">
+            <label class="form-label">Nội dung tin nhắn <span class="required">*</span></label>
+            <textarea name="message" class="form-control" rows="4" placeholder="Nhập chi tiết yêu cầu của bạn..." required></textarea>
+          </div>
+          <button type="submit" class="btn-pill btn-pill-primary btn-block btn-pill-lg">
+            Gửi tin nhắn ngay →
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

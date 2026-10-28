@@ -1,0 +1,49 @@
+@model List<CutTayShop.Web.ViewModels.UserAddress>
+@{
+    ViewData["Title"] = "Sổ Địa Chỉ — CutTayShop";
+}
+
+<div class="container-custom" style="padding-top: 32px; padding-bottom: 80px;">
+  <div class="account-portal-layout">
+    <div class="account-sidebar-col">
+      @await Html.PartialAsync("_AccountNav")
+    </div>
+
+    <div class="account-content-col">
+      <div class="account-section-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+          <div>
+            <h1 class="card-title" style="margin-bottom: 4px;">Sổ địa chỉ nhận hàng</h1>
+            <p class="text-muted">Quản lý các địa chỉ giao hàng để thanh toán nhanh chóng hơn.</p>
+          </div>
+          <button type="button" class="btn-pill btn-pill-primary btn-sm" onclick="alert('Chức năng thêm địa chỉ mới đang ở chế độ Demo.')">
+            + Thêm địa chỉ mới
+          </button>
+        </div>
+
+        <div class="address-cards-list" style="display: flex; flex-direction: column; gap: 16px;">
+          @foreach (var addr in Model)
+          {
+            <div class="address-item-card" style="padding: 20px; border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-bg-secondary); display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap;">
+              <div>
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                  <strong style="font-size: 1rem;">@addr.ReceiverName</strong>
+                  <span class="text-muted">• @addr.PhoneNumber</span>
+                  <span class="badge-capsule badge-subtle">@addr.Label</span>
+                  @if (addr.IsDefault)
+                  {
+                    <span class="badge-capsule badge-mint">Mặc định</span>
+                  }
+                </div>
+                <p style="color: var(--color-text-secondary); font-size: 0.9375rem; margin: 0;">@addr.FullAddress</p>
+              </div>
+              <div style="display: flex; gap: 8px;">
+                <button type="button" class="btn-pill btn-pill-secondary btn-sm" onclick="alert('Chế độ Demo: Đã mở form chỉnh sửa địa chỉ.')">Sửa</button>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

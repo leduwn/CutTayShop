@@ -1,0 +1,797 @@
+{
+  "timestamp": "2026-10-28T19:40:41.633Z",
+  "routesSummary": {
+    "total": 97,
+    "passed": 97,
+    "failed": 0
+  },
+  "imagesSummary": {
+    "totalChecked": 42,
+    "passed": 42,
+    "failed": 0,
+    "svgViolations": 0
+  },
+  "apisSummary": {
+    "passed": 4,
+    "failed": 0
+  },
+  "brokenImages": [],
+  "routes": [
+    {
+      "url": "/",
+      "name": "Homepage",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 98620,
+      "status": "PASS"
+    },
+    {
+      "url": "/san-pham",
+      "name": "Product Catalog",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 72269,
+      "status": "PASS"
+    },
+    {
+      "url": "/san-pham/tai-nghe-chup-tai-studio-pro-wireless",
+      "name": "Product Detail",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 40626,
+      "status": "PASS"
+    },
+    {
+      "url": "/danh-muc",
+      "name": "Category Index",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 72269,
+      "status": "PASS"
+    },
+    {
+      "url": "/danh-muc/cong-nghe",
+      "name": "Category Filter",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 43517,
+      "status": "PASS"
+    },
+    {
+      "url": "/flash-sale",
+      "name": "Flash Sale",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 33782,
+      "status": "PASS"
+    },
+    {
+      "url": "/deals",
+      "name": "Deals Promotion",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 38397,
+      "status": "PASS"
+    },
+    {
+      "url": "/khuyen-mai",
+      "name": "Promotions",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 38397,
+      "status": "PASS"
+    },
+    {
+      "url": "/yeu-thich",
+      "name": "Wishlist",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 49702,
+      "status": "PASS"
+    },
+    {
+      "url": "/so-sanh",
+      "name": "Compare",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 20192,
+      "status": "PASS"
+    },
+    {
+      "url": "/gio-hang",
+      "name": "Cart",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 30647,
+      "status": "PASS"
+    },
+    {
+      "url": "/thanh-toan",
+      "name": "Checkout",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 25058,
+      "status": "PASS"
+    },
+    {
+      "url": "/dat-hang-thanh-cong?code=CTS-2026-88910",
+      "name": "Order Success",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 27987,
+      "status": "PASS"
+    },
+    {
+      "url": "/tra-cuu-don-hang",
+      "name": "Order Tracking Form",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 16883,
+      "status": "PASS"
+    },
+    {
+      "url": "/tra-cuu-don-hang?code=CTS-2026-88910",
+      "name": "Order Tracking Result",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 20429,
+      "status": "PASS"
+    },
+    {
+      "url": "/tim-kiem?q=tai+nghe",
+      "name": "Search Results",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 45000,
+      "status": "PASS"
+    },
+    {
+      "url": "/blog",
+      "name": "Blog Index",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 22052,
+      "status": "PASS"
+    },
+    {
+      "url": "/blog/top-5-setup-goc-lam-viec-toi-gian-2026",
+      "name": "Blog Detail",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 25935,
+      "status": "PASS"
+    },
+    {
+      "url": "/blog/chu-de/cong-nghe",
+      "name": "Blog Topic",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 17441,
+      "status": "PASS"
+    },
+    {
+      "url": "/tin-tuc",
+      "name": "News Alias",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 22052,
+      "status": "PASS"
+    },
+    {
+      "url": "/ve-chung-toi",
+      "name": "About Us",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 17205,
+      "status": "PASS"
+    },
+    {
+      "url": "/gioi-thieu",
+      "name": "About Us Alias",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 17205,
+      "status": "PASS"
+    },
+    {
+      "url": "/lien-he",
+      "name": "Contact",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 18548,
+      "status": "PASS"
+    },
+    {
+      "url": "/faq",
+      "name": "FAQ",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 17692,
+      "status": "PASS"
+    },
+    {
+      "url": "/huong-dan-mua-hang",
+      "name": "Shopping Guide",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 17692,
+      "status": "PASS"
+    },
+    {
+      "url": "/chinh-sach/doi-tra",
+      "name": "Return Policy",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 16875,
+      "status": "PASS"
+    },
+    {
+      "url": "/chinh-sach-doi-tra",
+      "name": "Return Policy Alias",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 16875,
+      "status": "PASS"
+    },
+    {
+      "url": "/chinh-sach/giao-hang",
+      "name": "Shipping Policy",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 17367,
+      "status": "PASS"
+    },
+    {
+      "url": "/chinh-sach-van-chuyen",
+      "name": "Shipping Policy Alias",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 17367,
+      "status": "PASS"
+    },
+    {
+      "url": "/chinh-sach/bao-mat",
+      "name": "Privacy Policy",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 16497,
+      "status": "PASS"
+    },
+    {
+      "url": "/bao-mat",
+      "name": "Privacy Policy Alias",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 16497,
+      "status": "PASS"
+    },
+    {
+      "url": "/chinh-sach/dieu-khoan",
+      "name": "Terms",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 16428,
+      "status": "PASS"
+    },
+    {
+      "url": "/dieu-khoan",
+      "name": "Terms Alias",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 16428,
+      "status": "PASS"
+    },
+    {
+      "url": "/chinh-sach-bao-hanh",
+      "name": "Warranty Policy",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 16127,
+      "status": "PASS"
+    },
+    {
+      "url": "/phuong-thuc-thanh-toan",
+      "name": "Payment Methods",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 16069,
+      "status": "PASS"
+    },
+    {
+      "url": "/he-thong-cua-hang",
+      "name": "Stores",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 17038,
+      "status": "PASS"
+    },
+    {
+      "url": "/tuyen-dung",
+      "name": "Careers",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 17153,
+      "status": "PASS"
+    },
+    {
+      "url": "/dang-nhap",
+      "name": "Login",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 18808,
+      "status": "PASS"
+    },
+    {
+      "url": "/dang-ky",
+      "name": "Register",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 19086,
+      "status": "PASS"
+    },
+    {
+      "url": "/quen-mat-khau",
+      "name": "Forgot Password",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 16592,
+      "status": "PASS"
+    },
+    {
+      "url": "/dat-lai-mat-khau",
+      "name": "Reset Password",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 17275,
+      "status": "PASS"
+    },
+    {
+      "url": "/xac-minh-email",
+      "name": "Email Verification",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 15886,
+      "status": "PASS"
+    },
+    {
+      "url": "/tai-khoan",
+      "name": "Account Dashboard",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 21336,
+      "status": "PASS"
+    },
+    {
+      "url": "/tai-khoan/ho-so",
+      "name": "Account Profile",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 18694,
+      "status": "PASS"
+    },
+    {
+      "url": "/tai-khoan/dia-chi",
+      "name": "Account Addresses",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 20158,
+      "status": "PASS"
+    },
+    {
+      "url": "/tai-khoan/don-hang",
+      "name": "Account Orders",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 27105,
+      "status": "PASS"
+    },
+    {
+      "url": "/tai-khoan/don-hang/CTS-2026-88910",
+      "name": "Account Order Detail",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 22733,
+      "status": "PASS"
+    },
+    {
+      "url": "/tai-khoan/cuttayshop-plus",
+      "name": "CutTayShop Plus",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 20365,
+      "status": "PASS"
+    },
+    {
+      "url": "/tai-khoan/ma-giam-gia",
+      "name": "Account Vouchers",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 21289,
+      "status": "PASS"
+    },
+    {
+      "url": "/tai-khoan/doi-mat-khau",
+      "name": "Change Password",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 18647,
+      "status": "PASS"
+    },
+    {
+      "url": "/tai-khoan/danh-gia",
+      "name": "Account Reviews",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 20880,
+      "status": "PASS"
+    },
+    {
+      "url": "/admin",
+      "name": "Admin Dashboard",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 15128,
+      "status": "PASS"
+    },
+    {
+      "url": "/admin/san-pham",
+      "name": "Admin Products VN",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 51059,
+      "status": "PASS"
+    },
+    {
+      "url": "/admin/san-pham/them-moi",
+      "name": "Admin Product Create VN",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 10544,
+      "status": "PASS"
+    },
+    {
+      "url": "/admin/san-pham/chinh-sua/1",
+      "name": "Admin Product Edit VN",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 11333,
+      "status": "PASS"
+    },
+    {
+      "url": "/admin/danh-muc",
+      "name": "Admin Categories VN",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 16738,
+      "status": "PASS"
+    },
+    {
+      "url": "/admin/don-hang",
+      "name": "Admin Orders VN",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 10093,
+      "status": "PASS"
+    },
+    {
+      "url": "/admin/don-hang/chi-tiet/1",
+      "name": "Admin Order Detail VN",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 11139,
+      "status": "PASS"
+    },
+    {
+      "url": "/admin/don-hang/in-phieu/1",
+      "name": "Admin Order Print Slip VN",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 4438,
+      "status": "PASS"
+    },
+    {
+      "url": "/admin/ton-kho",
+      "name": "Admin Inventory VN",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 49796,
+      "status": "PASS"
+    },
+    {
+      "url": "/admin/khach-hang",
+      "name": "Admin Customers VN",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 8269,
+      "status": "PASS"
+    },
+    {
+      "url": "/admin/khach-hang/chi-tiet/1",
+      "name": "Admin Customer Detail VN",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 7272,
+      "status": "PASS"
+    },
+    {
+      "url": "/admin/khuyen-mai",
+      "name": "Admin Vouchers VN",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 9971,
+      "status": "PASS"
+    },
+    {
+      "url": "/admin/flash-sale",
+      "name": "Admin Flash Sale VN",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 13807,
+      "status": "PASS"
+    },
+    {
+      "url": "/admin/banner-cms",
+      "name": "Admin Banners VN",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 8538,
+      "status": "PASS"
+    },
+    {
+      "url": "/admin/danh-gia",
+      "name": "Admin Reviews VN",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 8167,
+      "status": "PASS"
+    },
+    {
+      "url": "/admin/bai-viet",
+      "name": "Admin Blog VN",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 10565,
+      "status": "PASS"
+    },
+    {
+      "url": "/admin/bao-cao",
+      "name": "Admin Reports VN",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 16686,
+      "status": "PASS"
+    },
+    {
+      "url": "/admin/cai-dat",
+      "name": "Admin Settings VN",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 7427,
+      "status": "PASS"
+    },
+    {
+      "url": "/admin/san-pham/1/bien-the",
+      "name": "Admin Variants VN",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 7916,
+      "status": "PASS"
+    },
+    {
+      "url": "/admin/ho-tro",
+      "name": "Admin Support VN",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 7101,
+      "status": "PASS"
+    },
+    {
+      "url": "/admin/phan-quyen",
+      "name": "Admin Roles VN",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 7896,
+      "status": "PASS"
+    },
+    {
+      "url": "/admin/products",
+      "name": "Admin Products EN",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 51059,
+      "status": "PASS"
+    },
+    {
+      "url": "/admin/products/create",
+      "name": "Admin Product Create EN",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 10544,
+      "status": "PASS"
+    },
+    {
+      "url": "/admin/products/edit/1",
+      "name": "Admin Product Edit EN",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 11333,
+      "status": "PASS"
+    },
+    {
+      "url": "/admin/categories",
+      "name": "Admin Categories EN",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 16738,
+      "status": "PASS"
+    },
+    {
+      "url": "/admin/orders",
+      "name": "Admin Orders EN",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 10093,
+      "status": "PASS"
+    },
+    {
+      "url": "/admin/orders/detail/1",
+      "name": "Admin Order Detail EN",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 11139,
+      "status": "PASS"
+    },
+    {
+      "url": "/admin/orders/print-slip/1",
+      "name": "Admin Order Print EN",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 4438,
+      "status": "PASS"
+    },
+    {
+      "url": "/admin/inventory",
+      "name": "Admin Inventory EN",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 49796,
+      "status": "PASS"
+    },
+    {
+      "url": "/admin/customers",
+      "name": "Admin Customers EN",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 8269,
+      "status": "PASS"
+    },
+    {
+      "url": "/admin/customers/detail/1",
+      "name": "Admin Customer Detail EN",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 7272,
+      "status": "PASS"
+    },
+    {
+      "url": "/admin/promotions",
+      "name": "Admin Promotions EN",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 9971,
+      "status": "PASS"
+    },
+    {
+      "url": "/admin/promotions/flash-sale",
+      "name": "Admin Flash Sale EN",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 13807,
+      "status": "PASS"
+    },
+    {
+      "url": "/admin/banners",
+      "name": "Admin Banners EN",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 8538,
+      "status": "PASS"
+    },
+    {
+      "url": "/admin/reviews",
+      "name": "Admin Reviews EN",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 8167,
+      "status": "PASS"
+    },
+    {
+      "url": "/admin/blog",
+      "name": "Admin Blog EN",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 10565,
+      "status": "PASS"
+    },
+    {
+      "url": "/admin/reports",
+      "name": "Admin Reports EN",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 16686,
+      "status": "PASS"
+    },
+    {
+      "url": "/admin/settings",
+      "name": "Admin Settings EN",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 7427,
+      "status": "PASS"
+    },
+    {
+      "url": "/admin/variants",
+      "name": "Admin Variants EN",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 7916,
+      "status": "PASS"
+    },
+    {
+      "url": "/admin/support",
+      "name": "Admin Support EN",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 7101,
+      "status": "PASS"
+    },
+    {
+      "url": "/admin/roles",
+      "name": "Admin Roles EN",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 7896,
+      "status": "PASS"
+    },
+    {
+      "url": "/404",
+      "name": "Error 404",
+      "expectedStatus": 404,
+      "actualStatus": 404,
+      "bytes": 16472,
+      "status": "PASS"
+    },
+    {
+      "url": "/403",
+      "name": "Error 403",
+      "expectedStatus": 403,
+      "actualStatus": 403,
+      "bytes": 16094,
+      "status": "PASS"
+    },
+    {
+      "url": "/500",
+      "name": "Error 500",
+      "expectedStatus": 500,
+      "actualStatus": 500,
+      "bytes": 16091,
+      "status": "PASS"
+    },
+    {
+      "url": "/session-expired",
+      "name": "Session Expired",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "bytes": 16076,
+      "status": "PASS"
+    },
+    {
+      "url": "/bao-tri",
+      "name": "Maintenance Mode",
+      "expectedStatus": 503,
+      "actualStatus": 503,
+      "bytes": 15963,
+      "status": "PASS"
+    }
+  ]
+}

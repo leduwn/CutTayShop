@@ -1,0 +1,61 @@
+# CUTTAYSHOP — REAL PRODUCT PHOTOGRAPHY ASSET MANIFEST
+
+**Document Code:** CTS-ASSET-MANIFEST-001  
+**Generated Date:** 2026-10-28T19:18:20.788Z  
+**Total Verified Assets:** 50  
+**License Status:** 100% VERIFIED (Unsplash Commercial License)  
+
+All assets have been downloaded locally to `CutTayShop.Web/wwwroot/images/`, resized to optimal e-commerce proportions, encoded in WebP, and verified for zero broken links or hotlinking dependencies.
+
+| STT | File / Local Path | Tên sản phẩm / Vai trò | Phân loại | Kích thước | Dung lượng | Tác giả / Photographer | Nguồn & Bản quyền | SHA-256 (first 10 chars) |
+|:---:|:---|:---|:---|:---:|:---:|:---|:---|:---:|
+| 1 | `/images/products/headphones-pro.webp` | Tai nghe chụp tai Studio Pro Wireless | products | 800x800 | 60.3 KB | [C-K](https://unsplash.com/photos/photo-1505740420928-5e560c06d30e) | Unsplash License | `3b440724a4` |
+| 2 | `/images/products/headphones-pro-detail.webp` | Tai nghe chụp tai Studio Pro Wireless - Detail Angle | products | 800x800 | 29.3 KB | [Felipe P. Lima R.](https://unsplash.com/photos/photo-1583394838336-acd977736f90) | Unsplash License | `1698138d89` |
+| 3 | `/images/products/smartwatch-sport.webp` | Đồng hồ thông minh Smartwatch Sport Fit | products | 800x800 | 18.1 KB | [Rachit Tank](https://unsplash.com/photos/photo-1523275335684-37898b6baf30) | Unsplash License | `94b1e56e74` |
+| 4 | `/images/products/speaker-mini.webp` | Loa Bluetooth Mini Fabric Sound | products | 800x800 | 138.5 KB | [Mohammad Metri](https://unsplash.com/photos/photo-1608043152269-423dbba4e7e1) | Unsplash License | `8b3c725ef4` |
+| 5 | `/images/products/keyboard-pastel.webp` | Bàn phím cơ không dây Pastel Glow RGB | products | 800x800 | 107.4 KB | [Mahdi Bafande](https://unsplash.com/photos/photo-1587829741301-dc798b83add3) | Unsplash License | `c4f3262c66` |
+| 6 | `/images/products/mouse-wireless.webp` | Chuột không dây công thái học Silence Pro | products | 800x800 | 15.4 KB | [Oscar Ivan Esquivel Arteaga](https://unsplash.com/photos/photo-1615663245857-ac93bb7c39e7) | Unsplash License | `600c088278` |
+| 7 | `/images/products/cap-beige.webp` | Mũ lưỡi trai Cotton Street Style 2026 | products | 800x800 | 39.3 KB | [Daniel Lincoln](https://unsplash.com/photos/photo-1588850561407-ed78c282e89b) | Unsplash License | `8ee26a2836` |
+| 8 | `/images/products/hoodie-organic.webp` | Áo Hoodie form rộng Cotton Blend Organic | products | 800x800 | 162.7 KB | [Laura Chouette](https://unsplash.com/photos/photo-1556905055-8f358a7a47b2) | Unsplash License | `3ba9b207e0` |
+| 9 | `/images/products/sneaker-retro.webp` | Giày Sneaker Retro Chunky Sole CutTay | products | 800x800 | 212.1 KB | [Wu Yi](https://unsplash.com/photos/photo-1549298916-b41d501d3772) | Unsplash License | `436cd9720d` |
+| 10 | `/images/products/tote-canvas.webp` | Túi Tote Canvas thân thiện môi trường CutTay | products | 800x800 | 60.3 KB | [Joshua Rawson-Harris](https://unsplash.com/photos/photo-1544816155-12df9643f363) | Unsplash License | `638e1f2d6d` |
+| 11 | `/images/products/bottle-thermo.webp` | Bình giữ nhiệt Inox 316 Pastel Thermo 750ml | products | 800x800 | 14.9 KB | [Bluetti](https://unsplash.com/photos/photo-1602143407151-7111542de6e8) | Unsplash License | `06e21650fe` |
+| 12 | `/images/products/lamp-moon.webp` | Đèn ngủ mặt trăng cảm ứng chạm 3D | products | 800x800 | 33.8 KB | [Mike Petrucci](https://unsplash.com/photos/photo-1532009324734-20a7a5813719) | Unsplash License | `e54de958b0` |
+| 13 | `/images/products/aroma-diffuser.webp` | Máy khuếch tán tinh dầu thơm phòng Aroma Mist | products | 800x800 | 36.2 KB | [Siora Photography](https://unsplash.com/photos/photo-1608571423902-eed4a5ad8108) | Unsplash License | `a4b4c022a4` |
+| 14 | `/images/products/skincare-serum.webp` | Serum cấp ẩm phục hồi da Hyaluronic B5 Glow | products | 800x800 | 54.0 KB | [Content Pixie](https://unsplash.com/photos/photo-1620916566398-39f1143ab7be) | Unsplash License | `4122b6f5aa` |
+| 15 | `/images/products/sunscreen-shield.webp` | Kem chống nắng quang phổ rộng Sun Shield SPF50+ | products | 800x800 | 41.4 KB | [Curology](https://unsplash.com/photos/photo-1556228720-195a672e8a03) | Unsplash License | `6ac4492313` |
+| 16 | `/images/products/dumbbells-pro.webp` | Bộ tạ tay bọc cao su chống trượt Pro Dumbbells 10kg | products | 800x800 | 40.6 KB | [Kelly Sikkema](https://unsplash.com/photos/photo-1586401100295-7a8096fd231a) | Unsplash License | `6c17e1dd18` |
+| 17 | `/images/products/yoga-mat.webp` | Thảm tập Yoga định tuyến TPE 2 lớp chống trượt 8mm | products | 800x800 | 102.7 KB | [Sabel Blanco](https://unsplash.com/photos/photo-1601925260368-ae2f83cf8b7f) | Unsplash License | `3d50ebe238` |
+| 18 | `/images/products/backpack-urban.webp` | Balo chống sốc Minimalist Urban Tech | products | 800x800 | 62.8 KB | [sunling yan](https://unsplash.com/photos/photo-1553062407-98eeb64c6a62) | Unsplash License | `1cced2b09a` |
+| 19 | `/images/products/sunglasses-chic.webp` | Kính râm phân cực Chic Retro UV400 | products | 800x800 | 23.0 KB | [Giorgio Trovato](https://unsplash.com/photos/photo-1572635196237-14b3f281503f) | Unsplash License | `dd6f0112eb` |
+| 20 | `/images/products/notebook-planner.webp` | Sổ tay kế hoạch bìa da Planner 2026 | products | 800x800 | 55.4 KB | [Aaron Burden](https://unsplash.com/photos/photo-1544716278-ca5e3f4abd8c) | Unsplash License | `c23ad4633c` |
+| 21 | `/images/products/fountain-pen.webp` | Bút máy ngòi mài EF ngòi trơn Signature | products | 800x800 | 6.9 KB | [Art Lasovsky](https://unsplash.com/photos/photo-1583485088034-697b5bc54ccd) | Unsplash License | `fd2e427e85` |
+| 22 | `/images/products/lego-robot.webp` | Bộ lắp ráp Robot thám hiểm AI Mech Explorer | products | 800x800 | 42.4 KB | [Alex Knight](https://unsplash.com/photos/photo-1485827404703-89b55fcc595e) | Unsplash License | `2b955c2f91` |
+| 23 | `/images/products/board-game.webp` | Bộ cờ bàn chiến thuật Board Game Catan Việt Hóa | products | 800x800 | 46.5 KB | [Christopher Paul High](https://unsplash.com/photos/photo-1610890716171-6b1bb98ffd09) | Unsplash License | `6fccbf6286` |
+| 24 | `/images/products/massage-gun.webp` | Súng massage cầm tay giải cơ Deep Tissue Pro | products | 800x800 | 44.3 KB | [Jonathan Borba](https://unsplash.com/photos/photo-1544367567-0f2fcb009e0b) | Unsplash License | `b5d1f24887` |
+| 25 | `/images/products/water-flosser.webp` | Máy tăm nước du lịch cầm tay Water Pulse Clean | products | 800x800 | 192.8 KB | [Towfiqu barbhuiya](https://unsplash.com/photos/photo-1559599101-f09722fb4948) | Unsplash License | `6bb3f968bd` |
+| 26 | `/images/products/travel-adapter.webp` | Củ sạc đa năng du lịch toàn cầu Universal 65W GaN | products | 800x800 | 52.3 KB | [Denis Cherkashin](https://unsplash.com/photos/photo-1583863788434-e58a36330cf0) | Unsplash License | `635e84b833` |
+| 27 | `/images/products/kitchen-scale.webp` | Cân tiểu ly điện tử nhà bếp cảm ứng Kitchen Pro | products | 800x800 | 93.1 KB | [Jason Tuinstra](https://unsplash.com/photos/photo-1556911220-e15b29be8c8f) | Unsplash License | `bdd29ba614` |
+| 28 | `/images/products/earbuds-anc.webp` | Tai nghe True Wireless AirDots ANC Crystal | products | 800x800 | 40.3 KB | [C-K](https://unsplash.com/photos/photo-1590658268037-6bf12165a8df) | Unsplash License | `4aa9b4d1aa` |
+| 29 | `/images/products/polo-shirt.webp` | Áo thun Polo Cotton Pima form Regular Fit | products | 800x800 | 20.7 KB | [Faith Yarn](https://unsplash.com/photos/photo-1618354691373-d851c5c3a990) | Unsplash License | `ae16d66d66` |
+| 30 | `/images/products/leather-wallet.webp` | Ví da nam gấp gọn da bò sáp Waxed Leather | products | 800x800 | 45.2 KB | [Two Dreamers](https://unsplash.com/photos/photo-1627123424574-724758594e93) | Unsplash License | `4bc3803ea0` |
+| 31 | `/images/products/jump-rope.webp` | Dây nhảy thể lực dây cáp bọc PVC xoay 360 độ | products | 800x800 | 160.8 KB | [Fitsum Admasu](https://unsplash.com/photos/photo-1517838277536-f5f99be501cd) | Unsplash License | `762946e840` |
+| 32 | `/images/products/facial-cleanser.webp` | Máy rửa mặt sóng âm Silicon kháng khuẩn Sonic Clean | products | 800x800 | 64.3 KB | [Valerie Elash](https://unsplash.com/photos/photo-1522337360788-8b13dee7a37e) | Unsplash License | `d64f714680` |
+| 33 | `/images/products/double-wall-glass.webp` | Bộ ly thủy tinh hai lớp cách nhiệt Double Wall Glass | products | 800x800 | 146.3 KB | [Nathan Dumlao](https://unsplash.com/photos/photo-1514432324607-a09d9b4aefdd) | Unsplash License | `097546370d` |
+| 34 | `/images/hero/hero-lifestyle.webp` | Hero Lifestyle - Warm Minimalist Creative Desk | hero | 1200x800 | 104.3 KB | [Christopher Gower](https://unsplash.com/photos/photo-1498050108023-c5249f4df085) | Unsplash License | `2a787cfb52` |
+| 35 | `/images/hero/hero-composition.webp` | Hero Editorial Composition - Modern Tech & Lifestyle | hero | 1200x800 | 43.2 KB | [Howard Bouchevereau](https://unsplash.com/photos/photo-1491933382434-500287f9b54b) | Unsplash License | `5b29bd3fec` |
+| 36 | `/images/hero/promo-smartwatch.webp` | Promo Banner - Smartwatch & Gadget Deal | hero | 800x800 | 96.2 KB | [Luke Chesser](https://unsplash.com/photos/photo-1508685096489-7aacd43bd3b1) | Unsplash License | `42ccf0bb89` |
+| 37 | `/images/hero/promo-fashion.webp` | Promo Banner - Streetwear & Style Collection | hero | 800x800 | 49.0 KB | [Patrik Lovrin](https://unsplash.com/photos/photo-1521369909029-2afed882baee) | Unsplash License | `60e06babef` |
+| 38 | `/images/categories/cat-cong-nghe.webp` | Danh mục Công nghệ | categories | 400x400 | 42.5 KB | [Marvin Meyer](https://unsplash.com/photos/photo-1519389950473-47ba0277781c) | Unsplash License | `9e2d4cad77` |
+| 39 | `/images/categories/cat-thoi-trang.webp` | Danh mục Thời trang | categories | 400x400 | 21.8 KB | [Burgess Milner](https://unsplash.com/photos/photo-1489987707025-afc232f7ea0f) | Unsplash License | `ad47802616` |
+| 40 | `/images/categories/cat-nha-cua.webp` | Danh mục Nhà cửa & Đời sống | categories | 400x400 | 24.2 KB | [Spacejoy](https://unsplash.com/photos/photo-1513694203232-719a280e022f) | Unsplash License | `33efb10b6d` |
+| 41 | `/images/categories/cat-lam-dep.webp` | Danh mục Làm đẹp | categories | 400x400 | 24.6 KB | [Raphael Lovaski](https://unsplash.com/photos/photo-1522335789203-aabd1fc54bc9) | Unsplash License | `b40f9167ad` |
+| 42 | `/images/categories/cat-the-thao.webp` | Danh mục Thể thao | categories | 400x400 | 43.8 KB | [Fitsum Admasu](https://unsplash.com/photos/photo-1517838277536-f5f99be501cd) | Unsplash License | `501c0a0819` |
+| 43 | `/images/categories/cat-phu-kien.webp` | Danh mục Phụ kiện | categories | 400x400 | 17.0 KB | [Kari Shea](https://unsplash.com/photos/photo-1523779917675-b6ed3a42a561) | Unsplash License | `096e8b8002` |
+| 44 | `/images/categories/cat-sach-vp.webp` | Danh mục Sách & Văn phòng phẩm | categories | 400x400 | 21.5 KB | [Aaron Burden](https://unsplash.com/photos/photo-1455390582262-044cdead277a) | Unsplash License | `7795140e82` |
+| 45 | `/images/categories/cat-do-choi.webp` | Danh mục Đồ chơi & Sáng tạo | categories | 400x400 | 32.3 KB | [Markus Spiske](https://unsplash.com/photos/photo-1566576912321-d58ddd7a6088) | Unsplash License | `41a5d02014` |
+| 46 | `/images/categories/cat-suc-khoe.webp` | Danh mục Sức khỏe | categories | 400x400 | 35.7 KB | [Jared Rice](https://unsplash.com/photos/photo-1506126613408-eca07ce68773) | Unsplash License | `49b5a596cf` |
+| 47 | `/images/categories/cat-hang-quoc-te.webp` | Danh mục Hàng quốc tế | categories | 400x400 | 63.7 KB | [Francesca Tirico](https://unsplash.com/photos/photo-1488646953014-85cb44e25828) | Unsplash License | `d5c9cc206d` |
+| 48 | `/images/blog/blog-desk-setup.webp` | Blog: Top 5 Setup Góc Làm Việc Tối Giản 2026 | blog | 800x500 | 59.8 KB | [Grovemade](https://unsplash.com/photos/photo-1585776245991-cf89dd7fc73a) | Unsplash License | `fd972566b7` |
+| 49 | `/images/blog/blog-spring-fashion.webp` | Blog: Xu Hướng Streetwear Đón Đầu 2026 | blog | 800x500 | 46.1 KB | [Ksenia Chernaya](https://unsplash.com/photos/photo-1483985988355-763728e1935b) | Unsplash License | `31dd55bd33` |
+| 50 | `/images/blog/blog-morning-routine.webp` | Blog: Bí Quyết Nạp Năng Lượng Buổi Sáng Cho Dân Văn Phòng | blog | 800x500 | 116.3 KB | [Jared Rice](https://unsplash.com/photos/photo-1506126613408-eca07ce68773) | Unsplash License | `565183a551` |

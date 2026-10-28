@@ -1,0 +1,50 @@
+@model IReadOnlyList<CutTayShop.Core.Models.BlogPost>
+@{
+    ViewData["Title"] = "Quản Trị Bài Viết Blog — Admin";
+}
+
+<div class="admin-page-header">
+  <div>
+    <h1 class="admin-page-title">Quản Trị Bài Viết & Tin Tức (@Model.Count bài)</h1>
+    <p class="text-muted">Quản lý cẩm nang công nghệ, thời trang và bài viết truyền cảm hứng.</p>
+  </div>
+  <button type="button" class="btn-pill btn-pill-primary" onclick="alert('Chế độ Demo: Mở trình soạn thảo bài viết mới.')">+ Viết bài mới</button>
+</div>
+
+<div class="admin-card" style="margin-top: 24px; background: var(--color-bg-primary); border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden;">
+  <div style="overflow-x: auto;">
+    <table class="table-styled" style="width: 100%;">
+      <thead>
+        <tr style="text-align: left; background: var(--color-bg-secondary);">
+          <th style="padding: 12px;">Ảnh bìa</th>
+          <th style="padding: 12px;">Tiêu đề bài viết</th>
+          <th style="padding: 12px;">Chuyên mục</th>
+          <th style="padding: 12px;">Tác giả</th>
+          <th style="padding: 12px;">Ngày đăng</th>
+          <th style="padding: 12px; text-align: right;">Thao tác</th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach (var post in Model)
+        {
+          <tr style="border-bottom: 1px solid var(--color-border);">
+            <td style="padding: 12px;">
+              <img src="@post.ImageUrl" alt="@post.Title" style="width: 60px; height: 40px; object-fit: cover; border-radius: var(--radius-sm);" />
+            </td>
+            <td style="padding: 12px;">
+              <strong>@post.Title</strong>
+              <div style="font-size: 0.75rem; color: var(--color-text-muted);">/blog/@post.Slug</div>
+            </td>
+            <td style="padding: 12px;"><span class="badge-capsule badge-sky">@post.Category</span></td>
+            <td style="padding: 12px;">@post.Author</td>
+            <td style="padding: 12px; font-size: 0.8125rem;">@post.PublishedAt.ToString("dd/MM/yyyy")</td>
+            <td style="padding: 12px; text-align: right;">
+              <a href="/blog/@post.Slug" target="_blank" class="btn-pill btn-pill-ghost btn-sm">Xem bài</a>
+              <button type="button" class="btn-pill btn-pill-secondary btn-sm" onclick="alert('Đã mở form chỉnh sửa bài viết.')">Sửa</button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

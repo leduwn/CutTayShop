@@ -1,0 +1,83 @@
+@model IReadOnlyList<CutTayShop.Core.Models.Product>
+@{
+    ViewData["Title"] = "Quản Lý Sản Phẩm — Admin";
+    var categories = ViewBag.Categories as IReadOnlyList<CutTayShop.Core.Models.Category> ?? new List<CutTayShop.Core.Models.Category>();
+}
+
+<div class="admin-page-header">
+  <div>
+    <h1 class="admin-page-title">Quản Lý Sản Phẩm (@Model.Count món)</h1>
+    <p class="text-muted">Danh sách toàn bộ sản phẩm đang được bày bán trên sàn CutTayShop.</p>
+  </div>
+  <a href="/admin/san-pham/them-moi" class="btn-pill btn-pill-primary">+ Thêm sản phẩm mới</a>
+</div>
+
+<!-- Filters Bar -->
+<div class="admin-card" style="padding: 16px; margin: 20px 0; background: var(--color-bg-primary); border: 1px solid var(--color-border); border-radius: var(--radius-md);">
+  <form method="get" action="/admin/san-pham" style="display: flex; gap: 12px; flex-wrap: wrap;">
+    <input type="search" name="q" value="@ViewBag.SearchQuery" placeholder="Tìm tên, thương hiệu..." class="form-control" style="max-width: 280px;" />
+    <select name="category" class="form-control" style="max-width: 200px;">
+      <option value="">Tất cả ngành hàng</option>
+      @foreach (var cat in categories)
+      {
+        <option value="@cat.Slug" selected="@(ViewBag.SelectedCategory == cat.Slug)">@cat.Name</option>
+      }
+    </select>
+    <button type="submit" class="btn-pill btn-pill-secondary">Lọc dữ liệu</button>
+    <a href="/admin/san-pham" class="btn-pill btn-pill-ghost">Đặt lại</a>
+  </form>
+</div>
+
+<!-- Products Table -->
+<div class="admin-card" style="background: var(--color-bg-primary); border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden;">
+  <div style="overflow-x: auto;">
+    <table class="table-styled" style="width: 100%;">
+      <thead>
+        <tr style="text-align: left; background: var(--color-bg-secondary);">
+          <th style="padding: 12px;">ID</th>
+          <th style="padding: 12px;">Hình ảnh</th>
+          <th style="padding: 12px;">Tên sản phẩm</th>
+          <th style="padding: 12px;">Ngành hàng</th>
+          <th style="padding: 12px;">Giá bán</th>
+          <th style="padding: 12px;">Tồn kho</th>
+          <th style="padding: 12px;">Trạng thái</th>
+          <th style="padding: 12px; text-align: right;">Hành động</th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach (var prod in Model)
+        {
+          <tr style="border-bottom: 1px solid var(--color-border);">
+            <td style="padding: 12px; color: var(--color-text-muted);">#@prod.Id</td>
+            <td style="padding: 12px;">
+              <img src="@prod.ImageUrl" alt="@prod.Name" style="width: 48px; height: 48px; object-fit: cover; border-radius: var(--radius-sm);" />
+            </td>
+            <td style="padding: 12px;">
+              <strong>@prod.Name</strong>
+              <div style="font-size: 0.75rem; color: var(--color-text-muted);">Thương hiệu: @prod.Brand</div>
+            </td>
+            <td style="padding: 12px;">@prod.CategoryName</td>
+            <td style="padding: 12px;"><strong>@prod.Price.ToString("N0") ₫</strong></td>
+            <td style="padding: 12px;">
+              @if (prod.TotalStock > 10)
+              {
+                <span>@prod.TotalStock</span>
+              }
+              else
+              {
+                <span class="badge-capsule badge-peach">Còn ít: @prod.TotalStock</span>
+              }
+            </td>
+            <td style="padding: 12px;">
+              <span class="badge-capsule badge-mint">Đang bán</span>
+            </td>
+            <td style="padding: 12px; text-align: right;">
+              <a href="/admin/san-pham/chinh-sua/@prod.Id" class="btn-pill btn-pill-secondary btn-sm">Sửa</a>
+              <a href="/admin/san-pham/@prod.Id/bien-the" class="btn-pill btn-pill-ghost btn-sm">SKU</a>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

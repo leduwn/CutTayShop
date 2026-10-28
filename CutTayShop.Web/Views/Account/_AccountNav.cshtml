@@ -1,0 +1,47 @@
+@{
+    var currentAction = ViewContext.RouteData.Values["action"]?.ToString() ?? "Index";
+}
+
+<aside class="account-nav-card">
+  <div class="user-summary-card">
+    <div class="user-avatar-circle">NA</div>
+    <div class="user-info">
+      <div class="user-name">Nguyễn Văn An</div>
+      <div class="user-tier-badge">👑 CutTayShop+ Vàng</div>
+    </div>
+  </div>
+
+  <nav class="account-menu-nav">
+    <a href="/tai-khoan" class="menu-item @(currentAction == "Index" ? "active" : "")">
+      <span class="icon">📊</span> Tổng quan tài khoản
+    </a>
+    <a href="/tai-khoan/don-hang" class="menu-item @(currentAction == "Orders" || currentAction == "OrderDetail" ? "active" : "")">
+      <span class="icon">📦</span> Đơn hàng của tôi
+    </a>
+    <a href="/tai-khoan/dia-chi" class="menu-item @(currentAction == "Addresses" ? "active" : "")">
+      <span class="icon">📍</span> Sổ địa chỉ nhận hàng
+    </a>
+    <a href="/tai-khoan/ma-giam-gia" class="menu-item @(currentAction == "Vouchers" ? "active" : "")">
+      <span class="icon">🎟️</span> Kho voucher của tôi
+    </a>
+    <a href="/tai-khoan/cuttayshop-plus" class="menu-item @(currentAction == "Loyalty" ? "active" : "")">
+      <span class="icon">⭐</span> Đặc quyền CutTayShop+
+    </a>
+    <a href="/tai-khoan/ho-so" class="menu-item @(currentAction == "Profile" ? "active" : "")">
+      <span class="icon">👤</span> Hồ sơ cá nhân
+    </a>
+    <a href="/tai-khoan/doi-mat-khau" class="menu-item @(currentAction == "ChangePassword" ? "active" : "")">
+      <span class="icon">🔒</span> Đổi mật khẩu
+    </a>
+    <a href="/tai-khoan/danh-gia" class="menu-item @(currentAction == "Reviews" ? "active" : "")">
+      <span class="icon">✍️</span> Đánh giá sản phẩm
+    </a>
+    <div class="nav-divider"></div>
+    <form asp-controller="Auth" asp-action="Logout" method="post" style="margin: 0;">
+      @Html.AntiForgeryToken()
+      <button type="submit" class="menu-item menu-item-logout" style="width: 100%; text-align: left; background: none; border: none; font: inherit; cursor: pointer;">
+        <span class="icon">🚪</span> Đăng xuất
+      </button>
+    </form>
+  </nav>
+</aside>

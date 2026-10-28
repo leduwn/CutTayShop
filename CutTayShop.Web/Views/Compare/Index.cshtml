@@ -1,0 +1,91 @@
+@model IReadOnlyList<CutTayShop.Core.Models.Product>
+@{
+    ViewData["Title"] = "So Sánh Sản Phẩm — CutTayShop";
+    var compareList = Model.Take(3).ToList();
+}
+
+<section class="page-header-editorial">
+  <div class="container-custom">
+    <div class="page-header-inner">
+      <div class="badge-capsule badge-sky">
+        <span aria-hidden="true">⚖️</span> Đưa ra quyết định mua sắm thông thái
+      </div>
+      <h1 class="page-title">So Sánh Sản Phẩm</h1>
+      <p class="page-subtitle">Đặt cạnh nhau để so sánh chi tiết tính năng, thông số kỹ thuật, giá thành và đánh giá thực tế.</p>
+    </div>
+  </div>
+</section>
+
+<div class="container-custom" style="padding-top: 32px; padding-bottom: 64px;">
+  <div class="compare-table-wrapper" style="overflow-x: auto;">
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th style="min-width: 180px;">Tiêu chí so sánh</th>
+          @foreach (var p in compareList)
+          {
+            <th style="min-width: 260px;">
+              <div class="compare-prod-card">
+                <img src="@p.ImageUrl" alt="@p.Name" class="compare-img" width="120" height="120" />
+                <h3 class="compare-prod-name"><a href="/san-pham/@p.Slug">@p.Name</a></h3>
+                <div class="compare-price">@p.Price.ToString("N0") ₫</div>
+                <button type="button" class="btn-pill btn-pill-primary btn-sm btn-block" data-add-to-cart="@p.Id" style="margin-top: 8px;">
+                  Thêm vào giỏ
+                </button>
+              </div>
+            </th>
+          }
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="compare-row-label">Thương hiệu</td>
+          @foreach (var p in compareList)
+          {
+            <td><strong>@p.Brand</strong></td>
+          }
+        </tr>
+        <tr>
+          <td class="compare-row-label">Ngành hàng</td>
+          @foreach (var p in compareList)
+          {
+            <td><a href="/danh-muc/@p.CategorySlug">@p.CategoryName</a></td>
+          }
+        </tr>
+        <tr>
+          <td class="compare-row-label">Đánh giá</td>
+          @foreach (var p in compareList)
+          {
+            <td>
+              <span class="rating-badge">★ @p.Rating</span>
+              <span class="text-muted" style="font-size: 0.8rem;">(@p.ReviewCount nhận xét)</span>
+            </td>
+          }
+        </tr>
+        <tr>
+          <td class="compare-row-label">Tình trạng</td>
+          @foreach (var p in compareList)
+          {
+            <td>
+              @if (p.InStock)
+              {
+                <span class="stock-status in-stock">● Còn hàng</span>
+              }
+              else
+              {
+                <span class="stock-status out-of-stock">● Hết hàng tạm thời</span>
+              }
+            </td>
+          }
+        </tr>
+        <tr>
+          <td class="compare-row-label">Mô tả tóm tắt</td>
+          @foreach (var p in compareList)
+          {
+            <td style="font-size: 0.875rem; color: var(--color-text-secondary); line-height: 1.5;">@p.ShortDescription</td>
+          }
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+@model CutTayShop.Core.Models.Product
+@{
+    ViewData["Title"] = "Quản Lý Biến Thể SKU — " + Model.Name;
+}
+
+<div class="admin-page-header">
+  <div>
+    <a href="/admin/san-pham" style="font-size: 0.875rem; color: var(--color-primary); font-weight: 600;">← Quay lại danh sách sản phẩm</a>
+    <h1 class="admin-page-title" style="margin-top: 8px;">Quản Lý Biến Thể SKU: @Model.Name</h1>
+  </div>
+  <button type="button" class="btn-pill btn-pill-primary" onclick="alert('Đã mở form thêm biến thể mới.')">+ Thêm biến thể SKU</button>
+</div>
+
+<div class="admin-card" style="margin-top: 24px; background: var(--color-bg-primary); border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden;">
+  <div style="overflow-x: auto;">
+    <table class="table-styled" style="width: 100%;">
+      <thead>
+        <tr style="text-align: left; background: var(--color-bg-secondary);">
+          <th style="padding: 12px;">Mã SKU</th>
+          <th style="padding: 12px;">Tên phân loại / Biến thể</th>
+          <th style="padding: 12px;">Giá bán</th>
+          <th style="padding: 12px;">Giá gốc</th>
+          <th style="padding: 12px; text-align: right;">Thao tác</th>
+        </tr>
+      </thead>
+      <tbody>
+        @if (Model.Variants != null && Model.Variants.Any())
+        {
+          @foreach (var v in Model.Variants)
+          {
+            <tr style="border-bottom: 1px solid var(--color-border);">
+              <td style="padding: 12px;"><code class="badge-capsule badge-subtle">@v.Sku</code></td>
+              <td style="padding: 12px;"><strong>@v.Name</strong></td>
+              <td style="padding: 12px; font-weight: 700; color: var(--color-primary);">@v.Price.ToString("N0") ₫</td>
+              <td style="padding: 12px; text-decoration: line-through; color: var(--color-text-muted);">@v.OriginalPrice.ToString("N0") ₫</td>
+              <td style="padding: 12px; text-align: right;">
+                <button type="button" class="btn-pill btn-pill-secondary btn-sm" onclick="alert('Chỉnh sửa SKU @v.Sku')">Sửa</button>
+              </td>
+            </tr>
+          }
+        }
+        else
+        {
+          <tr>
+            <td colspan="5" style="padding: 24px; text-align: center; color: var(--color-text-muted);">
+              Sản phẩm này chưa cấu hình biến thể rời. Giá bán áp dụng mức mặc định.
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

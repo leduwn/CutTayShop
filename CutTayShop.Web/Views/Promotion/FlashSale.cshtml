@@ -1,0 +1,58 @@
+@model CutTayShop.Web.ViewModels.FlashSaleViewModel
+@{
+    ViewData["Title"] = "Flash Sale Deal Giờ Vàng — CutTayShop";
+}
+
+<section class="page-header-editorial">
+  <div class="container-custom">
+    <div class="page-header-inner">
+      <div class="badge-capsule badge-peach">
+        <span aria-hidden="true">⚡</span> Khung giờ vàng giảm sốc
+      </div>
+      <h1 class="page-title">Flash Sale Hôm Nay</h1>
+      <p class="page-subtitle">Săn deal chớp nhoáng với mức giảm lên đến 50%. Số lượng có hạn theo từng khung giờ!</p>
+
+      <!-- Live Countdown Card -->
+      <div class="flash-countdown-card" data-countdown-end="@Model.Countdown.EndTime.ToString("o")">
+        <div class="countdown-label">
+          <span class="pulse-indicator"></span> Kết thúc sau:
+        </div>
+        <div class="countdown-digits">
+          <div class="countdown-unit">
+            <span class="unit-val hours">@Model.Countdown.Hours.ToString("D2")</span>
+            <span class="unit-text">Giờ</span>
+          </div>
+          <span class="countdown-colon">:</span>
+          <div class="countdown-unit">
+            <span class="unit-val minutes">@Model.Countdown.Minutes.ToString("D2")</span>
+            <span class="unit-text">Phút</span>
+          </div>
+          <span class="countdown-colon">:</span>
+          <div class="countdown-unit">
+            <span class="unit-val seconds">@Model.Countdown.Seconds.ToString("D2")</span>
+            <span class="unit-text">Giây</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container-custom" style="padding-top: 32px; padding-bottom: 64px;">
+  <!-- Category filter chips -->
+  <div class="filter-chips-row" style="margin-bottom: 28px;">
+    <a href="/flash-sale" class="filter-chip active">Tất cả deal</a>
+    @foreach (var cat in Model.Categories)
+    {
+      <a href="/danh-muc/@cat.Slug" class="filter-chip">@cat.Name</a>
+    }
+  </div>
+
+  <!-- Deals Grid -->
+  <div class="product-grid">
+    @foreach (var product in Model.Deals)
+    {
+      @await Html.PartialAsync("_ProductCard", product)
+    }
+  </div>
+</div>

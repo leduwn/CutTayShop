@@ -1,0 +1,80 @@
+@model CutTayShop.Web.ViewModels.BlogIndexViewModel
+@{
+    ViewData["Title"] = "Tin Tức & Phong Cách Sống — CutTayShop Blog";
+}
+
+<section class="page-header-editorial">
+  <div class="container-custom">
+    <div class="page-header-inner">
+      <div class="badge-capsule badge-mint">
+        <span aria-hidden="true">✍️</span> Khám phá xu hướng & góc nhìn mới
+      </div>
+      <h1 class="page-title">CutTayShop Magazine & Blog</h1>
+      <p class="page-subtitle">Cẩm nang phong cách sống hiện đại, setup bàn làm việc tối giản và bí quyết chọn đồ công nghệ đỉnh cao.</p>
+    </div>
+  </div>
+</section>
+
+<div class="container-custom" style="padding-top: 32px; padding-bottom: 80px;">
+  <!-- Filter Categories Row -->
+  <div class="filter-chips-row" style="margin-bottom: 32px;">
+    <a href="/blog" class="filter-chip @(string.IsNullOrEmpty(Model.CurrentCategory) ? "active" : "")">Tất cả bài viết</a>
+    <a href="/blog?chuDe=cong-nghe" class="filter-chip @(Model.CurrentCategory == "cong-nghe" ? "active" : "")">Công nghệ & Setup</a>
+    <a href="/blog?chuDe=thoi-trang" class="filter-chip @(Model.CurrentCategory == "thoi-trang" ? "active" : "")">Thời trang & Streetwear</a>
+    <a href="/blog?chuDe=suc-khoe" class="filter-chip @(Model.CurrentCategory == "suc-khoe" ? "active" : "")">Sức khỏe & Đời sống</a>
+  </div>
+
+  @if (Model.FeaturedPost != null && string.IsNullOrEmpty(Model.CurrentCategory))
+  {
+    <!-- Featured Hero Post -->
+    <article class="featured-blog-card" style="margin-bottom: 48px;">
+      <div class="featured-blog-img-wrap">
+        <img src="@Model.FeaturedPost.ImageUrl" alt="@Model.FeaturedPost.Title" class="featured-blog-img" width="600" height="400" />
+      </div>
+      <div class="featured-blog-content">
+        <div class="blog-meta-badge">
+          <span class="badge-capsule badge-peach">@Model.FeaturedPost.Category</span>
+          <span class="text-muted" style="font-size: 0.8rem; margin-left: 8px;">@Model.FeaturedPost.ReadingTime</span>
+        </div>
+        <h2 class="featured-blog-title">
+          <a href="/blog/@Model.FeaturedPost.Slug">@Model.FeaturedPost.Title</a>
+        </h2>
+        <p class="featured-blog-summary">@Model.FeaturedPost.Summary</p>
+        <div class="featured-blog-footer">
+          <span class="author-name">Bởi @Model.FeaturedPost.Author</span>
+          <span class="dot-sep">•</span>
+          <span class="publish-date">@Model.FeaturedPost.PublishedAt.ToString("dd/MM/yyyy")</span>
+          <a href="/blog/@Model.FeaturedPost.Slug" class="btn-read-more" style="margin-left: auto;">Đọc tiếp →</a>
+        </div>
+      </div>
+    </article>
+  }
+
+  <!-- Articles Grid -->
+  <div class="blog-grid">
+    @foreach (var post in Model.Posts)
+    {
+      <article class="blog-card">
+        <a href="/blog/@post.Slug" class="blog-card-thumb-wrap">
+          <img src="@post.ImageUrl" alt="@post.Title" class="blog-card-thumb" width="400" height="250" loading="lazy" />
+          <span class="blog-card-category-pill">@post.Category</span>
+        </a>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span>@post.PublishedAt.ToString("dd/MM/yyyy")</span>
+            <span class="dot-sep">•</span>
+            <span>@post.ReadingTime</span>
+          </div>
+          <h3 class="blog-card-title">
+            <a href="/blog/@post.Slug">@post.Title</a>
+          </h3>
+          <p class="blog-card-summary">@post.Summary</p>
+          <div class="blog-card-footer">
+            <span class="author-by">Bởi @post.Author</span>
+            <a href="/blog/@post.Slug" class="read-link">Xem chi tiết →</a>
+          </div>
+        </div>
+      </article>
+    }
+  </div>
+</div>

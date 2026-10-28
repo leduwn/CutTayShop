@@ -1,0 +1,74 @@
+@model CutTayShop.Web.ViewModels.LoginViewModel
+@{
+    ViewData["Title"] = "Đăng Nhập Tài Khoản — CutTayShop";
+}
+
+<div class="container-custom" style="padding-top: 48px; padding-bottom: 80px; max-width: 480px;">
+  <div class="auth-card">
+    <div class="auth-card-header">
+      <div class="badge-capsule badge-mint" style="margin-bottom: 12px;">CutTayShop ID</div>
+      <h1 class="auth-title">Chào mừng trở lại!</h1>
+      <p class="auth-subtitle">Đăng nhập để theo dõi đơn hàng và tận hưởng đặc quyền CutTayShop+</p>
+    </div>
+
+    <!-- Demo notice -->
+    <div class="demo-auth-hint" style="background: var(--color-bg-secondary); padding: 12px 16px; border-radius: var(--radius-md); font-size: 0.8125rem; color: var(--color-text-secondary); margin-bottom: 20px;">
+      💡 <strong>Chế độ Demo:</strong> Bạn có thể dùng bất kỳ email và mật khẩu mẫu nào (hoặc nhấn đăng nhập ngay) để trải nghiệm giao diện tài khoản.
+    </div>
+
+    @if (TempData["RegisterSuccess"] != null)
+    {
+      <div class="alert alert-success" style="margin-bottom: 20px;">
+        @TempData["RegisterSuccess"]
+      </div>
+    }
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+      <div class="alert alert-success" style="margin-bottom: 20px;">
+        @TempData["SuccessMessage"]
+      </div>
+    }
+
+    <form asp-controller="AuthController" asp-action="Login" method="post">
+      @Html.AntiForgeryToken()
+      <input type="hidden" asp-for="ReturnUrl" />
+
+      <div class="form-group" style="margin-bottom: 16px;">
+        <label asp-for="Identifier" class="form-label">Email hoặc Số điện thoại <span class="required">*</span></label>
+        <input asp-for="Identifier" class="form-control" placeholder="nguyenvanan@gmail.com" value="nguyenvanan@gmail.com" required />
+        <span asp-validation-for="Identifier" class="field-validation-error"></span>
+      </div>
+
+      <div class="form-group" style="margin-bottom: 16px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <label asp-for="Password" class="form-label">Mật khẩu <span class="required">*</span></label>
+          <a href="/quen-mat-khau" style="font-size: 0.8125rem; color: var(--color-primary);">Quên mật khẩu?</a>
+        </div>
+        <input asp-for="Password" class="form-control" type="password" placeholder="••••••••" value="demo123456" required />
+        <span asp-validation-for="Password" class="field-validation-error"></span>
+      </div>
+
+      <div class="form-group" style="margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
+        <input type="checkbox" asp-for="RememberMe" id="RememberMe" checked />
+        <label for="RememberMe" style="font-size: 0.875rem; cursor: pointer;">Ghi nhớ đăng nhập</label>
+      </div>
+
+      <button type="submit" class="btn-pill btn-pill-primary btn-block btn-pill-lg">
+        Đăng nhập ngay →
+      </button>
+
+      <div class="auth-divider" style="text-align: center; margin: 24px 0; position: relative;">
+        <span style="background: var(--color-bg-primary); padding: 0 12px; color: var(--color-text-muted); font-size: 0.8125rem;">hoặc</span>
+      </div>
+
+      <a href="/dang-nhap-google" class="btn-pill btn-pill-secondary btn-block" style="display: flex; justify-content: center; align-items: center; gap: 8px;">
+        <span>🌐 Tiếp tục với Google (1-Click)</span>
+      </a>
+
+      <div style="text-align: center; margin-top: 24px; font-size: 0.875rem; color: var(--color-text-secondary);">
+        Chưa có tài khoản? <a href="/dang-ky" style="color: var(--color-primary); font-weight: 600;">Đăng ký ngay</a> nhận voucher 20k
+      </div>
+    </form>
+  </div>
+</div>

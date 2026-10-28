@@ -1,0 +1,37 @@
+@model IReadOnlyList<CutTayShop.Core.Models.PromoBanner>
+@{
+    ViewData["Title"] = "Quản Lý Banner CMS — Admin";
+}
+
+<div class="admin-page-header">
+  <div>
+    <h1 class="admin-page-title">Quản Lý Banner CMS</h1>
+    <p class="text-muted">Cập nhật banner quảng cáo Hero, thẻ chiến dịch khuyến mãi trang chủ.</p>
+  </div>
+  <button type="button" class="btn-pill btn-pill-primary" onclick="alert('Chế độ Demo: Mở form thêm banner mới.')">+ Thêm banner mới</button>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-top: 24px;">
+  @foreach (var banner in Model)
+  {
+    <div class="admin-card" style="padding: 24px; background: var(--color-bg-primary); border: 1px solid var(--color-border); border-radius: var(--radius-lg);">
+      <div style="height: 140px; border-radius: var(--radius-md); background: @banner.BgColorHex; display: flex; align-items: center; justify-content: space-between; padding: 20px; margin-bottom: 16px;">
+        <div>
+          <span style="font-size: 0.8125rem; font-weight: 700; color: #334155;">@banner.CategoryTitle</span>
+          <div style="font-size: 1.25rem; font-weight: 800; color: #0f172a;">@banner.PromoLabel @banner.HighlightNumber</div>
+          <span style="font-size: 0.8125rem; color: var(--color-primary); font-weight: 600;">@banner.CtaText</span>
+        </div>
+        <img src="@banner.ImageUrl" alt="@banner.CategoryTitle" style="width: 80px; height: 80px; object-fit: cover; border-radius: var(--radius-sm);" />
+      </div>
+
+      <div style="font-size: 0.875rem;">
+        <div style="margin-bottom: 6px;"><strong>Vị trí:</strong> Trang chủ - Hero Side Column (@banner.Id)</div>
+        <div style="margin-bottom: 12px;"><strong>Liên kết đích:</strong> <code>@banner.CtaLink</code></div>
+      </div>
+
+      <div style="display: flex; gap: 8px;">
+        <button type="button" class="btn-pill btn-pill-secondary btn-sm" onclick="alert('Đã mở form chỉnh sửa banner #@banner.Id')">Chỉnh sửa nội dung</button>
+      </div>
+    </div>
+  }
+</div>

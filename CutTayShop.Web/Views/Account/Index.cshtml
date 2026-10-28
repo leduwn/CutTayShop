@@ -1,0 +1,81 @@
+@model CutTayShop.Web.ViewModels.AccountDashboardViewModel
+@{
+    ViewData["Title"] = "Tổng Quan Tài Khoản — CutTayShop";
+}
+
+<div class="container-custom" style="padding-top: 32px; padding-bottom: 80px;">
+  <div class="account-portal-layout">
+    <!-- Left: Navigation Sidebar -->
+    <div class="account-sidebar-col">
+      @await Html.PartialAsync("_AccountNav")
+    </div>
+
+    <!-- Right: Account Content Body -->
+    <div class="account-content-col">
+      <!-- Welcome Banner -->
+      <div class="account-welcome-banner">
+        <div>
+          <h1 class="welcome-title">Xin chào, @Model.CustomerName!</h1>
+          <p class="welcome-sub">Chào mừng bạn trở lại với CutTayShop. Bạn đang có <strong>@Model.RewardPoints điểm</strong> thưởng CutTayShop+.</p>
+        </div>
+        <div class="tier-pill-gold">
+          <span>👑 @Model.MembershipTier</span>
+        </div>
+      </div>
+
+      <!-- Quick Metrics Grid -->
+      <div class="account-metrics-grid" style="margin-top: 24px;">
+        <div class="metric-card">
+          <div class="metric-val">@Model.OrderCount</div>
+          <div class="metric-label">Tổng đơn hàng</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-val">@Model.VoucherCount</div>
+          <div class="metric-label">Voucher khả dụng</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-val">@Model.RewardPoints</div>
+          <div class="metric-label">Điểm CutTay+ tích lũy</div>
+        </div>
+      </div>
+
+      <!-- Recent Orders Section -->
+      <div class="account-section-card" style="margin-top: 28px;">
+        <div class="section-card-header">
+          <h2 class="card-title">Đơn hàng gần đây</h2>
+          <a href="/tai-khoan/don-hang" class="view-all-link">Xem tất cả đơn hàng →</a>
+        </div>
+
+        <div class="orders-table-wrapper" style="overflow-x: auto; margin-top: 16px;">
+          <table class="table-styled" style="width: 100%;">
+            <thead>
+              <tr style="text-align: left; background: var(--color-bg-secondary);">
+                <th style="padding: 12px;">Mã đơn</th>
+                <th style="padding: 12px;">Ngày đặt</th>
+                <th style="padding: 12px;">Sản phẩm</th>
+                <th style="padding: 12px;">Tổng tiền</th>
+                <th style="padding: 12px;">Trạng thái</th>
+                <th style="padding: 12px;">Thao tác</th>
+              </tr>
+            </thead>
+            <tbody>
+              @foreach (var order in Model.RecentOrders)
+              {
+                <tr style="border-bottom: 1px solid var(--color-border);">
+                  <td style="padding: 12px;"><strong>@order.OrderCode</strong></td>
+                  <td style="padding: 12px;">@order.CreatedAt.ToString("dd/MM/yyyy")</td>
+                  <td style="padding: 12px;">@order.Items.FirstOrDefault()?.ProductName (@order.Items.Count món)</td>
+                  <td style="padding: 12px;"><strong>@order.TotalAmount.ToString("N0") ₫</strong></td>
+                  <td style="padding: 12px;"><span class="badge-capsule badge-mint">@order.Status</span></td>
+                  <td style="padding: 12px;">
+                    <a href="/tai-khoan/don-hang/@order.OrderCode" class="btn-pill btn-pill-secondary btn-sm">Chi tiết</a>
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

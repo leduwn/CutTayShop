@@ -1,0 +1,65 @@
+@model IReadOnlyList<CutTayShop.Core.Models.Product>
+@{
+    ViewData["Title"] = "Cài Đặt Flash Sale — Admin";
+    var countdown = ViewBag.Countdown as CutTayShop.Core.Models.DealCountdown;
+}
+
+<div class="admin-page-header">
+  <div>
+    <h1 class="admin-page-title">Cài Đặt Chiến Dịch Flash Sale Giờ Vàng</h1>
+    <p class="text-muted">Cấu hình khung giờ đếm ngược, danh sách sản phẩm tham gia và giá shock.</p>
+  </div>
+  <button type="button" class="btn-pill btn-pill-primary" onclick="alert('Đã lưu cấu hình khung giờ Flash Sale!')">Lưu cấu hình</button>
+</div>
+
+<div class="admin-card" style="padding: 24px; margin-top: 24px; background: var(--color-bg-primary); border: 1px solid var(--color-border); border-radius: var(--radius-lg);">
+  <h2 style="font-size: 1.125rem; font-weight: 700; margin-bottom: 16px;">Khung giờ đang kích hoạt</h2>
+  <div style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">
+    <div>
+      <label class="form-label">Thời điểm kết thúc đợt sale</label>
+      <input type="datetime-local" class="form-control" value="2026-03-01T23:59" />
+    </div>
+    <div>
+      <label class="form-label">Trạng thái đếm ngược</label>
+      <div style="margin-top: 8px;"><span class="badge-capsule badge-mint">⚡ Đang đếm ngược trực tiếp</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="admin-card" style="margin-top: 24px; background: var(--color-bg-primary); border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden;">
+  <div style="padding: 16px; border-bottom: 1px solid var(--color-border); font-weight: 700;">
+    Sản phẩm tham gia Flash Sale (@Model.Count sản phẩm)
+  </div>
+  <div style="overflow-x: auto;">
+    <table class="table-styled" style="width: 100%;">
+      <thead>
+        <tr style="text-align: left; background: var(--color-bg-secondary);">
+          <th style="padding: 12px;">Sản phẩm</th>
+          <th style="padding: 12px;">Giá gốc</th>
+          <th style="padding: 12px;">Giá Flash Sale</th>
+          <th style="padding: 12px;">Mức giảm</th>
+          <th style="padding: 12px;">Đã bán / Giới hạn</th>
+          <th style="padding: 12px; text-align: right;">Thao tác</th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach (var prod in Model)
+        {
+          <tr style="border-bottom: 1px solid var(--color-border);">
+            <td style="padding: 12px; display: flex; align-items: center; gap: 10px;">
+              <img src="@prod.ImageUrl" alt="@prod.Name" style="width: 40px; height: 40px; object-fit: cover; border-radius: var(--radius-sm);" />
+              <strong>@prod.Name</strong>
+            </td>
+            <td style="padding: 12px; text-decoration: line-through; color: var(--color-text-muted);">@prod.OriginalPrice.ToString("N0") ₫</td>
+            <td style="padding: 12px; font-weight: 700; color: var(--color-primary);">@prod.Price.ToString("N0") ₫</td>
+            <td style="padding: 12px;"><span class="badge-capsule badge-peach">@prod.BadgeText</span></td>
+            <td style="padding: 12px;">@prod.SoldCount / @prod.TotalStock món</td>
+            <td style="padding: 12px; text-align: right;">
+              <button type="button" class="btn-pill btn-pill-secondary btn-sm" onclick="alert('Đã mở modal chỉnh giá sale.')">Chỉnh giá</button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

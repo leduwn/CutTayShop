@@ -1,0 +1,124 @@
+@model CutTayShop.Web.ViewModels.CartPageViewModel
+@{
+    ViewData["Title"] = "Giỏ Hàng Mua Sắm — CutTayShop";
+}
+
+<div class="container-custom" style="padding-top: 32px; padding-bottom: 80px;">
+  <div class="cart-header-title">
+    <h1 class="page-title" style="margin-bottom: 8px;">Giỏ hàng của bạn</h1>
+    <p class="text-muted" data-cart-summary-text>Kiểm tra danh sách sản phẩm và áp dụng voucher ưu đãi</p>
+  </div>
+
+  <div class="cart-layout-grid" style="margin-top: 24px;">
+    <!-- Left: Cart Items List -->
+    <div class="cart-main-col">
+      <div id="cart-items-container" data-cart-list>
+        <!-- Populated dynamically via store-interactions.js or fallback -->
+        <div class="cart-item-card" data-sample-item="1">
+          <div class="cart-item-img-wrap">
+            <img src="/images/products/headphones-pro.webp" alt="Tai nghe chụp tai Studio Pro Wireless" class="cart-item-img" width="100" height="100" />
+          </div>
+          <div class="cart-item-info">
+            <div class="cart-item-brand">Sony</div>
+            <h3 class="cart-item-title"><a href="/san-pham/tai-nghe-chup-tai-studio-pro-wireless">Tai nghe chụp tai Studio Pro Wireless</a></h3>
+            <div class="cart-item-variant">Biến thể: Đen Midnight</div>
+            <div class="cart-item-price-row">
+              <span class="cart-item-price">1.490.000 ₫</span>
+              <span class="cart-item-orig-price">2.490.000 ₫</span>
+            </div>
+          </div>
+          <div class="cart-item-actions">
+            <div class="qty-stepper">
+              <button type="button" class="qty-btn" data-qty-minus aria-label="Giảm số lượng">-</button>
+              <input type="number" class="qty-input" value="1" min="1" max="10" readonly />
+              <button type="button" class="qty-btn" data-qty-plus aria-label="Tăng số lượng">+</button>
+            </div>
+            <button type="button" class="btn-remove-item" data-remove-item="1" aria-label="Xóa sản phẩm">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="3 6 5 6 21 6"></polyline>
+                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+              </svg>
+              <span>Xóa</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Free Shipping Progress -->
+      <div class="freeship-progress-card" style="margin-top: 24px;">
+        <div class="progress-title-row">
+          <span>🎉 Bạn đã đủ điều kiện nhận <strong>Miễn phí vận chuyển</strong>!</span>
+          <span class="progress-percent">100%</span>
+        </div>
+        <div class="progress-bar-track">
+          <div class="progress-bar-fill" style="width: 100%;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Order Summary Sticky Card -->
+    <div class="cart-sidebar-col">
+      <div class="cart-summary-card">
+        <h2 class="summary-card-title">Tóm tắt đơn hàng</h2>
+
+        <!-- Coupon input form -->
+        <div class="summary-coupon-box">
+          <div class="coupon-input-group">
+            <input type="text" class="coupon-field" id="cart-coupon-input" placeholder="Mã giảm giá (ví dụ: CUTTAYNEW)" />
+            <button type="button" class="btn-apply-coupon" id="btn-apply-coupon">Áp dụng</button>
+          </div>
+          <div class="coupon-feedback" id="coupon-feedback" style="display: none;"></div>
+        </div>
+
+        <div class="summary-rows-group">
+          <div class="summary-row">
+            <span class="summary-label">Tạm tính:</span>
+            <span class="summary-val" data-cart-subtotal>1.490.000 ₫</span>
+          </div>
+          <div class="summary-row">
+            <span class="summary-label">Phí vận chuyển:</span>
+            <span class="summary-val text-success" data-cart-shipping>Miễn phí</span>
+          </div>
+          <div class="summary-row" id="row-discount" style="display: none;">
+            <span class="summary-label">Giảm giá voucher:</span>
+            <span class="summary-val text-danger" data-cart-discount>-20.000 ₫</span>
+          </div>
+          <div class="summary-divider"></div>
+          <div class="summary-row total-row">
+            <span class="total-label">Tổng thanh toán:</span>
+            <div class="total-val-box">
+              <span class="total-val" data-cart-total>1.490.000 ₫</span>
+              <span class="vat-note">(Đã bao gồm VAT)</span>
+            </div>
+          </div>
+        </div>
+
+        <a href="/thanh-toan" class="btn-pill btn-pill-primary btn-block btn-pill-lg checkout-btn">
+          Tiến hành thanh toán →
+        </a>
+
+        <div class="summary-trust-perks">
+          <div class="perk-item">
+            <span class="perk-icon">🛡️</span>
+            <span>Bảo hành chính hãng 100%</span>
+          </div>
+          <div class="perk-item">
+            <span class="perk-icon">🔄</span>
+            <span>Đổi trả 7 ngày miễn phí</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Recommended carousel below cart -->
+  <div class="cart-recommended-section" style="margin-top: 64px;">
+    <h2 class="section-title">Có thể bạn cũng thích</h2>
+    <div class="product-grid" style="margin-top: 24px;">
+      @foreach (var prod in Model.SuggestedProducts.Take(4))
+      {
+        @await Html.PartialAsync("_ProductCard", prod)
+      }
+    </div>
+  </div>
+</div>

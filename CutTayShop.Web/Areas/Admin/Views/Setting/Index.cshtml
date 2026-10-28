@@ -1,0 +1,51 @@
+@{
+    ViewData["Title"] = "Cài Đặt Hệ Thống — Admin";
+}
+
+<div class="admin-page-header">
+  <div>
+    <h1 class="admin-page-title">Cài Đặt Cấu Hình Hệ Thống</h1>
+    <p class="text-muted">Quản lý tham số vận hành, thông tin thương hiệu, hotline và ngưỡng phí vận chuyển.</p>
+  </div>
+  <button type="button" class="btn-pill btn-pill-primary" onclick="alert('Đã lưu cài đặt hệ thống thành công!')">Lưu cài đặt</button>
+</div>
+
+<div class="admin-card" style="max-width: 800px; padding: 32px; background: var(--color-bg-primary); border: 1px solid var(--color-border); border-radius: var(--radius-lg); margin-top: 24px;">
+  <form>
+    <h2 style="font-size: 1.125rem; font-weight: 700; margin-bottom: 20px;">Thông tin chung cửa hàng</h2>
+
+    <div class="form-row-2" style="margin-bottom: 20px;">
+      <div class="form-group">
+        <label class="form-label">Tên thương hiệu</label>
+        <input type="text" class="form-control" value="CutTayShop" />
+      </div>
+      <div class="form-group">
+        <label class="form-label">Hotline chăm sóc khách hàng</label>
+        <input type="text" class="form-control" value="1900 8888" />
+      </div>
+    </div>
+
+    <div class="form-row-2" style="margin-bottom: 20px;">
+      <div class="form-group">
+        <label class="form-label">Email hỗ trợ tiếp nhận</label>
+        <input type="email" class="form-control" value="cskh@cuttayshop.vn" />
+      </div>
+      <div class="form-group">
+        <label class="form-label">Phí vận chuyển mặc định (VNĐ)</label>
+        <input type="number" class="form-control" value="30000" />
+      </div>
+    </div>
+
+    <div class="form-group" style="margin-bottom: 20px;">
+      <label class="form-label">Ngưỡng áp dụng Freeship tự động (VNĐ)</label>
+      <input type="number" class="form-control" value="250000" />
+    </div>
+
+    <div class="form-group" style="margin-bottom: 24px;">
+      <label class="form-label">Địa chỉ kho tổng đóng gói</label>
+      <input type="text" class="form-control" value="Số 18, Ngõ 45 phố Nguyễn Đình Chiểu, Phường Lê Đại Hành, Quận Hai Bà Trưng, Hà Nội" />
+    </div>
+
+    <button type="button" class="btn-pill btn-pill-primary btn-pill-lg" onclick="alert('Đã lưu cấu hình hệ thống!')">Lưu cấu hình</button>
+  </form>
+</div>

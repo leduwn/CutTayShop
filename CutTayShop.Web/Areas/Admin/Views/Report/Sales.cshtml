@@ -1,0 +1,71 @@
+@model IReadOnlyList<CutTayShop.Core.Models.Product>
+@{
+    ViewData["Title"] = "Báo Cáo Doanh Thu — Admin";
+}
+
+<div class="admin-page-header">
+  <div>
+    <h1 class="admin-page-title">Báo Cáo Doanh Thu & Hiệu Quả Bán Hàng</h1>
+    <p class="text-muted">Thống kê doanh số theo ngành hàng, tỷ lệ chuyển đổi và tăng trưởng kinh doanh.</p>
+  </div>
+  <button type="button" class="btn-pill btn-pill-secondary" onclick="alert('Đã xuất file báo cáo Excel thành công!')">📥 Xuất báo cáo Excel</button>
+</div>
+
+<!-- Sales overview row -->
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-top: 24px;">
+  <div class="admin-card" style="padding: 20px; background: var(--color-bg-primary); border: 1px solid var(--color-border); border-radius: var(--radius-lg);">
+    <span class="text-muted" style="font-size: 0.8125rem;">TỔNG DOANH SỐ THÁNG NÀY</span>
+    <div style="font-size: 1.75rem; font-weight: 800; color: var(--color-primary); margin: 6px 0;">1.450.000.000 ₫</div>
+    <span class="badge-capsule badge-mint" style="font-size: 0.75rem;">↑ +22.5% so với tháng trước</span>
+  </div>
+
+  <div class="admin-card" style="padding: 20px; background: var(--color-bg-primary); border: 1px solid var(--color-border); border-radius: var(--radius-lg);">
+    <span class="text-muted" style="font-size: 0.8125rem;">TỔNG ĐƠN HÀNG HOÀN TẤT</span>
+    <div style="font-size: 1.75rem; font-weight: 800; margin: 6px 0;">1.180 đơn</div>
+    <span class="badge-capsule badge-sky" style="font-size: 0.75rem;">Tỷ lệ giao thành công 98.2%</span>
+  </div>
+
+  <div class="admin-card" style="padding: 20px; background: var(--color-bg-primary); border: 1px solid var(--color-border); border-radius: var(--radius-lg);">
+    <span class="text-muted" style="font-size: 0.8125rem;">GIÁ TRỊ TRUNG BÌNH / ĐƠN (AOV)</span>
+    <div style="font-size: 1.75rem; font-weight: 800; margin: 6px 0;">1.228.000 ₫</div>
+    <span class="badge-capsule badge-peach" style="font-size: 0.75rem;">Cao hơn ngành 15%</span>
+  </div>
+</div>
+
+<!-- Top Products Performance Table -->
+<div class="admin-card" style="margin-top: 32px; background: var(--color-bg-primary); border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden;">
+  <div style="padding: 16px; border-bottom: 1px solid var(--color-border); font-weight: 700;">
+    Xếp hạng Top 10 Sản phẩm đóng góp doanh số cao nhất
+  </div>
+  <div style="overflow-x: auto;">
+    <table class="table-styled" style="width: 100%;">
+      <thead>
+        <tr style="text-align: left; background: var(--color-bg-secondary);">
+          <th style="padding: 12px;">Top</th>
+          <th style="padding: 12px;">Sản phẩm</th>
+          <th style="padding: 12px;">Đơn giá</th>
+          <th style="padding: 12px;">Đã bán</th>
+          <th style="padding: 12px; text-align: right;">Doanh thu ước tính</th>
+        </tr>
+      </thead>
+      <tbody>
+        @{ var topRank = 1; }
+        @foreach (var prod in Model.OrderByDescending(p => p.SoldCount * p.Price).Take(10))
+        {
+          <tr style="border-bottom: 1px solid var(--color-border);">
+            <td style="padding: 12px; font-weight: 800; color: var(--color-primary);">#@(topRank++)</td>
+            <td style="padding: 12px; display: flex; align-items: center; gap: 10px;">
+              <img src="@prod.ImageUrl" alt="@prod.Name" style="width: 36px; height: 36px; object-fit: cover; border-radius: var(--radius-sm);" />
+              <strong>@prod.Name</strong>
+            </td>
+            <td style="padding: 12px;">@prod.Price.ToString("N0") ₫</td>
+            <td style="padding: 12px; font-weight: 600;">@prod.SoldCount món</td>
+            <td style="padding: 12px; text-align: right; font-weight: 700; color: var(--color-primary);">
+              @((prod.SoldCount * prod.Price).ToString("N0")) ₫
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+@model CutTayShop.Core.Models.Order
+@{
+    ViewData["Title"] = "Hồ Sơ Khách Hàng — Admin";
+}
+
+<div class="admin-page-header">
+  <div>
+    <a href="/admin/khach-hang" style="font-size: 0.875rem; color: var(--color-primary); font-weight: 600;">← Quay lại danh sách khách hàng</a>
+    <h1 class="admin-page-title" style="margin-top: 8px;">Hồ Sơ: Nguyễn Văn An</h1>
+  </div>
+</div>
+
+<div style="display: grid; grid-template-columns: 1fr 2fr; gap: 24px; margin-top: 24px;">
+  <div class="admin-card" style="padding: 24px; background: var(--color-bg-primary); border: 1px solid var(--color-border); border-radius: var(--radius-lg);">
+    <div style="text-align: center; margin-bottom: 20px;">
+      <div style="width: 72px; height: 72px; border-radius: 50%; background: var(--color-primary); color: white; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 24px; margin: 0 auto 12px;">NA</div>
+      <h2 style="font-size: 1.25rem; font-weight: 700; margin: 0 0 4px;">Nguyễn Văn An</h2>
+      <span class="badge-capsule badge-peach">👑 CutTay+ Vàng</span>
+    </div>
+    <div style="border-top: 1px solid var(--color-border); padding-top: 16px; font-size: 0.875rem;">
+      <div style="margin-bottom: 8px;"><strong>Số điện thoại:</strong> 0988 123 456</div>
+      <div style="margin-bottom: 8px;"><strong>Email:</strong> nguyenvanan@gmail.com</div>
+      <div style="margin-bottom: 8px;"><strong>Địa chỉ:</strong> Số 18, Ngõ 45 phố Nguyễn Đình Chiểu, Hai Bà Trưng, Hà Nội</div>
+      <div><strong>Ngày tham gia:</strong> 12/01/2026</div>
+    </div>
+  </div>
+
+  <div class="admin-card" style="padding: 24px; background: var(--color-bg-primary); border: 1px solid var(--color-border); border-radius: var(--radius-lg);">
+    <h2 style="font-size: 1.125rem; font-weight: 700; margin-bottom: 16px;">Lịch sử mua hàng</h2>
+    <p style="color: var(--color-text-secondary); font-size: 0.875rem;">Khách hàng đã hoàn tất 3 đơn hàng với tổng giá trị 2.800.000 ₫.</p>
+    <a href="/admin/don-hang" class="btn-pill btn-pill-secondary btn-sm" style="margin-top: 12px;">Xem danh sách đơn của khách →</a>
+  </div>
+</div>

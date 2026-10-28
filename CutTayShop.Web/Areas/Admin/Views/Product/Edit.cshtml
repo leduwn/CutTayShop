@@ -1,0 +1,79 @@
+@model CutTayShop.Web.ViewModels.AdminProductEditViewModel
+@{
+    ViewData["Title"] = "Chỉnh Sửa Sản Phẩm #" + Model.Product.Id + " — Admin";
+}
+
+<div class="admin-page-header">
+  <div>
+    <a href="/admin/san-pham" style="font-size: 0.875rem; color: var(--color-primary); font-weight: 600;">← Quay lại danh sách sản phẩm</a>
+    <h1 class="admin-page-title" style="margin-top: 8px;">Chỉnh Sửa Sản Phẩm: @Model.Product.Name</h1>
+  </div>
+</div>
+
+<div class="admin-card" style="max-width: 800px; padding: 32px; background: var(--color-bg-primary); border: 1px solid var(--color-border); border-radius: var(--radius-lg); margin-top: 24px;">
+  <form asp-controller="Product" asp-action="Edit" asp-route-id="@Model.Product.Id" method="post">
+    @Html.AntiForgeryToken()
+    <input type="hidden" asp-for="Product.Id" />
+
+    <div class="form-group" style="margin-bottom: 20px;">
+      <label class="form-label">Tên sản phẩm <span class="required">*</span></label>
+      <input type="text" asp-for="Product.Name" class="form-control" required />
+    </div>
+
+    <div class="form-row-2" style="margin-bottom: 20px;">
+      <div class="form-group">
+        <label class="form-label">Ngành hàng <span class="required">*</span></label>
+        <select asp-for="Product.CategorySlug" class="form-control" required>
+          @foreach (var cat in Model.Categories)
+          {
+            <option value="@cat.Slug" selected="@(Model.Product.CategorySlug == cat.Slug)">@cat.Name</option>
+          }
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Thương hiệu</label>
+        <input type="text" asp-for="Product.Brand" class="form-control" />
+      </div>
+    </div>
+
+    <div class="form-row-2" style="margin-bottom: 20px;">
+      <div class="form-group">
+        <label class="form-label">Giá bán niêm yết (VNĐ) <span class="required">*</span></label>
+        <input type="number" asp-for="Product.Price" class="form-control" required />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Giá gốc / Gạch ngang (VNĐ)</label>
+        <input type="number" asp-for="Product.OriginalPrice" class="form-control" />
+      </div>
+    </div>
+
+    <div class="form-row-2" style="margin-bottom: 20px;">
+      <div class="form-group">
+        <label class="form-label">Đường dẫn hình ảnh (Ảnh chụp thật WebP) <span class="required">*</span></label>
+        <input type="text" asp-for="Product.ImageUrl" class="form-control" required />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Số lượng tồn kho</label>
+        <input type="number" asp-for="Product.TotalStock" class="form-control" />
+      </div>
+    </div>
+
+    <div class="form-group" style="margin-bottom: 20px;">
+      <label class="form-label">Mô tả ngắn</label>
+      <input type="text" asp-for="Product.ShortDescription" class="form-control" />
+    </div>
+
+    <div class="form-group" style="margin-bottom: 28px;">
+      <label class="form-label">Mô tả chi tiết sản phẩm</label>
+      <textarea asp-for="Product.Description" class="form-control" rows="5"></textarea>
+    </div>
+
+    <div style="display: flex; gap: 12px;">
+      <button type="submit" class="btn-pill btn-pill-primary btn-pill-lg">Lưu thay đổi →</button>
+      <a href="/admin/san-pham" class="btn-pill btn-pill-ghost btn-pill-lg">Hủy bỏ</a>
+    </div>
+  </form>
+</div>

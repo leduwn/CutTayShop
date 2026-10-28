@@ -20,6 +20,7 @@ public class CatalogController : Controller
     /// </summary>
     [HttpGet]
     [Route("san-pham")]
+    [Route("danh-muc")]
     public async Task<IActionResult> Index([FromQuery] CatalogFilterParameters filters)
     {
         filters ??= new CatalogFilterParameters();

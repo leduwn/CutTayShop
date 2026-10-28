@@ -1,0 +1,62 @@
+@model CutTayShop.Web.ViewModels.BlogDetailViewModel
+@{
+    ViewData["Title"] = Model.Post.Title + " — CutTayShop Blog";
+}
+
+<article class="blog-detail-article">
+  <div class="container-custom" style="max-width: 860px; padding-top: 32px; padding-bottom: 64px;">
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb" style="margin-bottom: 24px;">
+      <a href="/">Trang chủ</a> <span class="sep">/</span>
+      <a href="/blog">Blog</a> <span class="sep">/</span>
+      <span class="current">@Model.Post.Category</span>
+    </nav>
+
+    <div class="badge-capsule badge-mint" style="margin-bottom: 16px;">
+      @Model.Post.Category
+    </div>
+
+    <h1 class="blog-detail-title">@Model.Post.Title</h1>
+
+    <div class="blog-detail-meta-row">
+      <div class="author-info">
+        <div class="author-avatar-ph">✍️</div>
+        <div>
+          <strong class="author-name">@Model.Post.Author</strong>
+          <div class="text-muted" style="font-size: 0.8rem;">Đăng ngày @Model.Post.PublishedAt.ToString("dd/MM/yyyy") • @Model.Post.ReadingTime</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="blog-detail-banner-wrap" style="margin-top: 24px; margin-bottom: 32px;">
+      <img src="@Model.Post.ImageUrl" alt="@Model.Post.Title" class="blog-detail-hero-img" width="860" height="480" />
+    </div>
+
+    <div class="blog-detail-content-body">
+      @Html.Raw(Model.Post.ContentHtml)
+    </div>
+
+    <!-- Tags -->
+    <div class="blog-tags-row" style="margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--color-border);">
+      <span class="tags-label">Thẻ chủ đề:</span>
+      @foreach (var tag in Model.Post.Tags)
+      {
+        <span class="badge-capsule badge-subtle">#@tag</span>
+      }
+    </div>
+
+    <!-- Related Products Mentioned in Article -->
+    @if (Model.RelatedProducts.Any())
+    {
+      <div class="article-related-products" style="margin-top: 48px; padding: 24px; background: var(--color-bg-secondary); border-radius: var(--radius-lg);">
+        <h2 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 16px;">🛍️ Sản phẩm xuất hiện trong bài viết</h2>
+        <div class="product-grid" style="grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));">
+          @foreach (var p in Model.RelatedProducts)
+          {
+            @await Html.PartialAsync("_ProductCard", p)
+          }
+        </div>
+      </div>
+    }
+  </div>
+</article>

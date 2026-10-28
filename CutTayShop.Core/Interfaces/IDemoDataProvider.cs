@@ -18,4 +18,10 @@ public interface IDemoDataProvider
     Task<CatalogResult> GetCatalogAsync(CatalogFilterParameters filters);
     Task<IReadOnlyList<Product>> GetRelatedProductsAsync(int productId, int count = 4);
     Task<IReadOnlyList<string>> GetAllBrandsAsync();
+    Task<IReadOnlyList<Product>> GetAllProductsAsync();
+    Task<IReadOnlyList<BlogPost>> GetBlogPostsAsync();
+    Task<BlogPost?> GetBlogPostBySlugAsync(string slug);
+    Task<IReadOnlyList<Coupon>> GetCouponsAsync();
+    Task<IReadOnlyList<Order>> GetOrdersAsync();
+    Task<Order?> GetOrderByCodeAsync(string code);
 }

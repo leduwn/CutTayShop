@@ -1,0 +1,101 @@
+@model CutTayShop.Web.ViewModels.OrderTrackingViewModel
+@{
+    ViewData["Title"] = "Tra Cứu Đơn Hàng — CutTayShop";
+}
+
+<section class="page-header-editorial">
+  <div class="container-custom">
+    <div class="page-header-inner">
+      <div class="badge-capsule badge-sky">
+        <span aria-hidden="true">📦</span> Theo dõi hành trình kiện hàng
+      </div>
+      <h1 class="page-title">Tra Cứu Đơn Hàng</h1>
+      <p class="page-subtitle">Nhập mã đơn hàng hoặc số điện thoại để cập nhật tiến độ vận chuyển mới nhất.</p>
+
+      <!-- Search Tracking Form -->
+      <form asp-controller="Order" asp-action="TrackingPost" method="post" class="tracking-search-form">
+        @Html.AntiForgeryToken()
+        <div class="tracking-input-wrap">
+          <input type="text"
+                 asp-for="QueryCode"
+                 class="tracking-input"
+                 placeholder="Nhập mã đơn (ví dụ: CTS-2026-88910 hoặc SĐT: 0988 123 456)..."
+                 value="@Model.QueryCode"
+                 required />
+          <button type="submit" class="btn-pill btn-pill-primary tracking-btn">
+            Tra cứu ngay →
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<div class="container-custom" style="padding-top: 32px; padding-bottom: 80px;">
+  @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+  {
+    <div class="alert alert-warning" role="alert" style="max-width: 680px; margin: 0 auto 32px;">
+      @Model.ErrorMessage
+    </div>
+  }
+
+  @if (Model.Order != null)
+  {
+    <div class="order-tracking-card">
+      <div class="tracking-card-header">
+        <div>
+          <span class="tracking-code-title">Đơn hàng: <strong>@Model.Order.OrderCode</strong></span>
+          <span class="text-muted" style="margin-left: 12px; font-size: 0.875rem;">Đặt ngày: @Model.Order.CreatedAt.ToString("dd/MM/yyyy HH:mm")</span>
+        </div>
+        <span class="badge-capsule badge-mint">@Model.Order.Status</span>
+      </div>
+
+      <!-- Tracking Timeline Steps -->
+      <div class="tracking-timeline">
+        @foreach (var step in Model.Order.TrackingHistory)
+        {
+          <div class="timeline-step @(step.IsCompleted ? "completed" : "") @(step.IsCurrent ? "current" : "")">
+            <div class="step-indicator">
+              <span class="step-dot"></span>
+              <span class="step-line"></span>
+            </div>
+            <div class="step-content">
+              <div class="step-time">@step.Timestamp.ToString("dd/MM/yyyy HH:mm")</div>
+              <h3 class="step-title">@step.Title</h3>
+              <p class="step-desc">@step.Description</p>
+            </div>
+          </div>
+        }
+      </div>
+
+      <!-- Items in this order -->
+      <div class="order-package-items" style="margin-top: 32px;">
+        <h3 style="font-size: 1.125rem; font-weight: 700; margin-bottom: 16px;">Sản phẩm trong kiện hàng</h3>
+        <div class="package-items-list">
+          @foreach (var item in Model.Order.Items)
+          {
+            <div class="package-item-row">
+              <img src="@item.ImageUrl" alt="@item.ProductName" class="package-item-img" width="60" height="60" />
+              <div class="package-item-info">
+                <a href="/san-pham/@item.ProductSlug" class="package-item-title">@item.ProductName</a>
+                <span class="package-item-variant">@item.VariantName × @item.Quantity</span>
+              </div>
+              <div class="package-item-price">@item.TotalPrice.ToString("N0") ₫</div>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  }
+  else if (!Model.HasSearched)
+  {
+    <div class="demo-tracking-hints" style="max-width: 680px; margin: 0 auto; text-align: center;">
+      <p class="text-muted">Bạn có thể thử tra cứu với các mã đơn hàng mẫu sẵn có trong hệ thống:</p>
+      <div style="display: flex; gap: 12px; justify-content: center; margin-top: 12px; flex-wrap: wrap;">
+        <a href="/tra-cuu-don-hang?code=CTS-2026-88910" class="badge-capsule badge-sky">CTS-2026-88910 (Đang giao)</a>
+        <a href="/tra-cuu-don-hang?code=CTS-2026-88902" class="badge-capsule badge-mint">CTS-2026-88902 (Đã giao)</a>
+        <a href="/tra-cuu-don-hang?code=CTS-2026-88934" class="badge-capsule badge-peach">CTS-2026-88934 (Đang xử lý)</a>
+      </div>
+    </div>
+  }
+</div>

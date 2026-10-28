@@ -1,0 +1,59 @@
+@model IReadOnlyList<CutTayShop.Core.Models.Order>
+@{
+    ViewData["Title"] = "Quản Lý Khách Hàng — Admin";
+}
+
+<div class="admin-page-header">
+  <div>
+    <h1 class="admin-page-title">Quản Lý Khách Hàng</h1>
+    <p class="text-muted">Danh sách tài khoản thành viên, lịch sử chi tiêu và hạng CutTayShop+.</p>
+  </div>
+</div>
+
+<div class="admin-card" style="margin-top: 24px; background: var(--color-bg-primary); border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden;">
+  <div style="overflow-x: auto;">
+    <table class="table-styled" style="width: 100%;">
+      <thead>
+        <tr style="text-align: left; background: var(--color-bg-secondary);">
+          <th style="padding: 12px;">Khách hàng</th>
+          <th style="padding: 12px;">Số điện thoại</th>
+          <th style="padding: 12px;">Email</th>
+          <th style="padding: 12px;">Số đơn mua</th>
+          <th style="padding: 12px;">Tổng chi tiêu</th>
+          <th style="padding: 12px;">Hạng thành viên</th>
+          <th style="padding: 12px; text-align: right;">Hành động</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom: 1px solid var(--color-border);">
+          <td style="padding: 12px; display: flex; align-items: center; gap: 10px;">
+            <div style="width: 36px; height: 36px; border-radius: 50%; background: var(--color-primary); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px;">NA</div>
+            <strong>Nguyễn Văn An</strong>
+          </td>
+          <td style="padding: 12px;">0988 123 456</td>
+          <td style="padding: 12px;">nguyenvanan@gmail.com</td>
+          <td style="padding: 12px;">3 đơn</td>
+          <td style="padding: 12px; font-weight: 700; color: var(--color-primary);">2.800.000 ₫</td>
+          <td style="padding: 12px;"><span class="badge-capsule badge-peach">👑 CutTay+ Vàng</span></td>
+          <td style="padding: 12px; text-align: right;">
+            <a href="/admin/khach-hang/1" class="btn-pill btn-pill-secondary btn-sm">Xem chi tiết</a>
+          </td>
+        </tr>
+        <tr style="border-bottom: 1px solid var(--color-border);">
+          <td style="padding: 12px; display: flex; align-items: center; gap: 10px;">
+            <div style="width: 36px; height: 36px; border-radius: 50%; background: #10b981; color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px;">TL</div>
+            <strong>Trần Thảo Ly</strong>
+          </td>
+          <td style="padding: 12px;">0912 345 678</td>
+          <td style="padding: 12px;">thaoly.tran@gmail.com</td>
+          <td style="padding: 12px;">5 đơn</td>
+          <td style="padding: 12px; font-weight: 700; color: var(--color-primary);">4.250.000 ₫</td>
+          <td style="padding: 12px;"><span class="badge-capsule badge-sky">💎 CutTay+ Kim Cương</span></td>
+          <td style="padding: 12px; text-align: right;">
+            <a href="/admin/khach-hang/2" class="btn-pill btn-pill-secondary btn-sm">Xem chi tiết</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

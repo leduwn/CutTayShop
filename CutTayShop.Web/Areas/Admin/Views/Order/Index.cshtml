@@ -1,0 +1,61 @@
+@model IReadOnlyList<CutTayShop.Core.Models.Order>
+@{
+    ViewData["Title"] = "Quản Lý Đơn Hàng — Admin";
+    var selectedStatus = ViewBag.SelectedStatus as string;
+}
+
+<div class="admin-page-header">
+  <div>
+    <h1 class="admin-page-title">Quản Lý Đơn Hàng (@Model.Count đơn)</h1>
+    <p class="text-muted">Theo dõi, xác nhận và cập nhật tiến trình giao hàng cho khách.</p>
+  </div>
+</div>
+
+<div class="admin-card" style="padding: 16px; margin: 20px 0; background: var(--color-bg-primary); border: 1px solid var(--color-border); border-radius: var(--radius-md);">
+  <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+    <a href="/admin/don-hang" class="filter-chip @(string.IsNullOrEmpty(selectedStatus) ? "active" : "")">Tất cả đơn</a>
+    <a href="/admin/don-hang?status=Đang+giao" class="filter-chip @(selectedStatus == "Đang giao" ? "active" : "")">Đang giao</a>
+    <a href="/admin/don-hang?status=Đang+xử+lý" class="filter-chip @(selectedStatus == "Đang xử lý" ? "active" : "")">Đang xử lý</a>
+    <a href="/admin/don-hang?status=Đã+giao" class="filter-chip @(selectedStatus == "Đã giao" ? "active" : "")">Đã hoàn thành</a>
+  </div>
+</div>
+
+<div class="admin-card" style="background: var(--color-bg-primary); border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden;">
+  <div style="overflow-x: auto;">
+    <table class="table-styled" style="width: 100%;">
+      <thead>
+        <tr style="text-align: left; background: var(--color-bg-secondary);">
+          <th style="padding: 12px;">Mã đơn</th>
+          <th style="padding: 12px;">Ngày tạo</th>
+          <th style="padding: 12px;">Khách hàng</th>
+          <th style="padding: 12px;">Phương thức</th>
+          <th style="padding: 12px;">Tổng tiền</th>
+          <th style="padding: 12px;">Trạng thái</th>
+          <th style="padding: 12px; text-align: right;">Thao tác</th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach (var order in Model)
+        {
+          <tr style="border-bottom: 1px solid var(--color-border);">
+            <td style="padding: 12px;"><strong>#@order.OrderCode</strong></td>
+            <td style="padding: 12px;">@order.CreatedAt.ToString("dd/MM/yyyy HH:mm")</td>
+            <td style="padding: 12px;">
+              <div>@order.CustomerName</div>
+              <div style="font-size: 0.75rem; color: var(--color-text-muted);">@order.PhoneNumber</div>
+            </td>
+            <td style="padding: 12px; font-size: 0.8125rem;">@order.PaymentMethod</td>
+            <td style="padding: 12px; font-weight: 700; color: var(--color-primary);">@order.TotalAmount.ToString("N0") ₫</td>
+            <td style="padding: 12px;">
+              <span class="badge-capsule badge-mint">@order.Status</span>
+            </td>
+            <td style="padding: 12px; text-align: right;">
+              <a href="/admin/don-hang/chi-tiet/@order.Id" class="btn-pill btn-pill-secondary btn-sm">Xem chi tiết</a>
+              <a href="/admin/don-hang/in-phieu/@order.Id" target="_blank" class="btn-pill btn-pill-ghost btn-sm">In phiếu</a>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>
