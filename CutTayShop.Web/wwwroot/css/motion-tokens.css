@@ -1,0 +1,291 @@
+/* ==========================================================================
+   CUTTAYSHOP MOTION DESIGN SYSTEM - TOKENS & UTILITIES
+   Performance-first: 60fps Composited (Transform & Opacity Only)
+   WCAG 2.2 AA / AAA & prefers-reduced-motion compliant | CLS = 0.000
+   ========================================================================== */
+
+:root {
+  /* Durations */
+  --motion-duration-instant: 100ms;
+  --motion-duration-fast: 180ms;     /* 150-220ms for fast feedback */
+  --motion-duration-normal: 260ms;   /* 220-320ms for standard hover/elevations */
+  --motion-duration-entrance: 500ms; /* 400-650ms for section reveals */
+  --motion-duration-hero: 750ms;     /* Coordinated hero entrance timeline */
+  --motion-duration-float: 4800ms;   /* Ambient continuous drift loop */
+
+  /* Stagger Intervals */
+  --motion-stagger-fast: 50ms;
+  --motion-stagger-base: 60ms;
+  --motion-stagger-slow: 90ms;
+
+  /* Cubic-Bezier Curves */
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);       /* Soft spring snap */
+  --ease-soft: cubic-bezier(0.25, 0.1, 0.25, 1);      /* Silk smooth decel */
+  --ease-bounce-subtle: cubic-bezier(0.34, 1.56, 0.64, 1); /* Joyful overshoot */
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);        /* Standard material ease */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
+
+  /* Spatial Offsets */
+  --motion-translate-xs: 4px;
+  --motion-translate-sm: 8px;
+  --motion-translate-md: 16px;
+  --motion-translate-lg: 24px;
+  --motion-translate-xl: 36px;
+
+  /* Composite Transitions */
+  --transition-fast-spring: transform var(--motion-duration-fast) var(--ease-spring),
+                           opacity var(--motion-duration-fast) var(--ease-spring);
+  --transition-card-tilt: transform var(--motion-duration-normal) var(--ease-spring),
+                         box-shadow var(--motion-duration-normal) var(--ease-soft);
+  --transition-reveal-entry: opacity var(--motion-duration-entrance) var(--ease-out),
+                            transform var(--motion-duration-entrance) var(--ease-out);
+}
+
+/* ==========================================================================
+   PROGRESSIVE ENHANCEMENT BASE
+   Elements remain 100% visible by default (No-JS / Script Failure safety)
+   Only when 'html.motion-ready' is present do elements stage for animation.
+   ========================================================================== */
+
+/* Hero Initial State when Motion is active */
+html.motion-ready:not([data-reduced-motion="true"]) .hero-anim-item {
+  opacity: 0;
+  transform: translate3d(0, var(--motion-translate-lg), 0);
+  transition: opacity var(--motion-duration-entrance) var(--ease-spring),
+              transform var(--motion-duration-entrance) var(--ease-spring);
+  will-change: transform, opacity;
+}
+
+/* Step 1: Kicker Tag */
+html.motion-ready:not([data-reduced-motion="true"]) .hero-anim-kicker {
+  transform: translate3d(0, var(--motion-translate-md), 0);
+  transition-duration: 400ms;
+  transition-delay: 0ms;
+}
+
+/* Step 2: Editorial Headline */
+html.motion-ready:not([data-reduced-motion="true"]) .hero-anim-headline {
+  transform: translate3d(0, var(--motion-translate-lg), 0);
+  transition-duration: 500ms;
+  transition-delay: 100ms;
+}
+
+/* Step 2b: Highlight Capsule Micro-Pop */
+html.motion-ready:not([data-reduced-motion="true"]) .hero-anim-headline .highlight-capsule {
+  display: inline-block;
+  transform: scale(0.92) rotate(-1deg);
+  transition: transform 450ms var(--ease-bounce-subtle) 180ms;
+}
+
+/* Step 3: Description */
+html.motion-ready:not([data-reduced-motion="true"]) .hero-anim-desc {
+  transform: translate3d(0, var(--motion-translate-md), 0);
+  transition-duration: 400ms;
+  transition-delay: 220ms;
+  transition-timing-function: var(--ease-soft);
+}
+
+/* Step 3b: Actions & Social Proof */
+html.motion-ready:not([data-reduced-motion="true"]) .hero-anim-actions {
+  transform: translate3d(0, var(--motion-translate-md), 0);
+  transition-duration: 400ms;
+  transition-delay: 280ms;
+}
+
+/* Step 4: Product Still-Life Graphic */
+html.motion-ready:not([data-reduced-motion="true"]) .hero-anim-graphic {
+  transform: translate3d(0, var(--motion-translate-xl), 0) scale(0.96);
+  transition-duration: 600ms;
+  transition-delay: 150ms;
+}
+
+/* Step 5: Right Promo Banners Stagger */
+html.motion-ready:not([data-reduced-motion="true"]) .hero-side-col .promo-banner-card:nth-child(1) {
+  animation: heroEntrancePromo 480ms var(--ease-spring) 180ms backwards;
+}
+
+html.motion-ready:not([data-reduced-motion="true"]) .hero-side-col .promo-banner-card:nth-child(2) {
+  animation: heroEntrancePromo 480ms var(--ease-spring) 300ms backwards;
+}
+
+@keyframes heroEntrancePromo {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, var(--motion-translate-lg), 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Triggered State: Entered Hero */
+html.motion-ready:not([data-reduced-motion="true"]) .is-hero-entered .hero-anim-item {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+html.motion-ready:not([data-reduced-motion="true"]) .is-hero-entered .hero-anim-headline .highlight-capsule {
+  transform: scale(1) rotate(-1deg);
+}
+
+html.motion-ready:not([data-reduced-motion="true"]) .is-hero-entered .hero-anim-graphic {
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+/* ==========================================================================
+   AMBIENT FLOATING DOODLES & LEVITATION
+   Silky smooth vertical drift, auto-pauses when offscreen
+   ========================================================================== */
+
+@keyframes levitateSoft {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -6px, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.floating-levitate {
+  animation: levitateSoft var(--motion-duration-float) ease-in-out infinite;
+  will-change: transform;
+}
+
+.floating-levitate-paused {
+  animation-play-state: paused !important;
+}
+
+/* ==========================================================================
+   SCROLL REVEAL UTILITY CLASSES
+   Applied dynamically by scroll-reveal.js
+   ========================================================================== */
+
+html.motion-ready:not([data-reduced-motion="true"]) .reveal-item {
+  opacity: 0;
+  transform: translate3d(0, var(--motion-translate-lg), 0);
+  transition: var(--transition-reveal-entry);
+  will-change: transform, opacity;
+}
+
+html.motion-ready:not([data-reduced-motion="true"]) .reveal-item.is-revealed {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Staggered Children */
+html.motion-ready:not([data-reduced-motion="true"]) .reveal-stagger-parent > * {
+  opacity: 0;
+  transform: translate3d(0, var(--motion-translate-md), 0);
+  transition: opacity var(--motion-duration-entrance) var(--ease-out),
+              transform var(--motion-duration-entrance) var(--ease-spring);
+  transition-delay: var(--stagger-delay, 0ms);
+  will-change: transform, opacity;
+}
+
+html.motion-ready:not([data-reduced-motion="true"]) .reveal-stagger-parent.is-revealed > * {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Clean up will-change after transition completes to preserve mobile GPU memory */
+.will-change-auto {
+  will-change: auto !important;
+}
+
+/* ==========================================================================
+   MICRO-INTERACTION ANIMATIONS
+   Tactile Wishlist Heart & Add-To-Cart Feedback
+   ========================================================================== */
+
+@keyframes heartPop {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.35);
+  }
+  70% {
+    transform: scale(0.92);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.heart-popped svg {
+  animation: heartPop var(--motion-duration-fast) var(--ease-bounce-subtle) forwards;
+  color: var(--color-sale) !important;
+  fill: var(--color-sale) !important;
+}
+
+@keyframes cartHop {
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(0.88);
+  }
+  65% {
+    transform: scale(1.15) translateY(-2px);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+  }
+}
+
+.btn-cart-popped {
+  animation: cartHop var(--motion-duration-normal) var(--ease-bounce-subtle) forwards;
+}
+
+/* Magnetic Button Base */
+.magnetic-btn {
+  display: inline-flex;
+  transition: transform var(--motion-duration-fast) var(--ease-spring);
+  will-change: transform;
+}
+
+/* 3D Card Hover Physics */
+.card-tilt-target {
+  transform-style: preserve-3d;
+  transition: transform var(--motion-duration-normal) var(--ease-spring),
+              box-shadow var(--motion-duration-normal) var(--ease-soft);
+  will-change: transform, box-shadow;
+}
+
+/* ==========================================================================
+   WCAG 2.2 / ACCESSIBILITY REDUCED MOTION OVERRIDE
+   Zero transforms, instant presentation
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    transition-delay: 0ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Force all staged elements visible immediately without spatial offset */
+  html.motion-ready .hero-anim-item,
+  html.motion-ready .promo-banner-card,
+  html.motion-ready .reveal-item,
+  html.motion-ready .reveal-stagger-parent > *,
+  .hero-anim-headline .highlight-capsule,
+  .hero-anim-graphic {
+    opacity: 1 !important;
+    transform: none !important;
+    will-change: auto !important;
+  }
+
+  .floating-levitate {
+    animation: none !important;
+  }
+}

@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="heroBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E5F8DC" stop-opacity="0.7"/>
+      <stop offset="50%" stop-color="#E0F2FE" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#FFE5DA" stop-opacity="0.6"/>
+    </linearGradient>
+    <linearGradient id="jacketGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284C7"/>
+      <stop offset="100%" stop-color="#0369A1"/>
+    </linearGradient>
+    <linearGradient id="tshirtGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F1F5F9"/>
+    </linearGradient>
+    <filter id="heroShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#0F172A" flood-opacity="0.12"/>
+    </filter>
+    <filter id="badgeShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000000" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- Background organic pastel blobs -->
+  <path d="M 120 180 C 80 80, 260 40, 380 90 C 500 140, 540 280, 480 390 C 420 480, 220 500, 140 430 C 60 360, 160 280, 120 180 Z" fill="url(#heroBgGrad)"/>
+  <circle cx="480" cy="120" r="40" fill="#FEF08A" opacity="0.5"/>
+  <circle cx="80" cy="380" r="50" fill="#FCE7F3" opacity="0.6"/>
+
+  <!-- Character / Lifestyle illustration -->
+  <g transform="translate(150, 60)" filter="url(#heroShadow)">
+    <!-- Shadow beneath character -->
+    <ellipse cx="150" cy="400" rx="140" ry="20" fill="#000000" opacity="0.08"/>
+
+    <!-- Body / Torso -->
+    <!-- T-Shirt -->
+    <path d="M 100 230 C 100 170, 200 170, 200 230 L 210 380 C 210 390, 90 390, 90 380 Z" fill="url(#tshirtGrad)"/>
+    <!-- Denim/Stylish Over-jacket -->
+    <path d="M 70 230 C 80 180, 120 175, 120 220 L 110 380 L 80 370 Z" fill="url(#jacketGrad)"/>
+    <path d="M 230 230 C 220 180, 180 175, 180 220 L 190 380 L 220 370 Z" fill="url(#jacketGrad)"/>
+
+    <!-- Neck -->
+    <rect x="135" y="160" width="30" height="30" rx="6" fill="#FCD34D"/>
+
+    <!-- Head & Face -->
+    <ellipse cx="150" cy="130" rx="42" ry="50" fill="#FDE68A"/>
+
+    <!-- Modern Trendy Hair -->
+    <path d="M 105 130 C 100 70, 180 60, 195 95 C 205 115, 195 145, 195 145 C 190 120, 175 110, 150 110 C 125 110, 110 120, 105 130 Z" fill="#1E293B"/>
+
+    <!-- Face details -->
+    <!-- Smile -->
+    <path d="M 140 148 Q 150 158 160 148" stroke="#78350F" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <!-- Cheerful Eyes -->
+    <path d="M 132 130 Q 138 124 144 130" stroke="#78350F" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+    <path d="M 156 130 Q 162 124 168 130" stroke="#78350F" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+    <!-- Cute blush -->
+    <circle cx="130" cy="142" r="6" fill="#F43F5E" opacity="0.3"/>
+    <circle cx="170" cy="142" r="6" fill="#F43F5E" opacity="0.3"/>
+
+    <!-- Stylish Over-ear Headphones -->
+    <path d="M 108 125 C 108 85, 192 85, 192 125" stroke="#0F172A" stroke-width="8" stroke-linecap="round" fill="none"/>
+    <rect x="100" y="115" width="16" height="30" rx="8" fill="#10B981"/>
+    <rect x="184" y="115" width="16" height="30" rx="8" fill="#10B981"/>
+
+    <!-- Shopping Bags -->
+    <!-- Left Shopping Bag (Peach) -->
+    <g transform="translate(30, 260) rotate(-8)">
+      <path d="M 25 30 L 15 30 C 15 15, 45 15, 45 30 L 35 30" stroke="#EA580C" stroke-width="3" fill="none"/>
+      <rect x="5" y="30" width="50" height="65" rx="8" fill="#FFE5DA" stroke="#FDBA74" stroke-width="2"/>
+      <path d="M 20 60 L 30 50 L 40 60" stroke="#EA580C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </g>
+
+    <!-- Right Shopping Bag (Mint) -->
+    <g transform="translate(210, 270) rotate(10)">
+      <path d="M 25 30 L 15 30 C 15 12, 45 12, 45 30 L 35 30" stroke="#059669" stroke-width="3" fill="none"/>
+      <rect x="5" y="30" width="55" height="70" rx="8" fill="#E5F8DC" stroke="#86EFAC" stroke-width="2"/>
+      <circle cx="32" cy="65" r="10" fill="#34D399" opacity="0.4"/>
+    </g>
+  </g>
+
+  <!-- Floating interactive badges & Doodles -->
+  <!-- Badge 1: 50% Off (Top right) -->
+  <g transform="translate(430, 70)" filter="url(#badgeShadow)">
+    <rect x="0" y="0" width="140" height="46" rx="23" fill="#FFFFFF"/>
+    <circle cx="23" cy="23" r="15" fill="#FEF2F2"/>
+    <text x="23" y="28" font-family="system-ui, sans-serif" font-size="14" text-anchor="middle" fill="#EF4444">⚡</text>
+    <text x="46" y="22" font-family="system-ui, sans-serif" font-weight="700" font-size="13" fill="#111827">Giảm đến 50%</text>
+    <text x="46" y="36" font-family="system-ui, sans-serif" font-size="10" fill="#6B7280">Tuần lễ mua sắm</text>
+  </g>
+
+  <!-- Badge 2: 100% Authentic (Bottom left) -->
+  <g transform="translate(30, 310)" filter="url(#badgeShadow)">
+    <rect x="0" y="0" width="150" height="48" rx="24" fill="#FFFFFF"/>
+    <circle cx="24" cy="24" r="16" fill="#ECFDF5"/>
+    <path d="M 18 24 L 22 28 L 30 20" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <text x="48" y="23" font-family="system-ui, sans-serif" font-weight="700" font-size="13" fill="#111827">100% Chính hãng</text>
+    <text x="48" y="37" font-family="system-ui, sans-serif" font-size="10" fill="#6B7280">Cam kết chất lượng</text>
+  </g>
+
+  <!-- Sparkles & Fun Doodles -->
+  <!-- Star doodle top left -->
+  <path d="M 110 90 Q 120 90 120 80 Q 120 90 130 90 Q 120 90 120 100 Q 120 90 110 90 Z" fill="#F59E0B"/>
+  <path d="M 460 260 Q 468 260 468 252 Q 468 260 476 260 Q 468 260 468 268 Q 468 260 460 260 Z" fill="#10B981"/>
+  <!-- Curved doodle line -->
+  <path d="M 70 200 Q 95 180 85 220 T 100 240" stroke="#6366F1" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <path d="M 500 370 Q 520 350 515 390" stroke="#EC4899" stroke-width="2" stroke-dasharray="4 4" fill="none"/>
+</svg>

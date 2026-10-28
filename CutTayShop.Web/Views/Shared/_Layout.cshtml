@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#FAFAF9" />
+  <meta name="description" content="CutTayShop - Nền tảng mua sắm thời trang và công nghệ phong cách hàng đầu." />
+  <title>@ViewData["Title"] - CutTayShop | Mua sắm phong cách 2026</title>
+
+  <!-- Google Fonts: Be Vietnam Pro & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Core Design System & Homepage CSS -->
+  <link rel="stylesheet" href="~/css/design-system.css" asp-append-version="true" />
+  <link rel="stylesheet" href="~/css/motion-tokens.css" asp-append-version="true" />
+  <link rel="stylesheet" href="~/css/homepage.css" asp-append-version="true" />
+  @await RenderSectionAsync("Styles", required: false)
+
+  <!-- Pre-render theme detection script to prevent FOUC -->
+  <script src="~/js/theme-toggle.js" asp-append-version="true"></script>
+</head>
+<body>
+  <!-- Global Header -->
+  <partial name="_Header" />
+
+  <!-- Main Content -->
+  <main role="main" style="flex: 1;">
+    @RenderBody()
+  </main>
+
+  <!-- Global Footer -->
+  <partial name="_Footer" />
+
+  <!-- Mobile Bottom Navigation (Visible only on mobile <= 768px) -->
+  <partial name="_BottomNav" />
+
+  <!-- Floating CutTay AI Assistant -->
+  <partial name="_CutTayAiWidget" />
+
+  <!-- Interactive Scripts -->
+  <script src="~/js/cart-state.js" asp-append-version="true"></script>
+  <script src="~/js/scroll-reveal.js" asp-append-version="true"></script>
+  <script src="~/js/homepage-motion.js" asp-append-version="true"></script>
+  <script src="~/js/homepage.js" asp-append-version="true"></script>
+  @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

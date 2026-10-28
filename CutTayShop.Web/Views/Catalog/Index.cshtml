@@ -1,0 +1,79 @@
+@model CatalogViewModel
+@{
+    ViewData["Title"] = Model.Title;
+    var currentSort = Model.Filter.SortBy ?? "popular";
+
+    // Build BaseUrl for pagination
+    var queryParams = new List<string>();
+    if (!string.IsNullOrEmpty(Model.SearchQuery)) queryParams.Add($"q={Uri.EscapeDataString(Model.SearchQuery)}");
+    if (!string.IsNullOrEmpty(Model.Filter.CategorySlug)) queryParams.Add($"categorySlug={Uri.EscapeDataString(Model.Filter.CategorySlug)}");
+    if (!string.IsNullOrEmpty(Model.Filter.Brand)) queryParams.Add($"brand={Uri.EscapeDataString(Model.Filter.Brand)}");
+    if (Model.Filter.MinPrice.HasValue) queryParams.Add($"minPrice={Model.Filter.MinPrice.Value}");
+    if (Model.Filter.MaxPrice.HasValue) queryParams.Add($"maxPrice={Model.Filter.MaxPrice.Value}");
+    if (Model.Filter.MinRating.HasValue) queryParams.Add($"minRating={Model.Filter.MinRating.Value}");
+    if (Model.Filter.InStockOnly == true) queryParams.Add("inStockOnly=true");
+    if (Model.Filter.OnSaleOnly == true) queryParams.Add("onSaleOnly=true");
+    if (!string.IsNullOrEmpty(Model.Filter.SortBy)) queryParams.Add($"sortBy={Uri.EscapeDataString(Model.Filter.SortBy)}");
+
+    var baseUrl = (Model.IsSearch ? "/tim-kiem" : (Model.Category != null ? $"/danh-muc/{Model.Category.Slug}" : "/san-pham")) + "?";
+    if (queryParams.Count > 0) baseUrl += string.Join("&", queryParams) + "&";
+}
+
+@section Styles {
+  <link rel="stylesheet" href="~/css/catalog.css" asp-append-version="true" />
+}
+
+<!-- Breadcrumbs -->
+<partial name="_Breadcrumb" model="Model.Breadcrumbs" />
+
+<div class="container-custom">
+  <!-- Catalog Banner -->
+  <header class="catalog-banner" @(Model.Category != null ? $"style=\"background: linear-gradient(135deg, {Model.Category.BgColorHex}40 0%, var(--color-surface) 100%);\"" : "")>
+    <div>
+      <h1 class="catalog-banner-title">@Model.Title</h1>
+      <p class="catalog-banner-desc">@Model.Description</p>
+    </div>
+    <div class="catalog-banner-stat">
+      <span>📦</span>
+      <span><strong>@Model.Result.TotalItems.ToString("N0")</strong> sản phẩm có sẵn</span>
+    </div>
+  </header>
+
+  <!-- Catalog Main Layout -->
+  <div class="catalog-layout">
+    <!-- Left: Filter Sidebar (Desktop) -->
+    <partial name="_FilterSidebar" model="Model" />
+
+    <!-- Right: Products Content -->
+    <main>
+      <!-- Sort & Filter Toolbar -->
+      <partial name="_SortToolbar" model="@(Model.Result.TotalItems, currentSort, baseUrl)" />
+
+      <!-- Product Grid or Empty State -->
+      @if (Model.Result.Products.Count > 0)
+      {
+        <div class="catalog-grid">
+          @foreach (var product in Model.Result.Products)
+          {
+            <partial name="_ProductCard" model="product" />
+          }
+        </div>
+
+        <!-- Pagination -->
+        <partial name="_Pagination" model="@(Model.Result.CurrentPage, Model.Result.TotalPages, baseUrl)" />
+      }
+      else
+      {
+        var clearUrl = Model.IsSearch ? "/tim-kiem" : (Model.Category != null ? $"/danh-muc/{Model.Category.Slug}" : "/san-pham");
+        <partial name="_EmptyState" model="@("Không tìm thấy sản phẩm phù hợp", "Hãy thử điều chỉnh lại bộ lọc giá, thương hiệu hoặc tìm kiếm bằng từ khóa khác.", "Xóa bộ lọc để xem tất cả", clearUrl)" />
+      }
+    </main>
+  </div>
+</div>
+
+<!-- Mobile Filter Drawer -->
+<partial name="_FilterDrawer" model="Model" />
+
+@section Scripts {
+  <script src="~/js/catalog.js" asp-append-version="true"></script>
+}

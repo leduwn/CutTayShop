@@ -1,0 +1,110 @@
+@model CatalogViewModel
+@{
+    var formAction = Model.IsSearch ? "/tim-kiem" : (Model.Category != null ? $"/danh-muc/{Model.Category.Slug}" : "/san-pham");
+}
+
+<aside class="filter-sidebar" aria-label="Bộ lọc tìm kiếm sản phẩm">
+  <form method="get" action="@formAction">
+    @if (Model.IsSearch && !string.IsNullOrEmpty(Model.SearchQuery))
+    {
+      <input type="hidden" name="q" value="@Model.SearchQuery" />
+    }
+    <input type="hidden" name="sortBy" value="@Model.Filter.SortBy" />
+
+    <div class="filter-header">
+      <h3 class="filter-title">Bộ lọc tìm kiếm</h3>
+      <a href="@formAction" class="filter-clear-btn">Xóa tất cả</a>
+    </div>
+
+    @* 1. Category Filter (if browsing all products or search) *@
+    @if (Model.Category == null)
+    {
+      <div class="filter-group">
+        <h4 class="filter-group-title">Danh mục</h4>
+        <div class="filter-options-list">
+          @foreach (var cat in Model.Result.AvailableCategories)
+          {
+            var isChecked = Model.Filter.CategorySlug == cat.Slug;
+            <label class="filter-checkbox-label">
+              <span class="filter-checkbox-inner">
+                <input type="radio" name="categorySlug" value="@cat.Slug" class="filter-checkbox-input" checked="@(isChecked ? "checked" : null)" onchange="this.form.submit()" />
+                <span>@cat.Name</span>
+              </span>
+              <span class="filter-count-badge">(@cat.ProductCount)</span>
+            </label>
+          }
+        </div>
+      </div>
+    }
+
+    @* 2. Price Range Filter *@
+    <div class="filter-group">
+      <h4 class="filter-group-title">Khoảng giá (₫)</h4>
+      <div class="price-inputs-row">
+        <input type="number" name="minPrice" class="price-input" placeholder="Từ" value="@Model.Filter.MinPrice" step="50000" min="0" aria-label="Giá tối thiểu" />
+        <span style="color: var(--color-text-muted);">-</span>
+        <input type="number" name="maxPrice" class="price-input" placeholder="Đến" value="@Model.Filter.MaxPrice" step="50000" min="0" aria-label="Giá tối đa" />
+      </div>
+      <button type="submit" class="btn-pill btn-pill-secondary btn-pill-sm filter-apply-btn">Áp dụng giá</button>
+    </div>
+
+    @* 3. Brand Filter *@
+    @if (Model.Result.AvailableBrands.Count > 0)
+    {
+      <div class="filter-group">
+        <h4 class="filter-group-title">Thương hiệu</h4>
+        <div class="filter-options-list">
+          @foreach (var brand in Model.Result.AvailableBrands)
+          {
+            var isChecked = Model.Filter.Brand == brand;
+            <label class="filter-checkbox-label">
+              <span class="filter-checkbox-inner">
+                <input type="radio" name="brand" value="@brand" class="filter-checkbox-input" checked="@(isChecked ? "checked" : null)" onchange="this.form.submit()" />
+                <span>@brand</span>
+              </span>
+            </label>
+          }
+        </div>
+      </div>
+    }
+
+    @* 4. Rating Filter *@
+    <div class="filter-group">
+      <h4 class="filter-group-title">Đánh giá</h4>
+      <div class="filter-options-list">
+        @for (int r = 5; r >= 4; r--)
+        {
+          var isChecked = Model.Filter.MinRating == r;
+          <label class="filter-checkbox-label">
+            <span class="filter-checkbox-inner">
+              <input type="radio" name="minRating" value="@r" class="filter-checkbox-input" checked="@(isChecked ? "checked" : null)" onchange="this.form.submit()" />
+              <span style="display: flex; align-items: center; gap: 4px;">
+                <span style="color: var(--color-warning);">★</span>
+                <span>Từ @r sao</span>
+              </span>
+            </span>
+          </label>
+        }
+      </div>
+    </div>
+
+    @* 5. Special Status (In Stock & On Sale) *@
+    <div class="filter-group">
+      <h4 class="filter-group-title">Tình trạng</h4>
+      <div class="filter-options-list">
+        <label class="filter-checkbox-label">
+          <span class="filter-checkbox-inner">
+            <input type="checkbox" name="inStockOnly" value="true" class="filter-checkbox-input" checked="@(Model.Filter.InStockOnly == true ? "checked" : null)" onchange="this.form.submit()" />
+            <span>Chỉ còn hàng</span>
+          </span>
+        </label>
+        <label class="filter-checkbox-label">
+          <span class="filter-checkbox-inner">
+            <input type="checkbox" name="onSaleOnly" value="true" class="filter-checkbox-input" checked="@(Model.Filter.OnSaleOnly == true ? "checked" : null)" onchange="this.form.submit()" />
+            <span style="color: var(--color-sale); font-weight: 600;">Đang giảm giá</span>
+          </span>
+        </label>
+      </div>
+    </div>
+  </form>
+</aside>
