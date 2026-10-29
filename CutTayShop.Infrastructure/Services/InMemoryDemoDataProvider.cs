@@ -173,7 +173,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             HighlightNumber = "50%",
             CtaText = "Khám phá →",
             CtaLink = "/danh-muc/cong-nghe",
-            ImageUrl = "/images/hero/promo-smartwatch.webp",
+            ImageUrl = "/images/compositions/promos/smartwatch-cutout.webp",
             BgColorHex = "#E5F8DC", // Soft Green
             DecorativeDoodleSvg = "<svg viewBox=\"0 0 40 40\" fill=\"none\"><path d=\"M10 20 Q20 5 30 20 T50 20\" stroke=\"#16A34A\" stroke-width=\"2\" stroke-linecap=\"round\" fill=\"none\"/></svg>"
         },
@@ -185,7 +185,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             HighlightNumber = "2026",
             CtaText = "Xem ngay →",
             CtaLink = "/danh-muc/thoi-trang",
-            ImageUrl = "/images/hero/promo-fashion.webp",
+            ImageUrl = "/images/compositions/promos/cap-cutout.webp",
             BgColorHex = "#FFE5DA", // Warm Peach
             DecorativeDoodleSvg = "<svg viewBox=\"0 0 32 32\" fill=\"none\"><circle cx=\"16\" cy=\"16\" r=\"12\" stroke=\"#EA580C\" stroke-width=\"2\"/><circle cx=\"12\" cy=\"14\" r=\"1.5\" fill=\"#EA580C\"/><circle cx=\"20\" cy=\"14\" r=\"1.5\" fill=\"#EA580C\"/><path d=\"M11 19 Q16 23 21 19\" stroke=\"#EA580C\" stroke-width=\"2\" stroke-linecap=\"round\"/></svg>"
         }
@@ -261,7 +261,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             IsFeatured = true,
             SoldCount = 45,
             TotalStock = 50,
-            GalleryImages = new() { "/images/products/smartwatch-sport.webp", "/images/hero/promo-smartwatch.webp" },
+            GalleryImages = new() { "/images/products/smartwatch-sport.webp", "/images/compositions/promos/smartwatch-cutout.webp" },
             Specifications = new()
             {
                 { "Thương hiệu", "Apple" },
@@ -409,7 +409,7 @@ public class InMemoryDemoDataProvider : IDemoDataProvider
             IsHotDeal = true,
             SoldCount = 90,
             TotalStock = 100,
-            GalleryImages = new() { "/images/products/cap-beige.webp", "/images/hero/promo-fashion.webp" },
+            GalleryImages = new() { "/images/products/cap-beige.webp", "/images/compositions/promos/cap-cutout.webp" },
             Specifications = new()
             {
                 { "Thương hiệu", "CutTay Studio" },

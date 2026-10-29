@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" fill="none">
+  <!-- Hand-drawn curved arrow in vibrant mint #10B981 -->
+  <path d="M 25 15 
+           C 40 25, 75 40, 85 68 
+           C 92 86, 78 102, 60 98 
+           C 46 95, 45 78, 56 68 
+           C 66 59, 82 68, 92 84 
+           C 96 90, 102 100, 106 108" 
+        stroke="#10B981" 
+        stroke-width="3.2" 
+        stroke-linecap="round" 
+        stroke-linejoin="round" />
+  
+  <!-- Arrow Head -->
+  <path d="M 94 107 L 107 110 L 109 97" 
+        stroke="#10B981" 
+        stroke-width="3.2" 
+        stroke-linecap="round" 
+        stroke-linejoin="round" />
+</svg>
+

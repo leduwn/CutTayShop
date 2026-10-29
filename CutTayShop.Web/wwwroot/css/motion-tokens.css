@@ -94,7 +94,8 @@ html.motion-ready:not([data-reduced-motion="true"]) .hero-anim-actions {
 }
 
 /* Step 4: Product Still-Life Graphic */
-html.motion-ready:not([data-reduced-motion="true"]) .hero-anim-graphic {
+html.motion-ready:not([data-reduced-motion="true"]) .hero-anim-graphic,
+html.motion-ready:not([data-reduced-motion="true"]) .hero-anim-stage {
   transform: translate3d(0, var(--motion-translate-xl), 0) scale(0.96);
   transition-duration: 600ms;
   transition-delay: 150ms;
@@ -130,7 +131,8 @@ html.motion-ready:not([data-reduced-motion="true"]) .is-hero-entered .hero-anim-
   transform: scale(1) rotate(-1deg);
 }
 
-html.motion-ready:not([data-reduced-motion="true"]) .is-hero-entered .hero-anim-graphic {
+html.motion-ready:not([data-reduced-motion="true"]) .is-hero-entered .hero-anim-graphic,
+html.motion-ready:not([data-reduced-motion="true"]) .hero-anim-stage {
   transform: translate3d(0, 0, 0) scale(1);
 }
 
@@ -279,7 +281,8 @@ html.motion-ready:not([data-reduced-motion="true"]) .reveal-stagger-parent.is-re
   html.motion-ready .reveal-item,
   html.motion-ready .reveal-stagger-parent > *,
   .hero-anim-headline .highlight-capsule,
-  .hero-anim-graphic {
+  .hero-anim-graphic,
+html.motion-ready:not([data-reduced-motion="true"]) .hero-anim-stage {
     opacity: 1 !important;
     transform: none !important;
     will-change: auto !important;

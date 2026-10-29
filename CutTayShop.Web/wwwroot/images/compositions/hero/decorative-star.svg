@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" width="60" height="60" fill="none">
+  <!-- Hand-drawn 5-point playful star in mint #10B981 -->
+  <path d="M 30 6 
+           L 36 21 
+           L 52 22 
+           L 39 33 
+           L 44 49 
+           L 30 39 
+           L 16 49 
+           L 21 33 
+           L 8 22 
+           L 24 21 Z" 
+        fill="none" 
+        stroke="#10B981" 
+        stroke-width="3" 
+        stroke-linecap="round" 
+        stroke-linejoin="round" />
+</svg>
+

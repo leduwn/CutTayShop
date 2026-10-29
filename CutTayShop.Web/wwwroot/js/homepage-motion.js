@@ -38,13 +38,13 @@
     const headline = heroCard.querySelector('.hero-headline');
     const desc = heroCard.querySelector('.hero-description, .hero-commitments');
     const actions = heroCard.querySelector('.hero-actions');
-    const graphic = heroCard.querySelector('.hero-graphic-wrap');
+    const graphic = heroCard.querySelector('.hero-graphic-wrap, .hero-product-stage');
 
     if (kicker) kicker.classList.add('hero-anim-item', 'hero-anim-kicker');
     if (headline) headline.classList.add('hero-anim-item', 'hero-anim-headline');
     if (desc) desc.classList.add('hero-anim-item', 'hero-anim-desc');
     if (actions) actions.classList.add('hero-anim-item', 'hero-anim-actions');
-    if (graphic) graphic.classList.add('hero-anim-item', 'hero-anim-graphic');
+    if (graphic) graphic.classList.add('hero-anim-item', 'hero-anim-stage');
 
     // Trigger entrance in next animation frame to prevent FOUC / CLS
     requestAnimationFrame(() => {
@@ -54,17 +54,23 @@
           heroSideCol.classList.add('is-hero-entered');
         }
 
-        // After timeline settles (800ms), transition graphic into ambient levitation
+        // Staggered layer entrance for multi-layer composition
+        const stageLayers = heroCard.querySelectorAll('.hero-stage-layer');
+        stageLayers.forEach((layer, idx) => {
+          layer.style.transitionDelay = `${0.1 + idx * 0.08}s`;
+          layer.classList.add('is-layer-revealed');
+        });
+
+        // After timeline settles (850ms), activate ambient levitation observer
         setTimeout(() => {
           if (graphic && !prefersReducedMotion) {
-            graphic.classList.add('floating-levitate');
             setupLevitationVisibilityObserver(graphic);
           }
 
           // Clean up will-change on hero elements to release composite GPU layers
-          const animItems = document.querySelectorAll('.hero-anim-item, .promo-banner-card');
+          const animItems = document.querySelectorAll('.hero-anim-item, .promo-banner-card, .hero-stage-layer');
           animItems.forEach((item) => item.classList.add('will-change-auto'));
-        }, 850);
+        }, 900);
       });
     });
   }
