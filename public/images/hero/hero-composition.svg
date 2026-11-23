@@ -1,0 +1,253 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 480" width="100%" height="100%" fill="none">
+  <defs>
+    <!-- Soft Studio Ambient Shadows -->
+    <filter id="studioSoftShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#0F172A" flood-opacity="0.10" />
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#0F172A" flood-opacity="0.06" />
+    </filter>
+    <filter id="cardStickerShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="6" stdDeviation="6" flood-color="#1E293B" flood-opacity="0.12" />
+    </filter>
+    <filter id="groundContactShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="10" />
+    </filter>
+
+    <!-- Gradients for Products -->
+    <!-- Headphones Headband & Cups (Champagne / Pearl Cream) -->
+    <linearGradient id="hpHeadbandGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FAF9F6" />
+      <stop offset="50%" stop-color="#E5E5DF" />
+      <stop offset="100%" stop-color="#D6D5CD" />
+    </linearGradient>
+    <linearGradient id="hpChromeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="40%" stop-color="#E2E8F0" />
+      <stop offset="70%" stop-color="#94A3B8" />
+      <stop offset="100%" stop-color="#CBD5E1" />
+    </linearGradient>
+    <linearGradient id="hpCushionGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ECEAE4" />
+      <stop offset="50%" stop-color="#FDFCF7" />
+      <stop offset="100%" stop-color="#DEDCD4" />
+    </linearGradient>
+
+    <!-- Bluetooth Speaker (Sand / Warm Beige Fabric) -->
+    <linearGradient id="speakerBodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F2EDE4" />
+      <stop offset="60%" stop-color="#E3DDD0" />
+      <stop offset="100%" stop-color="#D1C9BA" />
+    </linearGradient>
+    <pattern id="speakerGrillePattern" width="6" height="6" patternUnits="userSpaceOnUse">
+      <circle cx="3" cy="3" r="1.2" fill="#BAAF9E" opacity="0.45" />
+    </pattern>
+
+    <!-- Thermos Bottle (Cream Ceramic / Stainless Steel) -->
+    <linearGradient id="bottleBodyGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#DDD8CE" />
+      <stop offset="35%" stop-color="#FAF8F5" />
+      <stop offset="75%" stop-color="#F0EDE6" />
+      <stop offset="100%" stop-color="#C5BFB2" />
+    </linearGradient>
+    <linearGradient id="bottleSteelCap" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#94A3B8" />
+      <stop offset="30%" stop-color="#FFFFFF" />
+      <stop offset="70%" stop-color="#CBD5E1" />
+      <stop offset="100%" stop-color="#64748B" />
+    </linearGradient>
+
+    <!-- Background Pastel Auras -->
+    <radialGradient id="auraMint" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#E5F8DC" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#E5F8DC" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="auraPeach" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFE5DA" stop-opacity="0.75" />
+      <stop offset="100%" stop-color="#FFE5DA" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="plantLeafGrad" cx="30%" cy="20%" r="80%">
+      <stop offset="0%" stop-color="#6EE7B7" />
+      <stop offset="40%" stop-color="#10B981" />
+      <stop offset="100%" stop-color="#047857" />
+    </radialGradient>
+  </defs>
+
+  <!-- ========================================================================
+       1. BACKGROUND PASTEL AURAS & GROUND SHADOWS
+       ======================================================================== -->
+  <circle cx="340" cy="220" r="190" fill="url(#auraMint)" />
+  <circle cx="480" cy="300" r="140" fill="url(#auraPeach)" />
+
+  <!-- Soft Ground Contact Shadows -->
+  <g opacity="0.65" filter="url(#groundContactShadow)">
+    <!-- Headphones base shadow -->
+    <ellipse cx="320" cy="425" rx="85" ry="16" fill="#1E293B" opacity="0.22" />
+    <!-- Speaker contact shadow -->
+    <ellipse cx="260" cy="432" rx="95" ry="18" fill="#1E293B" opacity="0.28" />
+    <!-- Thermos bottle contact shadow -->
+    <ellipse cx="445" cy="435" rx="42" ry="12" fill="#1E293B" opacity="0.26" />
+    <!-- Plant pot shadow -->
+    <ellipse cx="280" cy="355" rx="48" ry="10" fill="#1E293B" opacity="0.14" />
+  </g>
+
+  <!-- ========================================================================
+       2. BACKGROUND POTTED PLANT (Subtle Lifestyle Depth)
+       ======================================================================== -->
+  <g transform="translate(240, 110)" opacity="0.88">
+    <!-- Ceramic Terracotta Pot -->
+    <path d="M 30 190 L 75 190 L 85 240 L 20 240 Z" fill="#E2D9CC" stroke="#C9BEAF" stroke-width="1.5" />
+    <ellipse cx="52.5" cy="190" rx="22.5" ry="5" fill="#D5CABA" />
+    <!-- Plant Stems & Green Leaves -->
+    <path d="M 52 190 Q 40 140 20 100" stroke="#059669" stroke-width="3" stroke-linecap="round" fill="none" />
+    <path d="M 54 185 Q 65 130 85 90" stroke="#059669" stroke-width="3" stroke-linecap="round" fill="none" />
+    <path d="M 52 160 Q 52 110 48 70" stroke="#047857" stroke-width="2.5" stroke-linecap="round" fill="none" />
+
+    <!-- Lush Monstera / Ficus Leaves -->
+    <!-- Left Leaf -->
+    <path d="M 20 100 C 5 80 -10 115 10 135 C 22 145 35 120 20 100 Z" fill="url(#plantLeafGrad)" />
+    <!-- Right Leaf -->
+    <path d="M 85 90 C 110 70 120 105 100 125 C 88 135 75 110 85 90 Z" fill="url(#plantLeafGrad)" />
+    <!-- Center Top Leaf -->
+    <path d="M 48 70 C 35 45 65 40 60 70 C 58 85 45 85 48 70 Z" fill="url(#plantLeafGrad)" opacity="0.95" />
+    <!-- Small Leaf Accent -->
+    <path d="M 36 130 C 18 130 20 155 36 150 Z" fill="#34D399" />
+  </g>
+
+  <!-- ========================================================================
+       3. PREMIUM OVER-EAR WIRELESS HEADPHONES (Center Stage Left)
+       ======================================================================== -->
+  <g transform="translate(195, 130)" filter="url(#studioSoftShadow)">
+    <!-- Outer Curved Headband (Champagne Pearl Metal Arc) -->
+    <path d="M 40 180 C 35 60, 205 60, 200 180" stroke="url(#hpHeadbandGrad)" stroke-width="22" stroke-linecap="round" fill="none" />
+    <!-- Inner Soft Headband Cushion -->
+    <path d="M 52 170 C 48 80, 192 80, 188 170" stroke="#F5F3EC" stroke-width="12" stroke-linecap="round" fill="none" opacity="0.95" />
+
+    <!-- Chrome Headband Adjusters / Extension Joints -->
+    <rect x="26" y="174" width="16" height="24" rx="4" fill="url(#hpChromeGrad)" />
+    <rect x="198" y="174" width="16" height="24" rx="4" fill="url(#hpChromeGrad)" />
+
+    <!-- Left Ear Cup (Behind & Angled in 3/4 Perspective) -->
+    <g transform="translate(14, 185) rotate(-12)">
+      <!-- Cup Shell -->
+      <rect x="0" y="0" width="46" height="96" rx="23" fill="url(#hpHeadbandGrad)" stroke="#E5E5DF" stroke-width="1.5" />
+      <!-- Soft Memory-Foam Cushion -->
+      <rect x="22" y="6" width="24" height="84" rx="12" fill="url(#hpCushionGrad)" />
+      <!-- Metallic Pivot Joint -->
+      <circle cx="23" cy="24" r="8" fill="url(#hpChromeGrad)" />
+    </g>
+
+    <!-- Right Ear Cup (Foreground Facing Viewer with Sleek Chamfer) -->
+    <g transform="translate(162, 180) rotate(10)">
+      <!-- Outer Shell -->
+      <rect x="0" y="0" width="56" height="106" rx="28" fill="url(#hpHeadbandGrad)" stroke="#E2E0D8" stroke-width="1.5" />
+      <!-- Elegant Outer Chamfer Ring -->
+      <rect x="6" y="8" width="44" height="90" rx="22" fill="#FAF9F5" />
+      <!-- Matte Center Touch Surface -->
+      <rect x="12" y="16" width="32" height="74" rx="16" fill="#F0EDE4" />
+      <!-- Soft Plush Ear Cushion (Inner Lip) -->
+      <path d="M 4 20 C -6 35, -6 75, 4 90" stroke="url(#hpCushionGrad)" stroke-width="8" stroke-linecap="round" fill="none" />
+      <!-- Subtle Brand Accent Dot -->
+      <circle cx="28" cy="53" r="3.5" fill="#CBD5E1" />
+    </g>
+  </g>
+
+  <!-- ========================================================================
+       4. COMPACT FABRIC BLUETOOTH SPEAKER (Front Center Stage)
+       ======================================================================== -->
+  <g transform="translate(160, 275)" filter="url(#studioSoftShadow)">
+    <!-- Main Capsule Body (Smooth Chamfered Rounded Rect) -->
+    <rect x="0" y="0" width="190" height="96" rx="28" fill="url(#speakerBodyGrad)" stroke="#DFD7C7" stroke-width="1.5" />
+
+    <!-- Acoustic Woven Fabric Mesh Inset -->
+    <rect x="10" y="8" width="170" height="80" rx="22" fill="#E8E2D5" />
+    <rect x="10" y="8" width="170" height="80" rx="22" fill="url(#speakerGrillePattern)" />
+
+    <!-- Embossed Minimalist Brand Plate (Inspired by JBL / Harman) -->
+    <g transform="translate(72, 34)">
+      <rect x="0" y="0" width="46" height="28" rx="6" fill="#D5CDBC" stroke="#C4B9A4" stroke-width="1" />
+      <text x="23" y="19" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-weight="900" font-size="12" letter-spacing="1.5" fill="#FAF7F2" text-anchor="middle">CUTTAY</text>
+    </g>
+
+    <!-- Top Rubberized Tactile Control Buttons (+ - ▶) -->
+    <g transform="translate(50, -4)">
+      <rect x="15" y="0" width="12" height="5" rx="2" fill="#BAAF9E" />
+      <rect x="40" y="0" width="14" height="5" rx="2" fill="#BAAF9E" />
+      <rect x="65" y="0" width="12" height="5" rx="2" fill="#BAAF9E" />
+    </g>
+
+    <!-- Subtle Highlights & Occlusions -->
+    <path d="M 28 8 L 162 8" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity="0.6" />
+    <path d="M 28 88 L 162 88" stroke="#9C8F7C" stroke-width="1.5" stroke-linecap="round" opacity="0.3" />
+  </g>
+
+  <!-- ========================================================================
+       5. MINIMALIST INSULATED THERMOS BOTTLE (Center Stage Right)
+       ======================================================================== -->
+  <g transform="translate(415, 175)" filter="url(#studioSoftShadow)">
+    <!-- Brushed Stainless Steel Cap Assembly -->
+    <rect x="18" y="0" width="34" height="26" rx="6" fill="url(#bottleSteelCap)" stroke="#94A3B8" stroke-width="1" />
+    <!-- Carrying Silicone Loop Strap -->
+    <path d="M 35 0 C 35 -14, 48 -14, 48 0" stroke="#CBD5E1" stroke-width="4" stroke-linecap="round" fill="none" />
+    <!-- Cap Gasket Ring -->
+    <rect x="15" y="24" width="40" height="8" rx="3" fill="#64748B" />
+
+    <!-- Sleek Bottle Body -->
+    <path d="M 12 32 L 58 32 C 67 32, 69 42, 69 54 L 69 220 C 69 235, 1 235, 1 220 L 1 54 C 1 42, 3 32, 12 32 Z" fill="url(#bottleBodyGrad)" stroke="#D4CEC1" stroke-width="1.5" />
+
+    <!-- Vertical Studio Reflection Stripe -->
+    <path d="M 12 50 L 12 215" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" opacity="0.65" />
+    <path d="M 22 55 L 22 210" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" opacity="0.35" />
+
+    <!-- Minimal CutTay Emblem on Bottle -->
+    <circle cx="35" cy="130" r="11" fill="#FFFFFF" opacity="0.4" />
+    <text x="35" y="134" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-weight="800" font-size="9" text-anchor="middle" fill="#78716C">CT</text>
+  </g>
+
+  <!-- ========================================================================
+       6. PLAYFUL DOODLES & STICKERS (True-To-Reference Heritage)
+       ======================================================================== -->
+  <!-- Top-Right Kraft Paper Tape Sticker: "Good Products Brighter Days ☺" -->
+  <g transform="translate(390, 48) rotate(4)" filter="url(#cardStickerShadow)" class="hero-sticker-kraft">
+    <!-- Paper Tape Background with organic torn texture feel -->
+    <rect x="0" y="0" width="135" height="110" rx="8" fill="#FBF3E8" stroke="#E8DAC7" stroke-width="1.5" />
+    <!-- Tape strip at top-middle -->
+    <rect x="42" y="-9" width="50" height="18" rx="2" fill="#FDE68A" opacity="0.65" transform="rotate(-2)" />
+
+    <!-- Handwritten-style Editorial Copy -->
+    <text x="67" y="32" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-weight="800" font-size="18" fill="#1E293B" text-anchor="middle" letter-spacing="-0.02em">Good</text>
+    <text x="67" y="55" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-weight="800" font-size="17" fill="#1E293B" text-anchor="middle" letter-spacing="-0.02em">Products</text>
+    <text x="67" y="78" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-weight="800" font-size="17" fill="#1E293B" text-anchor="middle" letter-spacing="-0.02em">Brighter</text>
+    <text x="56" y="98" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-weight="800" font-size="17" fill="#1E293B" text-anchor="middle" letter-spacing="-0.02em">Days</text>
+
+    <!-- Smiley Face Icon ☺ -->
+    <g transform="translate(85, 83)">
+      <circle cx="10" cy="10" r="9" stroke="#1E293B" stroke-width="1.8" fill="none" />
+      <circle cx="7" cy="8" r="1.3" fill="#1E293B" />
+      <circle cx="13" cy="8" r="1.3" fill="#1E293B" />
+      <path d="M 6.5 12 Q 10 15.5 13.5 12" stroke="#1E293B" stroke-width="1.8" stroke-linecap="round" fill="none" />
+    </g>
+  </g>
+
+  <!-- Top-Left Mint Star Doodle + Handwritten Message + Curved Arrow -->
+  <g transform="translate(100, 60)" class="hero-doodle-mint-group">
+    <!-- Mint Green Five-Point Star Doodle -->
+    <path d="M 68 10 L 73 24 L 88 24 L 76 33 L 80 47 L 68 38 L 56 47 L 60 33 L 48 24 L 63 24 Z" stroke="#10B981" stroke-width="2.5" stroke-linejoin="round" fill="#E5F8DC" />
+
+    <!-- Cute Handwritten Callout: "Những điều tốt đẹp hơn cho cuộc sống của bạn ♡" -->
+    <g transform="translate(48, 52)">
+      <text x="0" y="14" font-family="'Be Vietnam Pro', system-ui, sans-serif" font-weight="600" font-size="12" fill="#1E293B" font-style="italic">Những điều</text>
+      <text x="0" y="29" font-family="'Be Vietnam Pro', system-ui, sans-serif" font-weight="600" font-size="12" fill="#1E293B" font-style="italic">tốt đẹp hơn</text>
+      <text x="0" y="44" font-family="'Be Vietnam Pro', system-ui, sans-serif" font-weight="600" font-size="12" fill="#1E293B" font-style="italic">cho cuộc sống</text>
+      <text x="0" y="59" font-family="'Be Vietnam Pro', system-ui, sans-serif" font-weight="600" font-size="12" fill="#1E293B" font-style="italic">của bạn ♡</text>
+    </g>
+
+    <!-- Hand-Drawn Curly Arrow Pointing Toward Headphones -->
+    <path d="M 65 120 C 60 145, 80 155, 95 150 C 105 145, 105 135, 95 138" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" fill="none" />
+    <path d="M 98 135 L 105 148 L 92 148" stroke="#10B981" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+  </g>
+
+  <!-- Yellow Pastel Accent Squiggle (Under the Speaker, Bottom Left) -->
+  <g transform="translate(105, 385)" class="hero-doodle-squiggle">
+    <path d="M 10 15 Q 25 5 40 18 T 70 16 T 100 20" stroke="#F59E0B" stroke-width="4.5" stroke-linecap="round" fill="none" opacity="0.85" />
+    <circle cx="108" cy="22" r="3" fill="#F59E0B" opacity="0.85" />
+  </g>
+</svg>

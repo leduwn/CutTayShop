@@ -1,0 +1,175 @@
+/* ==========================================================================
+   CutTayShop — Bản port Node.js: bổ sung nhỏ cho khả năng hiển thị.
+   Các quy tắc dưới đây chỉ sửa lỗi tràn ngang trên màn hình hẹp
+   (grid item mặc định có min-width: auto nên không co lại được).
+   ========================================================================== */
+
+/* Grid/flex item co giãn đúng trong khung chứa */
+.account-portal-layout > *,
+.catalog-layout > *,
+.pdp-grid > *,
+.checkout-form-grid > *,
+.cart-layout-grid > * {
+  min-width: 0;
+}
+
+/* Nội dung dài (tên sản phẩm, email, mã đơn) không đẩy khung rộng ra */
+.pdp-product-title,
+.pdp-info-wrap,
+.account-content-col,
+.account-section-card,
+.customer-order-card,
+.table-styled {
+  overflow-wrap: anywhere;
+}
+
+/* Bảng dữ liệu rộng cuộn trong khung thay vì tràn trang */
+.table-styled {
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+@media (min-width: 992px) {
+  .table-styled {
+    display: table;
+    white-space: normal;
+  }
+}
+
+/* Hàng chip lọc và nhóm nút cho phép xuống dòng trên màn hình hẹp */
+.filter-chips-row {
+  flex-wrap: wrap;
+}
+
+.order-card-bottom-bar > div:last-child {
+  flex-wrap: wrap;
+}
+
+@media (max-width: 560px) {
+  .order-card-bottom-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .order-card-bottom-bar > div:last-child {
+    width: 100%;
+  }
+
+  .order-card-bottom-bar .btn-pill {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+}
+
+/* Ảnh trong PDP không vượt khung trên mobile */
+@media (max-width: 1024px) {
+  .pdp-gallery-wrap {
+    position: static;
+  }
+
+  .pdp-gallery-main {
+    padding: 20px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Admin portal trên màn hình hẹp: topbar và bảng dữ liệu không tràn ngang
+   -------------------------------------------------------------------------- */
+.admin-main,
+.admin-content-area,
+.admin-card {
+  min-width: 0;
+}
+
+.admin-topbar {
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.admin-search-box {
+  min-width: 0;
+  flex: 1 1 160px;
+}
+
+.admin-topbar-actions {
+  flex-shrink: 0;
+}
+
+@media (max-width: 992px) {
+  .admin-content-area {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .admin-page-header {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  /* Nhóm nút hành động trong header phải xuống dòng thay vì tràn ngang */
+  .admin-page-header > div {
+    min-width: 0;
+    flex-wrap: wrap;
+  }
+
+  .admin-card {
+    overflow-x: auto;
+  }
+
+  .admin-card .table-styled {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  /* Bảng nằm trực tiếp trong cột grid cũng phải cuộn được */
+  .admin-order-split .table-styled,
+  .admin-dashboard-split .table-styled {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .admin-order-split,
+  .admin-dashboard-split {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Cột nội dung trong grid phải co lại được (mặc định min-width: auto) */
+  .admin-order-split > *,
+  .admin-dashboard-split > * {
+    min-width: 0;
+  }
+
+  /* Topbar: ô tìm kiếm co giãn thay vì cố định 320px */
+  .admin-topbar {
+    height: auto;
+    min-height: var(--admin-topbar-height);
+    padding: 10px 16px;
+  }
+
+  .admin-search-input {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .admin-search-box {
+    flex: 1 1 auto;
+  }
+}
+
+@media (max-width: 560px) {
+  .admin-username {
+    display: none;
+  }
+
+  .admin-search-box {
+    order: 3;
+    flex-basis: 100%;
+  }
+
+  .admin-topbar-actions {
+    gap: 8px;
+  }
+}

@@ -1,0 +1,33 @@
+/* ==========================================================================
+   CUTTAYSHOP — LỚP TƯƠNG THÍCH TOKEN (COMPATIBILITY TOKEN LAYER)
+
+   Một số stylesheet (admin-portal.css, storefront-pages.css, catalog.css)
+   dùng các biến CSS không được khai báo trong design-system.css. Khi thiếu,
+   trình duyệt dùng giá trị fallback sáng màu → chữ trắng trên nền trắng ở
+   dark mode. File này ánh xạ các biến đó về token chính thức.
+
+   Phải được nạp NGAY SAU design-system.css.
+   ========================================================================== */
+
+:root {
+  /* Bề mặt */
+  --color-bg-primary: var(--color-surface);
+  --color-bg-secondary: var(--color-surface-subtle);
+
+  /* Viền */
+  --color-border: var(--color-border-subtle);
+
+  /* Trạng thái ngữ nghĩa */
+  --color-success: var(--color-primary);
+  --color-danger: var(--color-sale);
+  --color-warning: #F59E0B;
+  --color-sale-bg: var(--color-sale-subtle);
+
+  /* Hình học & kiểu chữ */
+  --radius-full: var(--radius-pill);
+  --font-heading: var(--font-family-heading);
+}
+
+[data-theme="dark"] {
+  --color-warning: #FBBF24;
+}

@@ -1,0 +1,26 @@
+{
+  "name": "cuttayshop",
+  "version": "2.0.0",
+  "private": true,
+  "description": "CutTayShop — nền tảng thương mại điện tử thuần JavaScript (Node.js + SQLite, không phụ thuộc thư viện ngoài)",
+  "type": "module",
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "scripts": {
+    "start": "node server.mjs",
+    "dev": "node --watch server.mjs",
+    "db:reset": "node tools/reset-db.mjs",
+    "seed:extract": "node tools/extract-seed.mjs",
+    "verify": "node tools/verify-routes.mjs",
+    "check:svg": "node tools/check-svg.mjs"
+  },
+  "keywords": [
+    "ecommerce",
+    "nodejs",
+    "sqlite",
+    "vanilla-js",
+    "zero-dependency"
+  ],
+  "license": "MIT"
+}
